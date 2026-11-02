@@ -1,0 +1,26 @@
+name: Validate and build
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test pure Luau modules and build place
+        shell: pwsh
+        run: ./scripts/check.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RollboxGame-${{ runner.os }}
+          path: build/RollboxGame.rbxlx
+          if-no-files-found: error

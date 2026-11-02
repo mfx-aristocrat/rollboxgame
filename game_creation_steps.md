@@ -9,16 +9,16 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Deliverables: AGENTS.md, PROJECT_STATE.md, this roadmap, docs/market_research.md, docs/game_design.md; preserve original README guide.
 - Acceptance: 3–5 weighted concepts, dated URLs and metric periods, separated evidence/hypotheses, justified recommendation, first-minute and ten-minute loop, measurable release/slice gates, explicit exclusions and tool/account limits.
 - Automated checks: review all required documents and source links; `git diff --check`; verify owner/visibility/auth/remote. Studio: not required.
-- Git evidence: completion commit subject `docs: establish researched game brief and milestone contracts` on develop; merge/push verification is recorded in PROJECT_STATE.md after execution.
+- Git evidence: 801769d committed/pushed develop and fast-forward merged/pushed main; both remote heads verified 801769d0b67f70feaf0cf6d697010605b8733b54.
 
 ## M02 — Reproducible source/build foundation
 - Objective/scope: pinned tools, Rojo project mapping, reproducible place artifact, CI and setup/build/check documentation.
 - Dependencies: M01.
-- Status: IN_PROGRESS.
+- Status: AWAITING_VALIDATION.
 - Deliverables: tool lock/setup scripts, Rojo mapping, source folders, smoke check, CI, README setup and source-of-truth rules.
 - Acceptance: clean setup, explicit tool versions, successful repeated build with matching hash, generated place contains server/client/shared scripts, CI runs same checks.
 - Automated checks: tool version checks, build twice/hash, generated-place structural smoke test, diff check. Studio: opening the generated place is deferred to M03 runtime gate and must remain explicit.
-- Git evidence: pending.
+- Git evidence: local checks passed; CI and merge pending after foundation commit. Roblox opening deferred to M03.
 
 ## M03 — Playable vertical slice
 - Objective/scope: one environment, central mechanic, onboarding, essential responsive UI and a complete session progression cycle, according to the selected design.

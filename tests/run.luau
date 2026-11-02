@@ -1,0 +1,25 @@
+local fs = require("@lune/fs")
+local luau = require("@lune/luau")
+
+local compiled = 0
+local function compileTree(path)
+    for _, name in fs.readDir(path) do
+        local file = path .. "/" .. name
+        if fs.isDir(file) then
+            compileTree(file)
+        elseif string.match(name, "%.luau$") then
+            luau.load(fs.readFile(file), { debugName = file })
+            compiled += 1
+        end
+    end
+end
+compileTree("src")
+compileTree("tests")
+print("Syntax compilation passed:", compiled, "Luau files")
+
+local total = 0
+for _, suite in {} do
+    total += suite()
+end
+print("Behavior tests passed:", total)
+
