@@ -14,16 +14,16 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 ## M02 — Reproducible source/build foundation
 - Objective/scope: pinned tools, Rojo project mapping, reproducible place artifact, CI and setup/build/check documentation.
 - Dependencies: M01.
-- Status: AWAITING_VALIDATION.
+- Status: DONE.
 - Deliverables: tool lock/setup scripts, Rojo mapping, source folders, smoke check, CI, README setup and source-of-truth rules.
 - Acceptance: clean setup, explicit tool versions, successful repeated build with matching hash, generated place contains server/client/shared scripts, CI runs same checks.
 - Automated checks: tool version checks, build twice/hash, generated-place structural smoke test, diff check. Studio: opening the generated place is deferred to M03 runtime gate and must remain explicit.
-- Git evidence: local checks passed; CI and merge pending after foundation commit. Roblox opening deferred to M03.
+- Git evidence: foundation e77a0b7; Windows and Ubuntu CI both passed in Actions run 41548927180. Completion documentation/whitespace commit follows; main fast-forward merge and remote heads verified in state. Roblox opening deferred to M03.
 
 ## M03 — Playable vertical slice
 - Objective/scope: one environment, central mechanic, onboarding, essential responsive UI and a complete session progression cycle, according to the selected design.
 - Dependencies: M01, M02.
-- Status: TODO.
+- Status: IN_PROGRESS.
 - Deliverables: source-generated world, server gameplay, client controls/UI, core-rule tests, exact Studio validation script.
 - Acceptance: design's slice criteria demonstrated; server validates actions; free retry/recovery; two-player isolation; touch/desktop controls. Evaluate fun/clarity before adding substantial content.
 - Automated checks: core gameplay unit tests, invalid remote/rate-limit tests, place build/smoke. Studio: new player full loop, two clients, touch emulator, death/respawn; record observations and revise design.
@@ -32,7 +32,7 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 ## M04 — Persistent progression and lifecycle reliability
 - Objective/scope: versioned saves, test/production separation, bounded retries, session ownership, shutdown/disconnect safety and failure UI.
 - Dependencies: M03 design interfaces; implementation/tests may proceed independently while M03 runtime remains pending. Completion requires M03.
-- Status: TODO.
+- Status: IN_PROGRESS.
 - Deliverables: persistence adapter/service, progression integration, failure-recovery tests and configuration instructions.
 - Acceptance: new/returning player retains progression, failed load cannot overwrite saves, stale servers cannot write, concurrent sessions handled, failed writes recover visibly.
 - Automated checks: fake-store load/save/retry/conflict/migration cases. Studio: private published test experience with API access, reconnect and simultaneous clients. Pending account access blocks runtime completion.

@@ -6,7 +6,7 @@ Updated: 2026-11-03 (Europe/Warsaw). Implementation/research in progress; no run
 - Repository: https://github.com/mfx-aristocrat/rollboxgame (public; preserved).
 - Working branch: develop (created from main).
 - Last verified local/remote main and develop: 801769d0b67f70feaf0cf6d697010605b8733b54 (M01 complete, pushed and merged; both remote heads checked).
-- Current milestone: M02 toolchain locally validated, preparing CI commit. M03 design accepted; partial pure rule modules preserved but not part of the stable foundation commit.
+- Current milestone: M02 checks passed locally and Windows/Linux CI run 41548927180; completing stable merge. M03 slice and independent M04 foundations in progress, not yet merged.
 - Existing user file `Roblox_Game_Creation_Instructions.md` read in full and preserved unchanged. Original `readme.md` retained pending relocation as a beginner guide.
 
 ## Verified environment and checks
@@ -16,6 +16,7 @@ Updated: 2026-11-03 (Europe/Warsaw). Implementation/research in progress; no run
 - M02 foundation verified: Rojo 7.7.1/Lune 0.11.1 archive SHA256, 4-file syntax compilation, mapped place smoke and two byte-identical builds (SHA256 3071cc9d98252422259242b40e1f8f510bcca34563116fdbae67f3ced06a80c2). This was a foundation with 0 behavior tests.
 - Independent M04 work: 33 persistence fake-store cases passed; runtime and adapter integration pending.
 - No Studio playtests run.
+- Studio Windows automation launch was refused by the computer-use permission layer: "Computer Use was not approved to use Roblox Studio". App permission must be enabled before agent-driven Studio testing. Do not bypass this restriction through another launch method.
 
 ## Delegation
 - research_design: requested `gpt-6-astra`, `xhigh` (override accepted by spawn tool; internal model not independently exposed); market research, concept comparison, design/architecture/slice plan.

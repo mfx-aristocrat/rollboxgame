@@ -22,4 +22,3 @@ for _, suite in {} do
     total += suite()
 end
 print("Behavior tests passed:", total)
-
