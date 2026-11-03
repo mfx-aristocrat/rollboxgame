@@ -11,7 +11,8 @@ function WorldLayout.create(config)
         partBudget = 1100,
         -- New geometry cannot catch a falling runner before server recovery.
         courseClearance = { minX = -56, maxX = 56, minZ = -185, maxZ = -14, maxTop = config.fallY - 4 },
-        surfaces = {}, nodes = {}, paths = {}, props = {}, regions = {}, segments = {},
+        surfaces = {}, nodes = {}, paths = {}, props = {}, regions = {}, segments = {}, grassDetails = {},
+        grassDetailPartBudget = 180,
         junctionsCollidable = false,
         -- Separate overlapping path styles from ground and one another without a large step.
         pathSurfaceOffsets = { trail = 0.125, plaza = 0.125, garden = 0.25, bridge = 0.375 },
@@ -24,7 +25,7 @@ function WorldLayout.create(config)
     end
     -- The empty central channel preserves the suspended rooftop course.
     surface("MeadowFoundation", -275, 135, 350, 590, -18, "Rock", { 103, 116, 94 })
-    surface("MeadowGrass", -275, 135, 340, 580, -2, "Grass", { 105, 201, 79 })
+    surface("MeadowGrass", -275, 135, 340, 580, -2, "Grass", { 98, 158, 72 })
     surface("CoastFoundation", 275, 135, 350, 590, -18, "Sandstone", { 190, 164, 112 })
     surface("CoastBeach", 275, 135, 340, 580, -4, "Sand", { 255, 225, 157 })
     surface("RedstoneBase", -275, -310, 350, 280, 16, "Rock", { 152, 104, 78 })
@@ -39,12 +40,33 @@ function WorldLayout.create(config)
     -- Southern plateaus overlap the old meadow/coast only below their walking tops.
     surface("GardensOchreCliff", -290, 650, 500, 450, -18.25, "Sandstone", { 216, 159, 95 })
     surface("GardensCreamBand", -290, 650, 492, 444, -7, "Sandstone", { 249, 215, 146 })
-    surface("GardensGrass", -290, 650, 484, 436, -2, "Grass", { 119, 215, 83 })
+    surface("GardensGrass", -290, 650, 484, 436, -2, "Grass", { 105, 168, 77 })
     surface("MesaPeachCliff", 290, 680, 500, 400, -8, "Sandstone", { 225, 150, 111 })
     surface("MesaCreamBand", 290, 680, 492, 396, 4, "Sandstone", { 255, 220, 156 })
-    surface("MesaGrass", 290, 680, 484, 392, 12, "Grass", { 145, 211, 99 })
+    surface("MesaGrass", 290, 680, 484, 392, 12, "Grass", { 118, 170, 83 })
     surface("MesaCrownCliff", 390, 730, 160, 180, 27, "Sandstone", { 243, 188, 125 })
-    surface("MesaCrownGrass", 390, 730, 156, 176, 32, "Grass", { 160, 224, 104 })
+    surface("MesaCrownGrass", 390, 730, 156, 176, 32, "Grass", { 126, 179, 91 })
+
+    -- Sparse authored tufts, never a second horizontal floor skin. These sit on
+    -- existing grass tops, away from paths, pickup, gates and shortcut lips.
+    local function tuft(x, top, z)
+        table.insert(layout.grassDetails, { position = position(x, top, z) })
+    end
+    for _, row in { { -17, -7 }, { 17, -7 }, { -9, -16 }, { 9, -16 }, { -9, -38 }, { 9, -38 },
+        { -9, -46 }, { 9, -46 }, { -18, -68 }, { -18, -84 }, { -9, -112 }, { 9, -112 }, { -9, -136 }, { 9, -136 } } do
+        tuft(row[1], 9.5, row[2])
+    end
+    for _, z in { -125, -25, 75, 175, 275, 375 } do tuft(-415, -2, z) end
+    for _, z in { -110, 90, 290, 410 } do tuft(-325, -2, z) end
+    for _, z in { 470, 550, 630, 710, 790 } do tuft(-500, -2, z) end
+    for _, z in { 470, 550, 630, 710, 850 } do tuft(-64, -2, z) end
+    for _, z in { 510, 590, 670, 750, 830 } do
+        tuft(70, 12, z)
+        tuft(510, 12, z)
+    end
+    for _, x in { 320, 460 } do
+        for _, z in { 660, 790 } do tuft(x, 32, z) end
+    end
 
     local function node(id, x, y, z)
         layout.nodes[id] = position(x, y, z)

@@ -59,6 +59,10 @@ After updating source, stop the old playtest and reopen the freshly generated `b
 
 The Workspace destroy height is serialized as **-100** by `default.project.json`. Synchronize the full Rojo tree or reopen the build when applying the startup fix; copying script text alone does not migrate that property. Ordinary server Scripts must not assign this restricted setting at runtime.
 
+The green course now uses textured Grass and small decorative tufts. Follow the west trail from the depot to find the red-spotted **mushroom crate**, just beyond the first golden tokens. Use **E / Take mushroom** to unlock double jump for this session. Press **Space**, release, then press **Space again while airborne** for one extra boost. Land to recharge. Touch/gamepad use their ordinary jump control twice. Death preserves the unlock; leaving resets it. The ability is free and works while carrying a parcel.
+
+Power-up engine regression: `python scripts/studio-pickup-check.py --suite powerups --output .tools/powerups-result.json`. Two-client version: `python scripts/studio-powerups-multiplayer.py --suite powerups --output .tools/powerups-multiplayer.json`. See [feature behavior and evidence](docs/mushroom_double_jump.md) for validated behavior and pending device gates.
+
 The build defaults to **Practice**: progress resets on leaving. Persistence implementation is present but **disabled** until private Roblox configuration/runtime tests pass. See [persistence setup](docs/persistence.md) for the exact `src/server/ServerSettings.luau` fields, universe-ID checks and isolated test/production stores. Cosmetic pass ID is 0/disabled, with no purchase button. There are no developer products. Three-route release content is intentionally gated on the first slice's observed playtests.
 
 For private publishing, account prerequisites and rollback, use [deployment instructions](docs/deployment.md). No experience has been published by the agent, and no paid or public action has been taken.

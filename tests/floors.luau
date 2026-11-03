@@ -4,19 +4,20 @@ local roblox = require("@lune/roblox")
 local Config = require("../src/shared/Config")
 local WorldLayout = require("../src/shared/WorldLayout")
 local AdventureLayout = require("../src/shared/AdventureLayout")
+local PowerupConfig = require("../src/shared/PowerupConfig")
 
 -- Execute the complete production builder with native Roblox instances/datatype schemas.
 -- Only service/module lookup is adapted; all rendered geometry comes from source.
 local function buildWorld()
     local terrainKey, adventureKey = {}, {}
-    local layoutKey, adventureLayoutKey = {}, {}
-    local modules = { [layoutKey] = WorldLayout, [adventureLayoutKey] = AdventureLayout }
+    local layoutKey, adventureLayoutKey, powerupKey, powerupConfigKey = {}, {}, {}, {}
+    local modules = { [layoutKey] = WorldLayout, [adventureLayoutKey] = AdventureLayout, [powerupConfigKey] = PowerupConfig }
     local environment = {
         Instance = roblox.Instance, Enum = roblox.Enum, CFrame = roblox.CFrame,
         Vector3 = roblox.Vector3, Color3 = roblox.Color3, UDim2 = roblox.UDim2, UDim = roblox.UDim,
-        workspace = roblox.Instance.new("Folder"), script = { Parent = { TerrainWorld = terrainKey, AdventureWorld = adventureKey } },
+        workspace = roblox.Instance.new("Folder"), script = { Parent = { TerrainWorld = terrainKey, AdventureWorld = adventureKey, PowerupWorld = powerupKey } },
         game = { GetService = function(_, name)
-            if name == "ReplicatedStorage" then return { Shared = { WorldLayout = layoutKey, AdventureLayout = adventureLayoutKey } } end
+            if name == "ReplicatedStorage" then return { Shared = { WorldLayout = layoutKey, AdventureLayout = adventureLayoutKey, PowerupConfig = powerupConfigKey } } end
             assert(name == "Lighting", name)
             return {}
         end },
@@ -27,6 +28,7 @@ local function buildWorld()
     end
     modules[terrainKey] = load("src/server/TerrainWorld.luau")
     modules[adventureKey] = load("src/server/AdventureWorld.luau")
+    modules[powerupKey] = load("src/server/PowerupWorld.luau")
     return load("src/server/World.luau").build(Config).model
 end
 

@@ -33,6 +33,7 @@ local playerData = require(script.Parent.PlayerData).new(Settings, codec, {
 })
 local world = require(script.Parent.World).build(Config)
 local adventure = require(script.Parent.Adventure).new(world.adventure, Config)
+local powerups
 local CourierAppearance = require(script.Parent.CourierAppearance)
 
 local remotes = Instance.new("Folder")
@@ -41,6 +42,11 @@ local intent = Instance.new("RemoteEvent")
 intent.Name, intent.Parent = "Intent", remotes
 local snapshot = Instance.new("RemoteEvent")
 snapshot.Name, snapshot.Parent = "Snapshot", remotes
+local jumpApproval=Instance.new("RemoteEvent")
+jumpApproval.Name,jumpApproval.Parent="JumpApproval",remotes
+powerups=require(script.Parent.Powerups).new(world.powerups,require(Shared.PowerupConfig),{
+    notify=function(player,data) jumpApproval:FireClient(player,data) end,
+})
 local sessions = {}
 local function vector(array) return Vector3.new(table.unpack(array)) end
 local function array(v) return { v.X, v.Y, v.Z } end
@@ -79,6 +85,7 @@ local function send(player)
         nearDepot = root ~= nil and (root.Position - vector(Config.route.depot)).Magnitude <= Config.depotRadius,
         nearPickup = nearPickup(root), carryingParcel = run ~= nil and run.state == "Running",
         adventure = adventure:snapshot(player),
+        powerup = powerups:snapshot(player),
     })
 end
 local function parcel(player)
@@ -117,6 +124,7 @@ local function teleport(player, position)
     if not session or not character then return end
     character:PivotTo(CFrame.new(position) * CFrame.Angles(0, 0, 0))
     root.AssemblyLinearVelocity, root.AssemblyAngularVelocity = Vector3.zero, Vector3.zero
+    powerups:resetAir(player)
     session.previous, session.previousAt = array(root.Position), os.clock()
 end
 local function recover(player, message)
@@ -137,11 +145,19 @@ local function abort(player, message)
     parcel(player)
     send(player)
 end
-local function handle(player, action, argument)
+local function handle(player, action, ...)
     local session = sessions[player]
     if not session then return end
+    local argumentCount, argument = select("#", ...), ...
     local now = os.clock()
     if not Rules.admitIntent(session.limiter, action, argument, now) then return end
+    if action == "DoubleJump" then
+        if argumentCount ~= 1 or type(argument)~="number" or argument~=argument or argument%1~=0 or argument<1 or argument>1e9 then return end
+        local ok,approval=powerups:requestJump(player,now,argument)
+        if ok then jumpApproval:FireClient(player,approval) end
+        send(player)
+        return
+    end
     if action == "Snapshot" then send(player); return end
     if not playerData.canWrite(player.UserId) then
         session.message = session.data.message
@@ -197,7 +213,9 @@ local function joined(player)
     if not data then player:Kick("Previous save session is closing. Please rejoin shortly."); return end
     sessions[player] = { data = data, profile = data.profile, limiter = Rules.newLimiter(os.clock()), message = "Take a parcel at the depot. Match each gate using Q or Switch." }
     adventure:add(player)
+    powerups:add(player)
     local function characterAdded(character)
+        powerups:resetAir(player)
         abort(player, "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.")
         local function setCollision(item)
             if item:IsA("BasePart") then item.CollisionGroup = "Couriers" end
@@ -211,7 +229,10 @@ local function joined(player)
             if humanoid and sessions[player] == session then
                 CourierAppearance.apply(character)
                 if session.deathConnection then session.deathConnection:Disconnect() end
-                session.deathConnection = humanoid.Died:Connect(function() abort(player, "Delivery cancelled. Restart free at the depot.") end)
+                session.deathConnection = humanoid.Died:Connect(function()
+                    powerups:resetAir(player)
+                    abort(player, "Delivery cancelled. Restart free at the depot.")
+                end)
             end
         end)
     end
@@ -230,11 +251,12 @@ Players.PlayerRemoving:Connect(function(player)
         end
         sessions[player] = nil
         adventure:remove(player)
+        powerups:remove(player)
         playerData.close(player.UserId, os.time() + 20)
     end
 end)
 for _, player in Players:GetPlayers() do joined(player) end
-game:BindToClose(function() adventure:destroy(); playerData.shutdown() end)
+game:BindToClose(function() adventure:destroy(); powerups:destroy(); playerData.shutdown() end)
 
 local sampleAccumulator, snapshotAccumulator = 0, 0
 RunService.Heartbeat:Connect(function(dt)
@@ -248,6 +270,7 @@ RunService.Heartbeat:Connect(function(dt)
     for player, session in pairs(sessions) do
         local run = session.run
         local _, root = alive(player)
+        if sample then powerups:step(player, now) end
         if sample then adventure:step(player, root, root ~= nil, run ~= nil and run.state == "Running", now) end
         if sample and root and run and run.state == "Running" and not playerData.canWrite(player.UserId) then
             abort(player, session.data.message)

@@ -1,5 +1,13 @@
 # Studio validation evidence and procedure
 
+## M03-R3 grass and mushroom — 2026-11-03
+
+Build version 0.5.0-mushroom-double-jump; SHA256 **da22e3ae3aa7434d1d7796959dd96842a7a0af938d70274ca3e454bc9a4099b7**. Automated: 39 Luau compile, 153 cases, source mapping and byte-identical builds pass; floor-overlap regression remains green.
+
+Single-client real keyboard suite: **23/23 PASS**. Native mushroom E, lock/far/malformed/focus protection, hold and third-press limits, landing reset, respawn retention and powered Training delivery (25 coins exactly) pass. Measured root jump heights: ordinary≈7.27, double/carrying≈14.00, quick≈12.96, late≈12.84, third≈14.00. No captured errors; fixtures cleaned. Input/approval timing defects from initial trials were fixed and preserved in evidence.
+
+Two-client real run: independent locked state and native crate unlock both PASS. Aggregate input suite FAIL due missed background VirtualInput events and an engine ChatScript/CoreGui registration error; do not infer a complete multiplayer pass. Actual touch/gamepad/emulator verification remains pending. Existing adapter tests cover keyboard/gamepad/native touch edges, cancellation and cleanup. See docs/mushroom_double_jump.md and validation/mushroom-*.json.
+
 Real Studio startup/near-box E pickup now passes (2026-11-03); see the regression evidence below. Broader slice, input, terrain, persistence and release checks remain pending. Fill actual outcomes, build SHA, tester/device, date, Output logs and screenshots; record failures before revisions. Standalone automated checks are recorded separately in PROJECT_STATE.md.
 
 ## M03 slice gates

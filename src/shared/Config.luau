@@ -1,6 +1,6 @@
 -- Pure configuration: numeric arrays are positions/RGB and load unchanged in Lune.
 local config = {
-	buildVersion = "0.4.0-platformer-adventure",
+	buildVersion = "0.5.0-mushroom-double-jump",
 	rewardCoins = 25,
 	mintCost = 50,
 	maxCounter = 1_000_000_000,

@@ -24,9 +24,9 @@ end
 local function clientHarness(forward)
     local objects, requests = {}, {}
     local input, received, properties, focused = signal(), signal(), signal(), false
-    local intent = { FireServer = function(_, action, argument)
-        table.insert(requests, { action, argument })
-        if forward then forward(action, argument) end
+    local intent = { FireServer = function(_, action, ...)
+        table.insert(requests, { action, ... })
+        if forward then forward(action, ...) end
     end }
     local remotes = { WaitForChild = function(_, name) return if name == "Intent" then intent else { OnClientEvent = received } end }
     local player = { WaitForChild = function() return {} end }
@@ -53,6 +53,8 @@ local function clientHarness(forward)
             UDim = { new = dimensions }, UDim2 = { new = dimensions, fromOffset = dimensions, fromScale = dimensions },
             workspace = { CurrentCamera = nil, GetPropertyChangedSignal = function() return properties end },
             task = { spawn = function() end, wait = function() end },
+            script = { Parent = { JumpController = "JumpController" }, Destroying = signal() },
+            require = function(name) assert(name == "JumpController"); return { new = function() return { destroy = function() end } end } end,
         },
     })()
     local function find(name)
@@ -64,7 +66,7 @@ local function clientHarness(forward)
 end
 
 local function serverHarness()
-    local objects, messages, now, writable, ids = {}, {}, 10, true, 0
+    local objects, messages, now, writable, ids, jumpRequests = {}, {}, 10, true, 0, 0
     local function object(class)
         local item = { ClassName = class, children = {} }
         function item:FindFirstChild(name)
@@ -94,6 +96,13 @@ local function serverHarness()
         World = { build = function() return { prompt = prompt } end },
         Adventure = { new = function() return { add = function() end, remove = function() end, step = function() end, snapshot = function() return nil end, destroy = function() end } end },
         CourierAppearance = { apply = function() end },
+        PowerupConfig = {},
+        Powerups = { new = function() return {
+            add = function() end, remove = function() end, resetAir = function() end,
+            step = function() end, snapshot = function() return { unlocked = false, ready = false } end,
+            requestJump = function() jumpRequests += 1; return false end,
+            destroy = function() end,
+        } end },
     }
     local shared = setmetatable({}, { __index = function(_, name) return name end })
     local parent = setmetatable({}, { __index = function(_, name) return name end })
@@ -123,11 +132,12 @@ local function serverHarness()
     for _, item in objects do if item.Name == "Intent" then intent = item end end
     return {
         player = player, prompt = prompt, root = root, humanoid = humanoid, character = character, data = data,
-        request = function(action, argument) intent.OnServerEvent:Fire(player, action, argument) end,
+        request = function(action, ...) intent.OnServerEvent:Fire(player, action, ...) end,
         latest = function(recipient) return messages[recipient or player] end,
         time = function(value) now = value end,
         writable = function(value) writable = value end,
         ids = function() return ids end,
+        jumpRequests = function() return jumpRequests end,
         addPlayer = function()
             local other = { UserId = 456, CharacterAdded = signal(), CharacterAppearanceLoaded = signal() }
             services.Players.PlayerAdded:Fire(other)
@@ -296,6 +306,27 @@ return function()
         client.received:Fire(state)
         assert(client.find("Route").Text == "CARRYING PARCEL • 0 coins")
         assert(client.find("Message").Text == state.message, "delivery guidance must remain visible while carrying")
+    end)
+    test("double jump nonce dispatch rejects nil and trailing payloads", function()
+        local server = serverHarness()
+        server.request("DoubleJump", nil)
+        server.request("DoubleJump", nil, "extra")
+        assert(server.jumpRequests() == 0)
+        server.time(11)
+        server.writable(false)
+        server.request("DoubleJump",1)
+        assert(server.jumpRequests() == 1, "session-only ability does not require profile writes")
+        assert(server.data.profile.coins == 0)
+    end)
+    test("mushroom HUD describes the free double jump unlock", function()
+        local server, client = serverHarness(), clientHarness()
+        server.request("Snapshot")
+        local state = server.latest()
+        client.received:Fire(state)
+        assert(string.find(client.find("Ability").Text, "west trail"))
+        state.powerup = { unlocked = true, ready = true }
+        client.received:Fire(state)
+        assert(client.find("Ability").Text == "DOUBLE JUMP • Press Space twice")
     end)
     return count
 end

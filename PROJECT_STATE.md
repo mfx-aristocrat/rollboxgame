@@ -1,6 +1,6 @@
 # Project state
 
-Updated: 2026-11-03 (Europe/Warsaw). Floor-flicker repair implemented and automated/real Studio red→green verified. Platformer expansion remains AWAITING_VALIDATION for its broader device/multiplayer/release gates.
+Updated: 2026-11-03 (Europe/Warsaw). Grass and mushroom double jump implemented; real single-client keyboard/delivery test passes. Device/multiplayer checks and Git completion are recorded below; broader release gates remain pending.
 
 ## Repository and milestone
 - Repository: https://github.com/mfx-aristocrat/rollboxgame (PUBLIC, preserved); active GitHub account mfx-aristocrat.
@@ -11,6 +11,8 @@ Updated: 2026-11-03 (Europe/Warsaw). Floor-flicker repair implemented and automa
 - Original brief preserved at Roblox_Game_Creation_Instructions.md. Design/scope before implementation: docs/platformer_expansion.md. Authoritative roadmap: game_creation_steps.md.
 
 ## Implemented expansion
+- M03-R3: nine course floors use Grass, with a muted palette and 144 decorative blades; landscape 747 Parts within 1100 cap. Separate west-trail mushroom crate at (-92,11.625,24) grants a per-player session double jump. Unlock survives death and resets on leave; no profile/coin changes.
+- Double jump consumes one server-approved air charge. The owning client applies one fixed boost for a matching request nonce/character/epoch; landing, focus cancellation, death and recovery invalidate pending approvals. Distinct keyboard/gamepad/native-touch edges avoid held-key repeats. Existing gate and movement validation remains active.
 - Current feedback repair: 27 exposed different-style coplanar floor pairs → 0. Canonical path lifts 0.125/0.25/0.375 studs, plazas/exposed foundation lowered 0.25, two hidden depot tiles omitted. Actual generated walking transitions bounded to 0.5 studs; no reward/profile changes. See docs/floor_flicker_fix.md.
 - Six connected regions, adding Sunpetal Gardens and Cloudstep Mesa/crown. Bounds x[-560,560], z[-460,900]: 1120×1360 studs. Layered grassy cliffs, rounded hills, oversized flowers, cottages, clouds, arches and pennants. Original Training course and protected fall corridor retained.
 - 30 golden tokens, four free fixed-reward crates, six landmark pennants, four spring pads. Source builders produce 603 landscape Parts and 120 adventure Parts, within 1100/240 caps; all scenery original, no external asset IDs or paid imports.
@@ -21,6 +23,10 @@ Updated: 2026-11-03 (Europe/Warsaw). Floor-flicker repair implemented and automa
 - Practice saving remains disabled by default; profile schema/economy unchanged. No active purchases, game HTTP/security changes, cloud save/publish or public release.
 
 ## Verified checks and evidence
+- New feature: 39 Luau compile; 153 standalone cases pass, including 3 grass, 25 power-up and 20 entrypoint cases. Source mapping and repeated builds pass. Current feature build SHA256 **da22e3ae3aa7434d1d7796959dd96842a7a0af938d70274ca3e454bc9a4099b7**; version 0.5.0-mushroom-double-jump. Earlier floor hashes below are historical.
+- Two-client simulation verified independent lock and native crate collection. Aggregate multi-input test FAIL: some background VirtualInput Space events were absent (zero-height baseline) and Player2's engine ChatScript reported CoreGuiChatConnections registration failure. Both clients existed; owned fixtures and result marker cleaned. Actual touch/gamepad and full multiplayer input remain pending; trace docs/validation/mushroom-two-clients.json.
+- Real single-client feature suite **23/23 PASS**, native mushroom E pickup/HUD, ordinary peak≈7.27 studs, double/carrying≈14.00, quick≈12.96, late≈12.84, third≈14.00; hold stays ordinary height. Malformed/locked/far/focus rejection, landing recharge, respawn retention and complete powered Training delivery with exactly25 coins pass; no captured client/server errors, fixtures cleaned. Evidence docs/validation/mushroom-initial.json and mushroom-pass.json.
+- Runtime diagnosis corrected two issues missed by simultaneous-state unit fakes: transient zero-velocity takeoff classification, and nonreplicated owner velocity/server-only force. The server now uses observed ascent and approves one owner-side boost. Initial/red and final/green engine traces retained. See docs/mushroom_double_jump.md.
 - [CI 41679099759](https://github.com/mfx-aristocrat/rollboxgame/actions/runs/41679099759), exact code head 800d793ef72e442e6b881229e7ce0dbba350c028: **Windows and Ubuntu SUCCESS**, repaired/expanded place artifacts uploaded. Draft PR remains unmerged; main is unchanged.
 - Latest floor repair [CI 41683230503](https://github.com/mfx-aristocrat/rollboxgame/actions/runs/41683230503), code **22f35705505c8eb0e4f3401bb85abc62e7acc530**: **Windows and Ubuntu SUCCESS**. Use this newer place artifact/local rebuilt file for the floor repair.
 - Pinned Rojo 7.7.1 / Lune 0.11.1 archive hashes verified. Latest scripts/check.ps1 PASS: 30 Luau compile, 123 standalone cases (37 persistence, 13 lifecycle, 20 gameplay, 18 pickup, 19 adventure, 8 world, 6 adventure-layout, 2 floor geometry), Python driver syntax, serialized source/static Workspace property, two byte-identical builds.
@@ -40,6 +46,7 @@ Updated: 2026-11-03 (Europe/Warsaw). Floor-flicker repair implemented and automa
 - A local file-lock blocked checkout of Main.client.luau. Verified it exactly matched preserved develop, backed it up under .tools, renamed the locked file, then safely fast-forwarded main/develop. No user changes lost; no force push/reset.
 - platformer_design requested Astra/xhigh but hit an account usage limit before edits; main completed the bounded design as fallback. platformer_world and platformer_gameplay requested Sol/high and completed disjoint source/tests. platformer_ui_review requested Terra/medium and completed source-only review. Overrides accepted; internal model identity not independently exposed. Main session settings were not changed.
 - Floor repair: floor_flicker_fix requested Sol/high, override accepted; owned WorldLayout/TerrainWorld/new native floor tests. Main reviewed/integrated, removed hidden tiles in World, drove real engine before/after, documentation and Git. No fallback needed; internal model identity not independently exposed.
+- Mushroom design/security review requested Astra/xhigh and completed read-only review. Grass and gameplay delegates requested Sol/high and completed initial modules/tests. Gameplay debugging follow-up hit an account usage limit; main continued the pending-takeoff/approval fix, tests and Studio work directly. No main model-setting change claimed.
 - Previous M01/M02 completed; prior repair 77caa65 CI 41633735629 passed Windows/Ubuntu. Earlier research, persistence/security audit and pickup diagnosis remain in docs/Git history.
 
 ## Outstanding gates and exact next actions

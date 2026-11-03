@@ -44,6 +44,21 @@ function TerrainWorld.build(model, layout)
     for _, spec in layout.surfaces do
         block(spec.id, vector(spec.size), vector(spec.position), rgb(spec.color), Enum.Material[spec.material])
     end
+    local grassPartCount = 0
+    local grassTints = { Color3.fromRGB(66, 119, 52), Color3.fromRGB(119, 165, 73), Color3.fromRGB(150, 183, 91) }
+    for index, spec in layout.grassDetails do
+        local at = vector(spec.position)
+        for blade = 1, 3 do
+            grassPartCount += 1
+            assert(grassPartCount <= layout.grassDetailPartBudget, "Grass detail source part budget exceeded")
+            local height = 0.85 + ((index + blade) % 4) * 0.15
+            local p = block("GrassBlade", Vector3.new(0.18, height, 0.32), Vector3.zero, grassTints[blade], Enum.Material.Grass)
+            -- Inset the blade roots slightly; crossed upright blades have no coplanar floor faces.
+            p.CFrame = CFrame.new(at + Vector3.new((blade - 2) * 0.3, height / 2 - 0.08, 0))
+                * CFrame.Angles(0, index * 1.7 + blade * 2.1, (blade - 2) * 0.25)
+            p.CanCollide, p.CanTouch, p.CanQuery, p.CastShadow = false, false, false, false
+        end
+    end
     for index, path in layout.segments do
         -- Lift the complete segment (including bridge fittings), preserving ramp endpoints.
         -- Distinct style heights prevent coplanar junctions from flashing between materials.
@@ -177,6 +192,8 @@ function TerrainWorld.build(model, layout)
     end
     folder:SetAttribute("SourcePartCount", partCount)
     folder:SetAttribute("SourcePartBudget", layout.partBudget)
+    folder:SetAttribute("GrassDetailPartCount", grassPartCount)
+    folder:SetAttribute("GrassDetailPartBudget", layout.grassDetailPartBudget)
     return folder
 end
 

@@ -3,6 +3,8 @@ local WorldLayout = require(game:GetService("ReplicatedStorage").Shared.WorldLay
 local TerrainWorld = require(script.Parent.TerrainWorld)
 local AdventureLayout = require(game:GetService("ReplicatedStorage").Shared.AdventureLayout)
 local AdventureWorld = require(script.Parent.AdventureWorld)
+local PowerupWorld = require(script.Parent.PowerupWorld)
+local PowerupConfig = require(game:GetService("ReplicatedStorage").Shared.PowerupConfig)
 
 function World.build(config)
     local existing = workspace:FindFirstChild("SwitchbackWorld")
@@ -39,14 +41,14 @@ function World.build(config)
         corner.Parent = label
         return anchor
     end
-    local dark = Color3.fromRGB(100, 193, 76)
+    local meadow = Color3.fromRGB(98, 158, 72)
     local rail = Color3.fromRGB(224, 159, 93)
     local mint = Color3.fromRGB(114, 245, 182)
     TerrainWorld.build(model, WorldLayout.create(config))
     -- Root height is ~12; deck top is 9.5. All landings are ordinary anchored parts.
     local function deck(name, x, z, width, length)
         part(name .. "Cliff", Vector3.new(width, 6, length), Vector3.new(x, 4.5, z), Color3.fromRGB(204, 134, 76), Enum.Material.Sandstone)
-        part(name, Vector3.new(width, 2, length), Vector3.new(x, 8.5, z), dark)
+        part(name, Vector3.new(width, 2, length), Vector3.new(x, 8.5, z), meadow, Enum.Material.Grass)
     end
     deck("DepotRoof", 0, 2, 38, 26)
     deck("FirstLane", 0, -34, 20, 58)
@@ -103,7 +105,8 @@ function World.build(config)
     lighting.ClockTime, lighting.Brightness = 11, 2.5
     lighting.Ambient = Color3.fromRGB(170, 180, 206)
     lighting.OutdoorAmbient = Color3.fromRGB(186, 199, 223)
-    return { model = model, prompt = prompt, adventure = adventure }
+    local powerups = PowerupWorld.build(model, PowerupConfig)
+    return { model = model, prompt = prompt, adventure = adventure, powerups = powerups }
 end
 
 return World
