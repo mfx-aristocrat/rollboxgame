@@ -1,6 +1,8 @@
 # RollboxGame
 
-Source-controlled Roblox game project. The complete brief is [Roblox_Game_Creation_Instructions.md](Roblox_Game_Creation_Instructions.md). See [project state](PROJECT_STATE.md) for verified progress and blockers and [roadmap](game_creation_steps.md) for milestone gates. The initial beginner obby instructions are preserved in [docs/original_obby_guide.md](docs/original_obby_guide.md).
+**Switchback Couriers** is a Roblox rooftop delivery game: switch your parcel between Amber and Cyan to pass matching gates, deliver, earn shells and beat your best time. `develop` contains the initial Training slice; `main` holds the validated build foundation until required Studio tests pass. This is not a release-ready game.
+
+The complete brief is [Roblox_Game_Creation_Instructions.md](Roblox_Game_Creation_Instructions.md). See [project state](PROJECT_STATE.md) for verified progress and blockers and [roadmap](game_creation_steps.md) for milestone gates. The initial beginner obby instructions are preserved in [docs/original_obby_guide.md](docs/original_obby_guide.md).
 
 ## Requirements and setup
 
@@ -35,6 +37,22 @@ Use Studio edits as experiments. Translate approved map/UI changes back into sou
 
 ## Development and publishing
 
-Follow [AGENTS.md](AGENTS.md). Develop on `develop`; merge only validated milestones into `main`. CI runs the same checks on Windows and Linux and uploads a generated place artifact. Required Studio tests will be documented in `docs/studio_validation.md` when the slice is implemented. Inspect `PROJECT_STATE.md` before assuming any test has passed.
+Follow [AGENTS.md](AGENTS.md). Develop on `develop`; merge only validated milestones into `main`. CI runs the same checks on Windows and Linux and uploads a generated place artifact. Follow [Studio validation](docs/studio_validation.md) and inspect `PROJECT_STATE.md` before assuming any test has passed. Automated checks compile Luau syntax and exercise pure rules; they are not a Luau type analysis or Roblox runtime test.
+
+With the current source synchronized to an idle Studio session and the local MCP bridge connected, run `python scripts/studio-pickup-check.py` for the real-client E-key pickup regression. It temporarily installs isolated fixtures, uses Studio VirtualInput, checks sustained server/client pickup state and removes its fixtures afterward. It refuses to stop an active user test. See [runtime regression evidence](docs/runtime_pickup_startup_fix.md). This test is separate from CI's standalone checks.
 
 Keep test experiences private. Publishing requires the owner's Roblox account and current [Roblox publishing requirements](https://create.roblox.com/docs/production/publishing/publish-games-and-places). Open the generated place in Studio, publish to a private test experience, and verify the account configuration/runtime gates before considering release. Public publishing and paid expenditure require explicit user approval. Configuration, test/prod data isolation and rollback instructions will be expanded with the relevant milestones.
+
+## Training slice controls and configuration
+
+Start a Studio playtest. Use ordinary Roblox movement/jump/camera. Move within 12 studs of the **parcel box**, then press E, activate its touch/gamepad prompt or tap **Take parcel**. Pickup attaches a separate parcel in front of your character and shows **CARRYING PARCEL**; the shared station stays available for other players. Out-of-range attempts tell you to move closer. Switch polarity with Q or **Switch** and cross gates 1–4 in order. Wrong polarity/falling returns you to the last safe checkpoint; resetting your character cancels the run. The left detour avoids the jump shortcut. Reach the green pad to earn 25 coins. Deliver twice, open **Shells**, unlock Mint for 50 coins and equip it. Timers and all rewards are controlled by the server.
+
+The expanded exploration world surrounds the original course: follow hub side signs to **Willow Meadow**, **Tidal Coast**, **Redstone Heights** and **Frostpeak Uplands**. Paths and bridges connect the four regions. This adds terrain/exploration, not new scoring routes. See [world generation](docs/world_expansion.md) for layout and validation limits. Water is a decorative shallow glass surface, not a swimming simulation.
+
+After updating source, stop the old playtest and reopen the freshly generated `build/RollboxGame.rbxlx`, or synchronize via Rojo before restarting. An already-open older Studio place will not automatically update when the file is rebuilt. The world is generated on playtest start.
+
+The Workspace destroy height is serialized as **-100** by `default.project.json`. Synchronize the full Rojo tree or reopen the build when applying the startup fix; copying script text alone does not migrate that property. Ordinary server Scripts must not assign this restricted setting at runtime.
+
+The build defaults to **Practice**: progress resets on leaving. Persistence implementation is present but **disabled** until private Roblox configuration/runtime tests pass. See [persistence setup](docs/persistence.md) for the exact `src/server/ServerSettings.luau` fields, universe-ID checks and isolated test/production stores. Cosmetic pass ID is 0/disabled, with no purchase button. There are no developer products. Three-route release content is intentionally gated on the first slice's observed playtests.
+
+For private publishing, account prerequisites and rollback, use [deployment instructions](docs/deployment.md). No experience has been published by the agent, and no paid or public action has been taken.

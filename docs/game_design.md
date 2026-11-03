@@ -130,6 +130,12 @@ After private launch testing, record early bounce, first delivery, voluntary rep
 
 ## Deferred expansion and planning transition
 
+### 2026-11-03 feedback revision
+
+The user reports that the game starts, requests a larger map with more terrains, and reports that E does not pick up the visible box. This authorizes expansion of the surrounding explorable environment now, while the five-tester concept gate and release validation remain pending. Preserve Training and its four gate IDs, sequence, reward and recovery positions. Add connected, source-generated landscape regions as exploration space, not additional scoring routes or economy systems. The world expansion contract is in `world_expansion.md`; pickup diagnosis and verified source-level evidence are in `pickup_diagnosis.md`. These revisions require fresh Studio testing and do not establish that prior runtime gates passed.
+
+Pickup must be measured from the actual displayed box, consistently across server validation, native prompt and HUD. Keep the station available to other players, attach a separate visibly carried parcel to the player on success, and clearly show carrying state. Invalid/out-of-range/duplicate pickup requests must preserve authority and provide useful feedback without starting a run or issuing rewards.
+
 Backlog: further routes, alternate polarity patterns, cooperative relay mode, ghosts/leaderboards, original sound/music, cosmetic events and carefully scoped localization. Excluded now: pets, inventories of hundreds of items, trading, procedural worlds, custom avatar physics, PvP, paid skips, randomized paid items, subscriptions, daily streak penalties and consumable products.
 
 Concept, architecture and slice plan are established by this document. Routine gameplay work can use `gpt-6.1-sol` / `high`; the main chat's setting changes only through the client. Persistence, purchase processing, security and difficult multiplayer diagnosis should use the project's requested `gpt-6-astra` / `xhigh` delegation where available. The coordinating agent records actual accepted assignments and fallback limits.

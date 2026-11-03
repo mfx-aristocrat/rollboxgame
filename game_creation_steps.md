@@ -18,34 +18,46 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Deliverables: tool lock/setup scripts, Rojo mapping, source folders, smoke check, CI, README setup and source-of-truth rules.
 - Acceptance: clean setup, explicit tool versions, successful repeated build with matching hash, generated place contains server/client/shared scripts, CI runs same checks.
 - Automated checks: tool version checks, build twice/hash, generated-place structural smoke test, diff check. Studio: opening the generated place is deferred to M03 runtime gate and must remain explicit.
-- Git evidence: foundation e77a0b7; Windows and Ubuntu CI both passed in Actions run 41548927180. Completion documentation/whitespace commit follows; main fast-forward merge and remote heads verified in state. Roblox opening deferred to M03.
+- Git evidence: foundation e77a0b7; completion fd712fa. Windows and Ubuntu CI passed (41548927180; final develop 41549094589, main 41549127631). Both remote heads verified fd712fa7db106e282680d94b49925cb35dff691e. Roblox opening deferred to M03.
 
 ## M03 — Playable vertical slice
 - Objective/scope: one environment, central mechanic, onboarding, essential responsive UI and a complete session progression cycle, according to the selected design.
 - Dependencies: M01, M02.
-- Status: IN_PROGRESS.
+- Status: AWAITING_VALIDATION.
 - Deliverables: source-generated world, server gameplay, client controls/UI, core-rule tests, exact Studio validation script.
 - Acceptance: design's slice criteria demonstrated; server validates actions; free retry/recovery; two-player isolation; touch/desktop controls. Evaluate fun/clarity before adding substantial content.
 - Automated checks: core gameplay unit tests, invalid remote/rate-limit tests, place build/smoke. Studio: new player full loop, two clients, touch emulator, death/respawn; record observations and revise design.
-- Git evidence: pending. Remain AWAITING_VALIDATION if Studio unavailable; no substantial content expansion before slice evaluation.
+- Evidence: Training world/server/client source implemented, 20 pure gameplay cases pass; all Luau compiles and repeated builds match. Commit **e4794e8** pushed to develop; Windows/Ubuntu CI **41550690715 SUCCESS**. Studio/MCP access now works; real startup and near-box E pickup pass after the protected-property repair documented under M03-R1. Required full Studio S01–S09 remain pending. No merge to main until required gates pass. No substantial content expansion before slice evaluation.
 
 ## M04 — Persistent progression and lifecycle reliability
 - Objective/scope: versioned saves, test/production separation, bounded retries, session ownership, shutdown/disconnect safety and failure UI.
 - Dependencies: M03 design interfaces; implementation/tests may proceed independently while M03 runtime remains pending. Completion requires M03.
-- Status: IN_PROGRESS.
+- Status: AWAITING_VALIDATION.
 - Deliverables: persistence adapter/service, progression integration, failure-recovery tests and configuration instructions.
 - Acceptance: new/returning player retains progression, failed load cannot overwrite saves, stale servers cannot write, concurrent sessions handled, failed writes recover visibly.
 - Automated checks: fake-store load/save/retry/conflict/migration cases. Studio: private published test experience with API access, reconnect and simultaneous clients. Pending account access blocks runtime completion.
-- Git evidence: pending.
+- Evidence: 37 persistence and 13 lifecycle fake-store cases pass; versioned codec, lease/retry/operation deduplication, guarded server adapter and lifecycle integration implemented. Astra/xhigh review's lease-renewal race fixed and regression-tested; late load/save cleanup also tested. Commit **e4794e8** pushed to develop; Windows/Ubuntu CI **41550690715 SUCCESS**. Disabled by default. Required private-service Studio P01–P05 pending; M03 also pending. Not merged to main.
+
+## M03-R1 — Player feedback: terrain expansion and reliable parcel pickup
+- Objective/scope: implement the user's 2026-11-03 requests: a larger explorable world with varied terrain and repair the visible box/E interaction. This explicit environment expansion is authorized while other M03 observation gates remain pending; it adds no new scored delivery routes.
+- Dependencies: existing M03 implementation; user reports the game starts but parcel pickup does not work as expected.
+- Status: AWAITING_VALIDATION.
+- Deliverables: connected terrain regions around the preserved Training course; shared pickup geometry and clear carry feedback; actual entrypoint pickup regression harness; world layout checks; updated design/test/handoff documentation.
+- Acceptance: at least four distinctive walkable regions with connected paths from the depot; Training gates/checkpoints/fall clearance unchanged; pickup prompt, server and HUD agree on box position/range; E, prompt and touch action share validated pickup behavior; successful pickup is clearly visible; repeated requests cannot restart/grant duplicate rewards.
+- Automated checks: red→green production-call-chain pickup tests, bounds/path connectivity/grade/clearance world checks, all existing suites and reproducible build, Windows/Linux CI.
+- Studio checks: approach the box from both sides and boundary distances, press E/tap prompt, confirm visible carried box and Running HUD; two clients independently pick up; walk all terrain paths; fall/respawn and complete original route. User report is not evidence these revised tests passed.
+- Evidence: 17 production-entrypoint pickup adapters and 7 world checks pass, total 94 standalone cases; 20 Luau compile including two optional Studio fixtures; repeated builds match. Source pickup range mismatch and geometry obstructions were reproduced/fixed. A subsequent real Studio red trace found startup crashing on the runtime `FallenPartsDestroyHeight` setter before pickup registered. The setting now serializes in Rojo Workspace properties; XML regression failed before/passes after. Real Studio regression: **14/14 assertions PASS**, fixtures cleaned. A clean viewport E press also produced CARRYING PARCEL. R01 is partial; range/touch/native-only and R02–R06 remain pending. See docs/runtime_pickup_startup_fix.md; no main merge before required runtime validation.
+- Git evidence: **db4cb69** committed/pushed to develop; Windows and Ubuntu CI **41554997023 SUCCESS**, remote code SHA verified. Handoff documentation follows in a separate commit. No main merge while R01–R06/runtime gates are pending.
+- Startup repair Git evidence: **77caa6579702672dede2d1c3411d9d421acb3f0c** committed/pushed to develop; Windows and Ubuntu CI **41633735629 SUCCESS**, both remote heads verified. Real pickup regression and clean viewport E pass recorded in docs; broader gates still pending, so no main merge.
 
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.
 - Dependencies: validated M03; M04 for persistent unlocks.
-- Status: TODO.
+- Status: BLOCKED.
 - Deliverables: initial release content and cosmetic configuration, purchase flow/tests as applicable, asset register and UI review.
 - Acceptance: design's release scope and quality budgets met; satisfying free loop; unconfigured purchases hidden; server verifies entitlements. Developer products, if later added, require durable receipt deduplication and failure tests.
 - Automated checks: economy/inventory/purchase tests, security review, build/check. Studio: successful/cancelled purchases via supported testing, desktop/touch UX, multi-client and performance gates.
-- Git evidence: pending.
+- Git evidence: none; intentionally blocked on observed M03 slice gate. Three-route scope and pass configuration documented; only Training/Mint implemented. No invented IDs or paid actions.
 
 ## M06 — Private release candidate and deployment handoff
 - Objective/scope: reproducible release candidate, private publishing/configuration, release verification and rollback instructions.
@@ -54,7 +66,7 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Deliverables: release checklist, exact account configuration, validation evidence, build checksum and rollback procedure.
 - Acceptance: mandatory tests pass, account settings/IDs verified, no unresolved material bugs, final validated code merged/pushed. Public release remains separate explicit approval.
 - Automated checks: all CI + clean build; verified remote SHAs. Studio: first-time/returning/mobile/multiplayer/reconnect/performance and private published smoke tests.
-- Git evidence: pending.
+- Git evidence: none; docs/deployment.md is preparatory only, runtime/account prerequisites not verified.
 
 ## Expansion backlog
 Additional environments, social events, leaderboards, developer products and user-generated content require separate scope/evidence after the initial release is validated.

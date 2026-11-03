@@ -1,0 +1,22 @@
+{
+  "observationDate": "2026-11-03",
+  "source": "real Studio server/client fixture via MCP start_playtest and EndTest JSON",
+  "reason": "pickup_failed",
+  "worldPresent": true,
+  "remoteFolders": 0,
+  "serverErrors": [
+    "The current thread cannot write 'FallenPartsDestroyHeight' (lacking capability PluginOrOpenCloud)"
+  ],
+  "client": {
+    "inputOk": true,
+    "eEvents": 1,
+    "promptEvents": 1,
+    "processed": true,
+    "focusedTextBox": "none",
+    "guiPresent": false,
+    "routeText": "missing",
+    "clientErrors": []
+  },
+  "immediate": { "parcel": false },
+  "delayed": { "parcel": false }
+}

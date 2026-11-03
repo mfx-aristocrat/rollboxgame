@@ -18,7 +18,9 @@ compileTree("tests")
 print("Syntax compilation passed:", compiled, "Luau files")
 
 local total = 0
-for _, suite in {} do
-    total += suite()
+for name, suite in { persistence = require("./persistence"), gameplay = require("./gameplay"), lifecycle = require("./lifecycle"), pickup = require("./pickup"), world = require("./world") } do
+    local passed = suite()
+    print(name .. ":", passed, "cases passed")
+    total += passed
 end
 print("Behavior tests passed:", total)
