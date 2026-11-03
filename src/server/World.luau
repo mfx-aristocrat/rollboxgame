@@ -94,7 +94,6 @@ function World.build(config)
     local lighting = game:GetService("Lighting")
     lighting.ClockTime, lighting.Brightness = 10, 2
     lighting.Ambient = Color3.fromRGB(150, 166, 194)
-    workspace.FallenPartsDestroyHeight = -100
     return { model = model, prompt = prompt }
 end
 

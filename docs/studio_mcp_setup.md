@@ -16,13 +16,19 @@ Native Codex MCP tools are now available. `get_connected_instances` returned one
 
 ## Finish connecting (user actions)
 
+This host is already connected and has completed a real startup/E regression. The steps below describe a new host or recovery; do not repeat them or change settings for the current working connection.
+
 1. Save current Studio work. Fully close and reopen Roblox Studio to load the local plugin. Do not discard unsaved work or publish publicly for this setup.
-2. In the intended private/test place, enable **Allow HTTP Requests** under **Experience/Game Settings > Security**, as required by the package's [installation guide](https://github.com/boshyxd/robloxstudio-mcp/blob/main/studio-plugin/INSTALLATION.md). This is an app security setting; the user must make the change.
+2. Follow Studio's plugin network access prompts. The package's [installation guide](https://github.com/boshyxd/robloxstudio-mcp/blob/main/studio-plugin/INSTALLATION.md) discusses **Allow HTTP Requests**, but this host connected and completed the EndTest-based pickup regression while game `HttpService.HttpEnabled` was **false**. Enabling game HTTP is not a prerequisite established by our test; leave a working configuration alone.
 3. Reload MCP servers in the Codex desktop app (Settings > MCP servers > Restart), or restart the app. Confirm `robloxstudio` is enabled. [Official OpenAI MCP configuration instructions](https://learn.chatgpt.com/docs/extend/mcp).
 4. In Studio's **Plugins** toolbar, open **MCP Server** and connect it to `http://127.0.0.1:58741` (the package's default local port). Approve any Studio plugin access prompt yourself. The plugin should show **Connected** when Codex's server is running.
 5. Ask the agent to verify the connection. Discover `get_connected_instances`, select the intended instance ID, inspect actual schemas/state/place/tree read-only, and only then run scoped validation. Never assume an installed server is a connected Studio session. Inspect capabilities before relying on runtime evaluation/multiplayer features that may exist only in other editions/forks.
 
-The earlier computer-use window-access denial remains a separate permission. This MCP installation has its own explicit setup/connection and does not grant computer-use access or prove any game playtest.
+MCP and computer-use access are separate. Earlier computer-use capture was denied; later Studio capture, viewport focus and E input succeeded in this session. No persistent permission setting was inspected/changed.
+
+## Runtime validation verified — 2026-11-03
+
+Only Edit is discoverable; its RunService state is not the live test VM. `StudioTestService.EditModeActive` identifies idle Edit. The real pickup regression uses temporary server/client fixtures and `StudioTestService:EndTest` JSON to collect engine results: **14/14 assertions PASS**, cleanup verified, followed by a clean Windows viewport E test. See [runtime_pickup_startup_fix.md](runtime_pickup_startup_fix.md) and `python scripts/studio-pickup-check.py`. The driver refuses an existing active test. In this session `stop_playtest` did not end a test; normal Studio Shift+F5 worked. An empty MCP log buffer alone did not reveal the original startup exception. No public publishing, Open Cloud access or game HTTP change was needed.
 
 ## Reproduce on another Windows host
 

@@ -11,6 +11,8 @@ $rojo = Join-Path $repoRoot ".tools/bin/rojo$suffix"
 $python = if (Get-Command python -ErrorAction SilentlyContinue) { 'python' } else { 'python3' }
 Push-Location $repoRoot
 try {
+    & $python -m py_compile scripts/studio-pickup-check.py
+    if ($LASTEXITCODE -ne 0) { throw 'Studio regression driver syntax check failed.' }
     if (-not (Test-Path -LiteralPath 'tests/run.luau')) { throw 'Missing tests/run.luau test runner.' }
     & $lune run tests/run.luau
     if ($LASTEXITCODE -ne 0) { throw 'Luau tests failed.' }

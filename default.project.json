@@ -18,7 +18,10 @@
       }
     },
     "Workspace": {
-      "$className": "Workspace"
+      "$className": "Workspace",
+      "$properties": {
+        "FallenPartsDestroyHeight": -100
+      }
     }
   }
 }

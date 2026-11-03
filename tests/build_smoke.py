@@ -79,7 +79,17 @@ def main():
         actual_count = len(root.findall(f".//Item[@class='{kind}']"))
         require(actual_count == count, f"Unexpected {kind} count: {actual_count} (source has {count})")
         require(count > 0, f"Build must include at least one {kind}")
-    require(find_child(root, "Workspace").get("class") == "Workspace", "Missing Workspace")
+    workspace = find_child(root, "Workspace")
+    require(workspace.get("class") == "Workspace", "Missing Workspace")
+    # This engine-restricted setting must already exist before server scripts run.
+    # Inspect the artifact as well as the project so a valid-looking config that
+    # Rojo does not serialize cannot silently restore the engine default.
+    destroy_heights = workspace.findall("Properties/*[@name='FallenPartsDestroyHeight']")
+    require(len(destroy_heights) == 1, "Workspace must serialize FallenPartsDestroyHeight")
+    destroy_height = float(destroy_heights[0].text)
+    require(destroy_height == -100, f"Unexpected Workspace destroy height: {destroy_height}")
+    configured_height = project["tree"]["Workspace"].get("$properties", {}).get("FallenPartsDestroyHeight")
+    require(configured_height == destroy_height, "Workspace destroy height differs from Rojo configuration")
     digest = hashlib.sha256(args.place.read_bytes()).hexdigest()
     if args.compare:
         require(args.place.read_bytes() == args.compare.read_bytes(), "Repeated build is not byte-identical")

@@ -1,6 +1,6 @@
 # Studio validation evidence and procedure
 
-No Studio runtime tests have been performed. All rows start PENDING. Fill actual outcomes, build SHA, tester/device, date, Output logs and screenshots; record failures before revisions. Automated checks are recorded separately in PROJECT_STATE.md.
+Real Studio startup/near-box E pickup now passes (2026-11-03); see the regression evidence below. Broader slice, input, terrain, persistence and release checks remain pending. Fill actual outcomes, build SHA, tester/device, date, Output logs and screenshots; record failures before revisions. Standalone automated checks are recorded separately in PROJECT_STATE.md.
 
 ## M03 slice gates
 
@@ -40,17 +40,17 @@ Those two-client/15-minute checks are preliminary smoke tests. Final release tar
 
 ## Access attempt record
 
-2026-11-03: the user installed/signed into Studio. Its executable exists, and computer-use listed its open window. `get_window_state` was refused with **“Computer Use was not approved to use Roblox Studio”** after the user's explicit retry request. No window screenshot, source execution, new-player run or playtest result was obtained. Enable Studio in computer-use permissions, or run the procedures manually and record actual evidence. Opening Studio alone did not clear this restriction.
+Earlier on 2026-11-03, computer-use capture was refused with **“Computer Use was not approved to use Roblox Studio”**. Later in the same project session both MCP and Windows computer-use worked: Studio capture, viewport focus and E input succeeded. No persistent permission setting was inspected or changed. The earlier denial is historical, not a current blocker.
 
 ## M03-R1 — Feedback revision checks
 
-User observation on 2026-11-03: the game starts, but E did not appear to pick up the visible box. This is useful launch/interaction feedback, not a pass for the complete loop. Source diagnosis is recorded in pickup_diagnosis.md. A fresh Studio capture attempt after this report was still refused by computer-use permissions.
+User observation on 2026-11-03: the game starts, but E did not pick up the visible box. The initial source-adapter diagnosis is in pickup_diagnosis.md; the later real engine diagnosis and verified repair are in runtime_pickup_startup_fix.md. Neither completes the full delivery loop gate.
 
 Stop the old playtest, reopen the rebuilt `build/RollboxGame.rbxlx` (or synchronize the updated source with Rojo), then start F5. Generated scenery appears when the server runs; keeping an older open place does not load rebuilt scripts automatically. Do not overwrite unrelated Studio work to open the new local build.
 
 | ID | Action | Expected observation | Result |
 | --- | --- | --- | --- |
-| R01 | Approach the parcel box from both sides, including the 12-stud range boundary; try E, native prompt and Take parcel | HUD, prompt and server agree on actual box range; one front-held parcel appears, HUD says CARRYING PARCEL | PENDING |
+| R01 | Approach the parcel box from both sides, including the 12-stud range boundary; try E, native prompt and Take parcel | HUD, prompt and server agree on actual box range; one front-held parcel appears, HUD says CARRYING PARCEL | PARTIAL: real near-box E, server parcel and CARRYING HUD pass; boundary/both sides/touch/native-only checks pending |
 | R02 | Move out of range; then spam pickup while carrying; try with chat/shop focused | Out-of-range feedback; no duplicate parcel/reward or timer reset; no unintended pickup while typing/in modal | PENDING |
 | R03 | Two clients take parcels from the same station | Shared station remains; each receives its own parcel/run and clear HUD | PENDING |
 | R04 | Walk from hub side exits through Meadow, Coast, Redstone and Frostpeak, including both connecting bridges | Continuous paths/ramps, readable signs, no trapped movement or obstructed spawn/station; distinct explorable terrain | PENDING |
@@ -62,5 +62,15 @@ R01–R06 are required before accepting this revision's runtime behavior. Existi
 ## MCP playtest launch — 2026-11-03
 
 User requested start. Discovered the single Edit session and inspected the expected script hierarchy/Config version `0.3.0-world-pickup`; exact file equality was not established. MCP `start_playtest(mode="play")` returned success, and repeated output polls reported `isRunning=true`, `outputCount=0`. The test was left running for the user. No R/S/P row is passed by this launch. Only Edit remained discoverable; Edit-context RunService/world reads do not establish live Server/Client state. No errors were captured in the plugin's buffer, which is not proof of error-free startup in other VMs. The MCP's own temporary command-listener instrumentation is part of its start/stop workflow; no repository gameplay source was edited.
+
+## Real engine regression and clean E test — 2026-11-03
+
+The repeated failure was reproduced in actual server/client VMs: world/prompt existed, but `World.build` crashed on the protected `FallenPartsDestroyHeight` setter before Remotes/HUD/pickup initialization. Moving the setting to Rojo Workspace properties removed the error. The open World source matched repository HEAD before its scoped update; Studio property/source readback and the runtime threshold check passed. No cloud publishing or HTTP setting change occurred.
+
+`python scripts/studio-pickup-check.py`: **14/14 runtime assertions PASS**, real E input, one Remotes folder, Running snapshot, initialized HUD, parcel present immediately and later, -100 threshold, no captured server/client errors. Tagged temporary fixtures were removed and absence read back. Normal `scripts/check.ps1` is separate: 20 Luau compile, 94 standalone cases, XML/config checks and byte-identical builds; fixed place SHA256 **47eb95b586501365f67fd279b0eb918cd49cce457d515d9bdc195770574d5913**.
+
+In a subsequent clean playtest without those fixtures, the agent focused the Studio viewport and pressed E through Windows computer-use. The HUD visibly changed to **CARRYING PARCEL • 0 coins** with the next gate instruction. That game was left running with the parcel picked up. This is a partial R01 pass, not completion of S01–S09/R01–R06. The final automated run used the direct E handler; native-only pickup remains pending. Full procedure, limitations and sanitized before/after JSON: [runtime_pickup_startup_fix.md](runtime_pickup_startup_fix.md).
+
+Only Edit remains discoverable through this package. Edit-context `RunService:IsRunning()` does not report live gameplay state. The regression returns actual server/client evidence via `StudioTestService:EndTest`; an empty MCP output buffer alone did not reveal the original crash. In this session MCP `stop_playtest` did not end a test; ordinary Studio Shift+F5 did. Preserve any user-owned active test before attempting new validation.
 
 Account eligibility, maximum player count, private access, maturity questionnaire, actual pass ownership and private published app testing remain external configuration gates. Use docs/deployment.md. No public release is authorized.

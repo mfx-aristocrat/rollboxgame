@@ -1,8 +1,8 @@
 # Parcel pickup diagnosis — 2026-11-03
 
-Status: source defects reproduced and corrected; Roblox runtime confirmation **PENDING**. This does not complete M03.
+Historical source-adapter investigation. A later real Studio reproduction found and fixed an additional startup crash: see [runtime_pickup_startup_fix.md](runtime_pickup_startup_fix.md) for red/green engine traces and verified E pickup. The range fix below remains relevant; full M03 validation is still pending.
 
-User observation: the game starts, but pressing the instructed E does not appear to pick up the visible parcel. No runtime trace or controlled before/after Studio playtest is available to this investigation. The exact cause of that user's observation remains unconfirmed.
+Initial user observation: the game starts, but pressing the instructed E does not appear to pick up the visible parcel. No runtime trace was available during this first investigation; the later report supersedes that limitation.
 
 ## Acceptance and feedback loop
 
