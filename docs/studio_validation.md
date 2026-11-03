@@ -59,4 +59,8 @@ Stop the old playtest, reopen the rebuilt `build/RollboxGame.rbxlx` (or synchron
 
 R01–R06 are required before accepting this revision's runtime behavior. Existing S01–S09 and persistence/release gates still apply.
 
+## MCP playtest launch — 2026-11-03
+
+User requested start. Discovered the single Edit session and inspected the expected script hierarchy/Config version `0.3.0-world-pickup`; exact file equality was not established. MCP `start_playtest(mode="play")` returned success, and repeated output polls reported `isRunning=true`, `outputCount=0`. The test was left running for the user. No R/S/P row is passed by this launch. Only Edit remained discoverable; Edit-context RunService/world reads do not establish live Server/Client state. No errors were captured in the plugin's buffer, which is not proof of error-free startup in other VMs. The MCP's own temporary command-listener instrumentation is part of its start/stop workflow; no repository gameplay source was edited.
+
 Account eligibility, maximum player count, private access, maturity questionnaire, actual pass ownership and private published app testing remain external configuration gates. Use docs/deployment.md. No public release is authorized.
