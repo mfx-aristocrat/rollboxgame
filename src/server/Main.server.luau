@@ -42,6 +42,9 @@ snapshot.Name, snapshot.Parent = "Snapshot", remotes
 local sessions = {}
 local function vector(array) return Vector3.new(table.unpack(array)) end
 local function array(v) return { v.X, v.Y, v.Z } end
+local function nearPickup(root)
+    return root ~= nil and (root.Position - vector(Config.pickup.position)).Magnitude <= Config.pickup.radius
+end
 local function alive(player)
     local character = player.Character
     local humanoid = character and character:FindFirstChildOfClass("Humanoid")
@@ -72,6 +75,7 @@ local function send(player)
         routeId = "training", routeName = "Training",
         nextUnlock = "More routes planned after playtesting",
         nearDepot = root ~= nil and (root.Position - vector(Config.route.depot)).Magnitude <= Config.depotRadius,
+        nearPickup = nearPickup(root), carryingParcel = run ~= nil and run.state == "Running",
     })
 end
 local function parcel(player)
@@ -88,7 +92,8 @@ local function parcel(player)
         item = Instance.new("Part")
         item.Name, item.Size = "CourierParcel", Vector3.new(2.2, 2.2, 1.2)
         item.CanCollide, item.CanTouch, item.CanQuery, item.Massless = false, false, false, true
-        item.CFrame = root.CFrame * CFrame.new(0, 0, 1.5)
+        -- Roblox characters face local -Z. Keep the parcel visible in front.
+        item.CFrame = root.CFrame * CFrame.new(0, -0.25, -2)
         item.Parent = character
         local weld = Instance.new("WeldConstraint")
         weld.Part0, weld.Part1, weld.Parent = root, item, item
@@ -142,13 +147,26 @@ local function handle(player, action, argument)
     end
     session.profile = session.data.profile
     local _, root = alive(player)
-    if not root then return end
+    if not root then
+        session.message = "Wait for your character to respawn, then take a parcel."
+        send(player)
+        return
+    end
     if action == "Start" or action == "Retry" then
-        if (root.Position - vector(Config.route.depot)).Magnitude > Config.depotRadius then return end
-        if session.run and session.run.state == "Running" then return end
+        if session.run and session.run.state == "Running" then
+            session.message = "Already carrying a parcel. Continue to the next gate."
+            parcel(player)
+            send(player)
+            return
+        end
+        if not nearPickup(root) then
+            session.message = "Move closer to the parcel box at the depot, then press E or Take parcel."
+            send(player)
+            return
+        end
         session.run = Rules.start(now, HttpService:GenerateGUID(false))
         session.previous, session.previousAt = array(root.Position), now
-        session.message = "Match A / SUN at gate 1. Walk through its frame."
+        session.message = "Parcel picked up! Carry it through gate 1: A / SUN."
     elseif action == "Switch" then
         if Rules.toggle(session.run, now, Config) then
             session.message = "Parcel set to " .. session.run.polarity .. ". Match the next gate."

@@ -52,8 +52,11 @@ local actions = Instance.new("Frame")
 actions.Name, actions.BackgroundTransparency, actions.AnchorPoint = "Actions", 1, Vector2.new(0.5, 1)
 actions.Position, actions.Size, actions.Parent = UDim2.new(0.5, 0, 1, -24), UDim2.fromOffset(300, 68), screen
 local latest
-local start = button(actions, "Start", "Take parcel", UDim2.fromOffset(80, 0), UDim2.fromOffset(140, 68), mint, function()
+local function takeParcel()
     intent:FireServer(if latest and latest.state == "Completed" then "Retry" else "Start")
+end
+local start = button(actions, "Start", "Take parcel", UDim2.fromOffset(80, 0), UDim2.fromOffset(140, 68), mint, function()
+    takeParcel()
 end)
 local switch = button(actions, "Switch", "Switch [Q]", UDim2.fromOffset(76, 0), UDim2.fromOffset(148, 68), amber, function()
     intent:FireServer("Switch")
@@ -113,19 +116,20 @@ snapshot.OnClientEvent:Connect(function(data)
     if type(data) ~= "table" then return end
     latest = data
     local running = data.state == "Running"
-    status.Text = string.format("%s • %d coins • %d deliveries", data.routeName, data.coins, data.completedRuns)
+    status.Text = if running then string.format("CARRYING PARCEL • %d coins", data.coins)
+        else string.format("%s • %d coins • %d deliveries", data.routeName, data.coins, data.completedRuns)
     if running then
         local symbol = if data.polarity == "Amber" then "A / SUN" else "C / MOON"
         goal.Text = if data.nextGate <= data.gateCount then string.format("%s → Gate %d: %s   |   %s", symbol, data.nextGate, data.nextPolarity, seconds(data.elapsed)) else "All gates cleared → Green delivery pad!  " .. seconds(data.elapsed)
     elseif data.state == "Completed" then
         goal.Text = "Delivered in " .. seconds(data.resultTime) .. "  •  Best " .. seconds(data.bestTime)
     else
-        goal.Text = "Take a parcel. Match A / SUN and C / MOON gates."
+        goal.Text = "Go to the parcel box. Press E or tap Take parcel."
     end
     message.Text, saving.Text = data.message, data.mode .. " • " .. data.persistence
     goal.TextColor3 = if data.polarity == "Cyan" then cyan else amber
     start.Visible, switch.Visible = not running, running
-    start.Text = if not data.nearDepot then "Return to depot" elseif data.state == "Completed" then "Retry delivery" else "Take parcel [E]"
+    start.Text = if not data.nearPickup then "Move to parcel box" elseif data.state == "Completed" then "Retry delivery [E]" else "Take parcel [E]"
     switch.Text = if data.cooldownRemaining > 0 then "Switch ready soon" else "Switch [Q]\n" .. data.polarity
     switch.BackgroundColor3 = if data.polarity == "Cyan" then cyan else amber
     shells.Visible = not modal.Visible and data.tutorialComplete == true
@@ -133,7 +137,14 @@ snapshot.OnClientEvent:Connect(function(data)
     mintButton.Text = if data.ownsMint then "Equip Mint" else "Unlock Mint • 50 coins"
 end)
 UserInputService.InputBegan:Connect(function(input, processed)
-    if not processed and not modal.Visible and input.KeyCode == Enum.KeyCode.Q then intent:FireServer("Switch") end
+    if processed or modal.Visible or UserInputService:GetFocusedTextBox() then return end
+    if input.KeyCode == Enum.KeyCode.Q then
+        intent:FireServer("Switch")
+    elseif input.KeyCode == Enum.KeyCode.E and (not latest or latest.state ~= "Running") then
+        -- Native prompt remains available for keyboard, touch and gamepad.
+        -- This HUD shortcut shares its server handler; duplicate requests are safe.
+        takeParcel()
+    end
 end)
 -- Connect the listener first; request a fresh snapshot after the server is ready.
 task.spawn(function()

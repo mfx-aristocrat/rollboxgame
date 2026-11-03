@@ -38,6 +38,17 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Automated checks: fake-store load/save/retry/conflict/migration cases. Studio: private published test experience with API access, reconnect and simultaneous clients. Pending account access blocks runtime completion.
 - Evidence: 37 persistence and 13 lifecycle fake-store cases pass; versioned codec, lease/retry/operation deduplication, guarded server adapter and lifecycle integration implemented. Astra/xhigh review's lease-renewal race fixed and regression-tested; late load/save cleanup also tested. Commit **e4794e8** pushed to develop; Windows/Ubuntu CI **41550690715 SUCCESS**. Disabled by default. Required private-service Studio P01–P05 pending; M03 also pending. Not merged to main.
 
+## M03-R1 — Player feedback: terrain expansion and reliable parcel pickup
+- Objective/scope: implement the user's 2026-11-03 requests: a larger explorable world with varied terrain and repair the visible box/E interaction. This explicit environment expansion is authorized while other M03 observation gates remain pending; it adds no new scored delivery routes.
+- Dependencies: existing M03 implementation; user reports the game starts but parcel pickup does not work as expected.
+- Status: AWAITING_VALIDATION.
+- Deliverables: connected terrain regions around the preserved Training course; shared pickup geometry and clear carry feedback; actual entrypoint pickup regression harness; world layout checks; updated design/test/handoff documentation.
+- Acceptance: at least four distinctive walkable regions with connected paths from the depot; Training gates/checkpoints/fall clearance unchanged; pickup prompt, server and HUD agree on box position/range; E, prompt and touch action share validated pickup behavior; successful pickup is clearly visible; repeated requests cannot restart/grant duplicate rewards.
+- Automated checks: red→green production-call-chain pickup tests, bounds/path connectivity/grade/clearance world checks, all existing suites and reproducible build, Windows/Linux CI.
+- Studio checks: approach the box from both sides and boundary distances, press E/tap prompt, confirm visible carried box and Running HUD; two clients independently pick up; walk all terrain paths; fall/respawn and complete original route. User report is not evidence these revised tests passed.
+- Evidence: 17 production-entrypoint pickup adapters and 7 world checks pass, total 94 behavioral cases; 18 Luau compile; repeated builds match. Source pickup range mismatch reproduced before fix; geometry tests also found and fixed plaza/terrain/ramp/junction obstructions. Studio R01–R06 pending due app permission; no main merge before required runtime validation.
+- Git evidence: current revision commit/push and CI recorded in PROJECT_STATE.md; develop only.
+
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.
 - Dependencies: validated M03; M04 for persistent unlocks.

@@ -1,6 +1,6 @@
 -- Pure configuration: numeric arrays are positions/RGB and load unchanged in Lune.
 local config = {
-	buildVersion = "0.2.0-slice",
+	buildVersion = "0.3.0-world-pickup",
 	rewardCoins = 25,
 	mintCost = 50,
 	maxCounter = 1_000_000_000,
@@ -11,6 +11,7 @@ local config = {
 	maxMovementSpeed = 40,
 	movementTolerance = 8,
 	depotRadius = 15,
+	pickup = { position = { 7, 11, 0 }, radius = 12 },
 	fallY = -8,
 	colors = {
 		Amber = { 255, 182, 64 },

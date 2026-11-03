@@ -1,4 +1,6 @@
 local World = {}
+local WorldLayout = require(game:GetService("ReplicatedStorage").Shared.WorldLayout)
+local TerrainWorld = require(script.Parent.TerrainWorld)
 
 function World.build(config)
     local existing = workspace:FindFirstChild("SwitchbackWorld")
@@ -21,7 +23,7 @@ function World.build(config)
         anchor.Transparency, anchor.CanCollide, anchor.CanQuery = 1, false, false
         local gui = Instance.new("BillboardGui")
         gui.Size = UDim2.fromOffset(width or 260, 90)
-        gui.AlwaysOnTop, gui.MaxDistance = true, 100
+        gui.AlwaysOnTop, gui.MaxDistance = false, 80
         gui.Parent = anchor
         local label = Instance.new("TextLabel")
         label.Size, label.BackgroundTransparency = UDim2.fromScale(1, 1), 0.12
@@ -38,6 +40,7 @@ function World.build(config)
     local dark = Color3.fromRGB(42, 54, 76)
     local rail = Color3.fromRGB(99, 125, 156)
     local mint = Color3.fromRGB(114, 245, 182)
+    TerrainWorld.build(model, WorldLayout.create(config))
     -- Root height is ~12; deck top is 9.5. All landings are ordinary anchored parts.
     local function deck(name, x, z, width, length)
         part(name, Vector3.new(width, 2, length), Vector3.new(x, 8.5, z), dark)
@@ -60,16 +63,22 @@ function World.build(config)
     end
     local spawn = Instance.new("SpawnLocation")
     spawn.Name, spawn.Size = "DepotSpawn", Vector3.new(7, 1, 7)
-    spawn.Position, spawn.Anchored, spawn.Neutral = Vector3.new(0, 10, 5), true, true
+    local depotOrigin = Vector3.new(table.unpack(config.route.depot))
+    spawn.Position, spawn.Anchored, spawn.Neutral = depotOrigin + Vector3.new(0, -2, 5), true, true
     spawn.Color, spawn.Material, spawn.Duration = mint, Enum.Material.Neon, 0
     spawn.Parent = model
-    local depot = part("ParcelDepot", Vector3.new(5, 3, 3), Vector3.new(7, 11, 0), mint)
+    local stationPosition = Vector3.new(table.unpack(config.pickup.position))
+    local depot = part("ParcelDepot", Vector3.new(5, 3, 3), stationPosition, Color3.fromRGB(210, 157, 87), Enum.Material.Wood)
+    part("ParcelTapeTop", Vector3.new(0.7, 0.08, 3.08), stationPosition + Vector3.new(0, 1.54, 0), mint)
+    part("ParcelTapeFront", Vector3.new(0.7, 3, 0.08), stationPosition + Vector3.new(0, 0, 1.54), mint)
+    part("ParcelLabel", Vector3.new(1.4, 0.9, 0.08), stationPosition + Vector3.new(1.25, 0.3, 1.54), Color3.fromRGB(246, 242, 224))
     local prompt = Instance.new("ProximityPrompt")
     prompt.Name, prompt.ActionText, prompt.ObjectText = "TakeParcel", "Take parcel", "Training delivery"
-    prompt.KeyboardKeyCode, prompt.MaxActivationDistance, prompt.HoldDuration = Enum.KeyCode.E, 12, 0
+    prompt.KeyboardKeyCode, prompt.MaxActivationDistance, prompt.HoldDuration = Enum.KeyCode.E, config.pickup.radius, 0
+    prompt.GamepadKeyCode, prompt.ClickablePrompt = Enum.KeyCode.ButtonX, true
     prompt.RequiresLineOfSight = false
     prompt.Parent = depot
-    sign("DepotSign", Vector3.new(0, 19, 0), "SWITCHBACK COURIERS\nTake a parcel • Match the gate", mint, 320)
+    sign("DepotSign", depotOrigin + Vector3.new(-9, 12, 9), "SWITCHBACK COURIERS\nTake a parcel • Match the gate", mint, 320)
     sign("PathChoice", Vector3.new(-10, 17, -67), "SAFE PATH ←\nJump shortcut ahead", Color3.fromRGB(235, 239, 249), 220)
     for index, gate in config.route.gates do
         local position = Vector3.new(table.unpack(gate.position))

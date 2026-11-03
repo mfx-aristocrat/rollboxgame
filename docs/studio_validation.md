@@ -42,4 +42,21 @@ Those two-client/15-minute checks are preliminary smoke tests. Final release tar
 
 2026-11-03: the user installed/signed into Studio. Its executable exists, and computer-use listed its open window. `get_window_state` was refused with **“Computer Use was not approved to use Roblox Studio”** after the user's explicit retry request. No window screenshot, source execution, new-player run or playtest result was obtained. Enable Studio in computer-use permissions, or run the procedures manually and record actual evidence. Opening Studio alone did not clear this restriction.
 
+## M03-R1 — Feedback revision checks
+
+User observation on 2026-11-03: the game starts, but E did not appear to pick up the visible box. This is useful launch/interaction feedback, not a pass for the complete loop. Source diagnosis is recorded in pickup_diagnosis.md. A fresh Studio capture attempt after this report was still refused by computer-use permissions.
+
+Stop the old playtest, reopen the rebuilt `build/RollboxGame.rbxlx` (or synchronize the updated source with Rojo), then start F5. Generated scenery appears when the server runs; keeping an older open place does not load rebuilt scripts automatically. Do not overwrite unrelated Studio work to open the new local build.
+
+| ID | Action | Expected observation | Result |
+| --- | --- | --- | --- |
+| R01 | Approach the parcel box from both sides, including the 12-stud range boundary; try E, native prompt and Take parcel | HUD, prompt and server agree on actual box range; one front-held parcel appears, HUD says CARRYING PARCEL | PENDING |
+| R02 | Move out of range; then spam pickup while carrying; try with chat/shop focused | Out-of-range feedback; no duplicate parcel/reward or timer reset; no unintended pickup while typing/in modal | PENDING |
+| R03 | Two clients take parcels from the same station | Shared station remains; each receives its own parcel/run and clear HUD | PENDING |
+| R04 | Walk from hub side exits through Meadow, Coast, Redstone and Frostpeak, including both connecting bridges | Continuous paths/ramps, readable signs, no trapped movement or obstructed spawn/station; distinct explorable terrain | PENDING |
+| R05 | Complete all original Training gates, safe detour and shortcut; fall at several points, reset and retry | Gate order/reward unchanged; falling recovers before any new terrain catches the runner | PENDING |
+| R06 | Use phone landscape/portrait and gamepad prompt; inspect pickup/box/camera and expanded map performance | Input and carried box remain readable/usable; no errors; record actual frame/memory measurements rather than inferring performance from part count | PENDING |
+
+R01–R06 are required before accepting this revision's runtime behavior. Existing S01–S09 and persistence/release gates still apply.
+
 Account eligibility, maximum player count, private access, maturity questionnaire, actual pass ownership and private published app testing remain external configuration gates. Use docs/deployment.md. No public release is authorized.
