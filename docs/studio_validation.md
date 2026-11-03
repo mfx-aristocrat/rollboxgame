@@ -8,6 +8,8 @@ Single-client real keyboard suite: **23/23 PASS**. Native mushroom E, lock/far/m
 
 Two-client real run: independent locked state and native crate unlock both PASS. Aggregate input suite FAIL due missed background VirtualInput events and an engine ChatScript/CoreGui registration error; do not infer a complete multiplayer pass. Actual touch/gamepad/emulator verification remains pending. Existing adapter tests cover keyboard/gamepad/native touch edges, cancellation and cleanup. See docs/mushroom_double_jump.md and validation/mushroom-*.json.
 
+Normal desktop F5 preview visibly shows the textured Grass course, decorative tufts and mushroom discovery hint. It was left running at the depot after exact-source fixture cleanup; no cloud publishing occurred.
+
 Real Studio startup/near-box E pickup now passes (2026-11-03); see the regression evidence below. Broader slice, input, terrain, persistence and release checks remain pending. Fill actual outcomes, build SHA, tester/device, date, Output logs and screenshots; record failures before revisions. Standalone automated checks are recorded separately in PROJECT_STATE.md.
 
 ## M03 slice gates
