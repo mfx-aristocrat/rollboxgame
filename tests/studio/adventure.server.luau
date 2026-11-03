@@ -57,6 +57,41 @@ task.spawn(function()
         local config = require(ReplicatedStorage.Shared.Config)
         local layout = require(ReplicatedStorage.Shared.AdventureLayout).create(config)
         result.assertions.world = workspace.SwitchbackWorld:FindFirstChild("PlatformerAdventure") ~= nil
+        -- Query each real collidable floor separately so a winning ray cannot hide
+        -- a second, coplanar material. Camera motion made these ties flicker.
+        local floorParts = {}
+        for _, item in workspace.SwitchbackWorld:GetDescendants() do
+            if item:IsA("BasePart") and item.CanCollide then table.insert(floorParts, item) end
+        end
+        local floorSamples, separated = {}, true
+        for _, point in { {-18.5,4}, {18.5,4}, {-10,8}, {290,550}, {390,700}, {176,790}, {338.5,210.46}, {-275,427.5} } do
+            local hits = {}
+            for _, part in floorParts do
+                local params = RaycastParams.new()
+                params.FilterType = Enum.RaycastFilterType.Include
+                params.FilterDescendantsInstances = {part}
+                local hit = workspace:Raycast(Vector3.new(point[1], 200, point[2]), Vector3.new(0,-400,0), params)
+                if hit and hit.Normal.Y > 0.9 then
+                    table.insert(hits, {name=part.Name, y=hit.Position.Y, material=tostring(part.Material),
+                        color={part.Color.R,part.Color.G,part.Color.B}})
+                end
+            end
+            table.sort(hits, function(a,b) return a.y > b.y end)
+            local gap = 999
+            if hits[1] then
+                for index=2,#hits do
+                    local a,b=hits[1],hits[index]
+                    if a.material ~= b.material or a.color[1] ~= b.color[1] or a.color[2] ~= b.color[2] or a.color[3] ~= b.color[3] then
+                        gap = a.y-b.y
+                        break
+                    end
+                end
+            end
+            separated = separated and hits[1] ~= nil and gap >= 0.08
+            table.insert(floorSamples, {x=point[1],z=point[2],gap=gap,top=hits[1] and hits[1].name})
+        end
+        result.floorSamples = floorSamples
+        result.assertions.floorLayersSeparated = separated
         result.assertions.catalog = #layout.items == 40 and #layout.springs == 4
         local token, crate = layout.items[1], nil
         for _, spec in layout.items do if spec.kind == "crate" then crate = spec; break end end

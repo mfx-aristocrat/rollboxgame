@@ -93,4 +93,12 @@ Commands: `python scripts/studio-pickup-check.py` and `python scripts/studio-pic
 
 The initial expansion fixture sampled the first HUD before walking/replication finished: the first snapshot had zero tokens and the next had one, while crate/spring/outfit/pickup/respawn already passed. This was a test synchronization failure, preserved in `validation/platformer-adventure-initial.json`. The fixture now waits for the real root to reach the token and for the server snapshot before asserting; final first/duplicate snapshots are both one point. This timing adjustment was not a gameplay reward change.
 
+### Floor-flicker feedback repair
+
+Latest build SHA256 **0d3dd8f50d1a97ff506ac3b6dcf4b1aa57f21e47e76cbaf3177e25ab989f8c35** supersedes the initial expansion build above. **30 Luau compile; 123 standalone cases PASS**, including native complete-world floor overlap/step/support checks. Exposed conflicting planes: **27 before → 0 after**.
+
+Real Studio regression: **22/22 assertions PASS**. Eight targeted per-floor raycast gaps (west/east depot edges, hub path, Mesa, crown, bridge junction, lagoon dock and exposed foundation seam) were all 0 before. After: **0.125, 0.125, 0.125, 0.25, 0.25, 0.375, 0.375, 0.25** studs. Collection, native crate E/duplicates, pickup, spring motion, outfit and respawn still pass; no captured server/client errors; owned test fixtures cleaned/read back. Trace files: `validation/floor-engine-before.json` and `validation/floor-engine-after.json`; details in [floor_flicker_fix.md](floor_flicker_fix.md).
+
+Desktop visual preview used a temporary camera/walking script across the hub, Mesa and crown; inspected crown views before/after Windows movement/zoom showed a consistent stone path against grass. The preview was stopped and its exact-source fixture removed/read back. This scoped visual check complements the rendered-plane and raycast tests; broader A/R/S/P gates remain separate.
+
 Only scoped repository scripts were synchronized after equality checks, with originals backed up under ignored `.tools`; updates were read back. No account/security setting, save store, cloud publishing or paid asset change. The later normal F5 desktop preview had no diagnostic fixtures. Broader R/S/P gates remain pending, so M03-R2 is AWAITING_VALIDATION.

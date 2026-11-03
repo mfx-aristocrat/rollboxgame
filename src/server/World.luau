@@ -57,8 +57,8 @@ function World.build(config)
     deck("ShortcutLanding", 0, -81, 10, 10)
     deck("ShortcutExit", 0, -92, 10, 8)
     deck("FinalLane", 0, -125, 20, 66)
-    -- Contrasting stone pavers make the delivery direction readable on the grass.
-    for index = 0, 5 do
+    -- Begin beyond the hub's crossing path; tiles under that path nearly shared its plane.
+    for index = 2, 5 do
         part("DepotPaver" .. index, Vector3.new(5, 0.12, 2.4), Vector3.new(0, 9.56, 8 - index * 6), Color3.fromRGB(255, 226, 163))
     end
     -- Buildings below the deck are decorative and do not supply alternate gates.

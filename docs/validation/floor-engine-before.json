@@ -1,0 +1,144 @@
+{
+  "status": "FAIL",
+  "assertions": {
+    "outfit": true,
+    "outfitPhysics": true,
+    "world": true,
+    "floorLayersSeparated": false,
+    "catalog": true,
+    "walkCollection": true,
+    "hud": true,
+    "tokenOnce": true,
+    "farCrate": true,
+    "cratePrompt": true,
+    "crateReward": true,
+    "crateOnce": true,
+    "deliveryEconomy": true,
+    "springMotion": true,
+    "pickup": true,
+    "respawn": true,
+    "respawnCollection": true,
+    "noClientErrors": true,
+    "fixture": true,
+    "completed": true,
+    "succeeded": false,
+    "noServerErrors": true
+  },
+  "testResult": {
+    "finished": true,
+    "score": 6,
+    "tokenSnapshot": {
+      "message": "+1 trail token",
+      "total": 40,
+      "score": 1,
+      "landmarkTotal": 6,
+      "collected": 1,
+      "collectedIds": [
+        "token-01"
+      ],
+      "landmarks": 0
+    },
+    "serverErrors": [],
+    "reason": "adventure_failed",
+    "floorSamples": [
+      {
+        "top": "WestPlaza",
+        "x": -18.5,
+        "gap": 0,
+        "z": 4
+      },
+      {
+        "top": "EastPlaza",
+        "x": 18.5,
+        "gap": 0,
+        "z": 4
+      },
+      {
+        "top": "WalkingPath1",
+        "x": -10,
+        "gap": 0,
+        "z": 8
+      },
+      {
+        "top": "WalkingPath60",
+        "x": 290,
+        "gap": 0,
+        "z": 550
+      },
+      {
+        "top": "WalkingPath65",
+        "x": 390,
+        "gap": 0,
+        "z": 700
+      },
+      {
+        "top": "WalkingPath56",
+        "x": 176,
+        "gap": 0,
+        "z": 790
+      },
+      {
+        "top": "LagoonBoardwalk",
+        "x": 338.5,
+        "gap": 0,
+        "z": 210.46
+      },
+      {
+        "top": "MeadowFoundation",
+        "x": -275,
+        "gap": 0,
+        "z": 427.5
+      }
+    ],
+    "outfitParts": 24,
+    "fixture": "adventure-engine-v1",
+    "springUpSpeed": 37.6324462890625,
+    "springMaxY": 16.41961669921875,
+    "tokenStart": [
+      -72,
+      12.5,
+      8
+    ],
+    "client": {
+      "expedition": "EXPLORE 2/40  |  6 session pts  |  0/6 flags",
+      "errors": []
+    },
+    "assertions": {
+      "outfitPhysics": true,
+      "springMotion": true,
+      "walkCollection": true,
+      "tokenOnce": true,
+      "respawnCollection": true,
+      "crateReward": true,
+      "outfit": true,
+      "world": true,
+      "crateOnce": true,
+      "floorLayersSeparated": false,
+      "deliveryEconomy": true,
+      "cratePrompt": true,
+      "respawn": true,
+      "catalog": true,
+      "pickup": true,
+      "farCrate": true,
+      "hud": true,
+      "noClientErrors": true
+    },
+    "duplicateSnapshot": {
+      "message": "+1 trail token",
+      "total": 40,
+      "score": 1,
+      "landmarkTotal": 6,
+      "collected": 1,
+      "collectedIds": [
+        "token-01"
+      ],
+      "landmarks": 0
+    }
+  },
+  "cleanup": {
+    "verified": true,
+    "reused": 0,
+    "changed": 2,
+    "status": "CLEANED"
+  }
+}

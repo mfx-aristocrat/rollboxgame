@@ -214,7 +214,7 @@ class Bridge:
 
 def validate_result(result, suite="pickup"):
     if suite == "adventure":
-        names = ("outfit", "outfitPhysics", "world", "catalog", "walkCollection", "hud", "tokenOnce", "farCrate", "cratePrompt", "crateReward", "crateOnce", "deliveryEconomy", "springMotion", "pickup", "respawn", "respawnCollection", "noClientErrors")
+        names = ("outfit", "outfitPhysics", "world", "floorLayersSeparated", "catalog", "walkCollection", "hud", "tokenOnce", "farCrate", "cratePrompt", "crateReward", "crateOnce", "deliveryEconomy", "springMotion", "pickup", "respawn", "respawnCollection", "noClientErrors")
         assertions = {name: result.get("assertions", {}).get(name) is True for name in names}
         assertions.update(fixture=result.get("fixture") == "adventure-engine-v1",
                           completed=result.get("finished") is True,

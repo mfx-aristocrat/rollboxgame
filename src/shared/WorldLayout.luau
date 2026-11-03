@@ -13,6 +13,8 @@ function WorldLayout.create(config)
         courseClearance = { minX = -56, maxX = 56, minZ = -185, maxZ = -14, maxTop = config.fallY - 4 },
         surfaces = {}, nodes = {}, paths = {}, props = {}, regions = {}, segments = {},
         junctionsCollidable = false,
+        -- Separate overlapping path styles from ground and one another without a large step.
+        pathSurfaceOffsets = { trail = 0.125, plaza = 0.125, garden = 0.25, bridge = 0.375 },
     }
     local function surface(id, x, z, width, depth, top, material, color)
         table.insert(layout.surfaces, {
@@ -32,10 +34,10 @@ function WorldLayout.create(config)
     surface("FrostTerrace", 275, -315, 200, 180, 46, "Snow", { 226, 239, 242 })
     surface("FrostSummit", 330, -340, 70, 90, 64, "Snow", { 243, 249, 249 })
     -- Side entry plazas meet the existing depot deck without occupying its approach.
-    surface("WestPlaza", -53, 8, 70, 24, 9.5, "Cobblestone", { 117, 131, 128 })
-    surface("EastPlaza", 53, 8, 70, 24, 9.5, "Cobblestone", { 117, 131, 128 })
+    surface("WestPlaza", -53, 8, 70, 24, 9.25, "Cobblestone", { 117, 131, 128 })
+    surface("EastPlaza", 53, 8, 70, 24, 9.25, "Cobblestone", { 117, 131, 128 })
     -- Southern plateaus overlap the old meadow/coast only below their walking tops.
-    surface("GardensOchreCliff", -290, 650, 500, 450, -18, "Sandstone", { 216, 159, 95 })
+    surface("GardensOchreCliff", -290, 650, 500, 450, -18.25, "Sandstone", { 216, 159, 95 })
     surface("GardensCreamBand", -290, 650, 492, 444, -7, "Sandstone", { 249, 215, 146 })
     surface("GardensGrass", -290, 650, 484, 436, -2, "Grass", { 119, 215, 83 })
     surface("MesaPeachCliff", 290, 680, 500, 400, -8, "Sandstone", { 225, 150, 111 })

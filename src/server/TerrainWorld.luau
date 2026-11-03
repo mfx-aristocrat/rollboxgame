@@ -45,7 +45,10 @@ function TerrainWorld.build(model, layout)
         block(spec.id, vector(spec.size), vector(spec.position), rgb(spec.color), Enum.Material[spec.material])
     end
     for index, path in layout.segments do
-        local a, b = vector(path.a), vector(path.b)
+        -- Lift the complete segment (including bridge fittings), preserving ramp endpoints.
+        -- Distinct style heights prevent coplanar junctions from flashing between materials.
+        local lift = Vector3.new(0, layout.pathSurfaceOffsets[path.style], 0)
+        local a, b = vector(path.a) + lift, vector(path.b) + lift
         local bridge = path.style == "bridge"
         local color = if bridge then Color3.fromRGB(232, 180, 112) elseif path.style == "garden" then Color3.fromRGB(255, 226, 158) else Color3.fromRGB(219, 214, 171)
         local material = if bridge then Enum.Material.WoodPlanks else Enum.Material.Cobblestone
