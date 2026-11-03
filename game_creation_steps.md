@@ -61,6 +61,7 @@ Repository update 2026-11-03: user merged PR #1 into main (260d22c), bringing th
 - Required checks: existing suites plus adventure rules/layout; reproducible build and CI; real Studio pickup, collection/crate/spring/outfit/respawn and viewport evidence. Record pending device/multiplayer checks without claiming completion.
 - Evidence: six regions across 1120×1360 studs; 30 tokens, four crates, six landmarks, four springs and a 24-part courier outfit. 29 Luau compile; 121 standalone cases pass; repeated build SHA256 48f48739bc345d2dc4a7285881065c014a6ba0575b92aae861f66aa53719a3a5. Real Studio pickup 14/14 and expansion 21/21 assertions PASS; fixtures cleaned; normal desktop preview visible. Full traversal, touch/gamepad, two-client and scored-spring end-to-end gates remain pending. See docs/studio_validation.md A01–A07.
 - Git evidence: base main 260d22c (user-merged PR #1), fast-forwarded into develop preserving clean source. Expansion commit/CI recorded in PROJECT_STATE.md after push. Do not merge as a completed milestone while mandatory runtime checks remain pending.
+- Expansion pushed as **800d793ef72e442e6b881229e7ce0dbba350c028**; Windows/Ubuntu CI **41679099759 SUCCESS**, remote SHAs verified. [Draft PR #2](https://github.com/mfx-aristocrat/rollboxgame/pull/2) open against main; no merge while the remaining gates are pending.
 
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.
