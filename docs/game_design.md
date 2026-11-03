@@ -130,6 +130,8 @@ After private launch testing, record early bounce, first delivery, voluntary rep
 
 ## Deferred expansion and planning transition
 
+User-authorized 2026-11-03 expansion after PR #1: the new [platformer expansion brief](platformer_expansion.md) supersedes the earlier content-freeze assumption for this specific task. Two regions, source-built courier outfit and session-only exploration items/springs may proceed alongside pending slice validation. It adds no scored delivery routes or saved-economy changes, and does not pass the original observation, multiplayer, persistence or release gates.
+
 ### 2026-11-03 feedback revision
 
 The user reports that the game starts, requests a larger map with more terrains, and reports that E does not pick up the visible box. This authorizes expansion of the surrounding explorable environment now, while the five-tester concept gate and release validation remain pending. Preserve Training and its four gate IDs, sequence, reward and recovery positions. Add connected, source-generated landscape regions as exploration space, not additional scoring routes or economy systems. The world expansion contract is in `world_expansion.md`; pickup diagnosis and verified source-level evidence are in `pickup_diagnosis.md`. These revisions require fresh Studio testing and do not establish that prior runtime gates passed.

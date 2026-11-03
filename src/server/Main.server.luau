@@ -32,6 +32,8 @@ local playerData = require(script.Parent.PlayerData).new(Settings, codec, {
     scheduler = task, clock = os, warn = warn,
 })
 local world = require(script.Parent.World).build(Config)
+local adventure = require(script.Parent.Adventure).new(world.adventure, Config)
+local CourierAppearance = require(script.Parent.CourierAppearance)
 
 local remotes = Instance.new("Folder")
 remotes.Name, remotes.Parent = "Remotes", ReplicatedStorage
@@ -76,6 +78,7 @@ local function send(player)
         nextUnlock = "More routes planned after playtesting",
         nearDepot = root ~= nil and (root.Position - vector(Config.route.depot)).Magnitude <= Config.depotRadius,
         nearPickup = nearPickup(root), carryingParcel = run ~= nil and run.state == "Running",
+        adventure = adventure:snapshot(player),
     })
 end
 local function parcel(player)
@@ -193,6 +196,7 @@ local function joined(player)
     local data = playerData.open(player.UserId)
     if not data then player:Kick("Previous save session is closing. Please rejoin shortly."); return end
     sessions[player] = { data = data, profile = data.profile, limiter = Rules.newLimiter(os.clock()), message = "Take a parcel at the depot. Match each gate using Q or Switch." }
+    adventure:add(player)
     local function characterAdded(character)
         abort(player, "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.")
         local function setCollision(item)
@@ -205,27 +209,32 @@ local function joined(player)
         task.spawn(function()
             local humanoid = character:WaitForChild("Humanoid", 10)
             if humanoid and sessions[player] == session then
+                CourierAppearance.apply(character)
                 if session.deathConnection then session.deathConnection:Disconnect() end
                 session.deathConnection = humanoid.Died:Connect(function() abort(player, "Delivery cancelled. Restart free at the depot.") end)
             end
         end)
     end
     sessions[player].characterConnection = player.CharacterAdded:Connect(characterAdded)
+    sessions[player].appearanceConnection = player.CharacterAppearanceLoaded:Connect(function(character)
+        if player.Character == character and sessions[player] then CourierAppearance.apply(character) end
+    end)
     if player.Character then characterAdded(player.Character) end
 end
 Players.PlayerAdded:Connect(joined)
 Players.PlayerRemoving:Connect(function(player)
     local session = sessions[player]
     if session then
-        for _, key in { "characterConnection", "deathConnection", "descendantConnection" } do
+        for _, key in { "characterConnection", "appearanceConnection", "deathConnection", "descendantConnection" } do
             if session[key] then session[key]:Disconnect() end
         end
         sessions[player] = nil
+        adventure:remove(player)
         playerData.close(player.UserId, os.time() + 20)
     end
 end)
 for _, player in Players:GetPlayers() do joined(player) end
-game:BindToClose(function() playerData.shutdown() end)
+game:BindToClose(function() adventure:destroy(); playerData.shutdown() end)
 
 local sampleAccumulator, snapshotAccumulator = 0, 0
 RunService.Heartbeat:Connect(function(dt)
@@ -239,6 +248,7 @@ RunService.Heartbeat:Connect(function(dt)
     for player, session in pairs(sessions) do
         local run = session.run
         local _, root = alive(player)
+        if sample then adventure:step(player, root, root ~= nil, run ~= nil and run.state == "Running", now) end
         if sample and root and run and run.state == "Running" and not playerData.canWrite(player.UserId) then
             abort(player, session.data.message)
         elseif sample and root and run and run.state == "Running" then

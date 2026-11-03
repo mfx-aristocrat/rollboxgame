@@ -6,10 +6,12 @@ local remotes = ReplicatedStorage:WaitForChild("Remotes")
 local intent, snapshot = remotes:WaitForChild("Intent"), remotes:WaitForChild("Snapshot")
 local screen = Instance.new("ScreenGui")
 screen.Name, screen.ResetOnSpawn, screen.ZIndexBehavior = "CourierHUD", false, Enum.ZIndexBehavior.Sibling
+screen.ScreenInsets = Enum.ScreenInsets.CoreUISafeInsets
 screen.Parent = player:WaitForChild("PlayerGui")
 local ink = Color3.fromRGB(19, 29, 47)
 local white, muted = Color3.fromRGB(241, 246, 255), Color3.fromRGB(185, 201, 224)
 local mint, amber, cyan = Color3.fromRGB(114, 245, 182), Color3.fromRGB(255, 182, 64), Color3.fromRGB(63, 219, 240)
+local gold = Color3.fromRGB(255, 217, 88)
 local function round(parent, radius)
     local c = Instance.new("UICorner")
     c.CornerRadius, c.Parent = UDim.new(0, radius or 12), parent
@@ -34,18 +36,22 @@ local function button(parent, name, caption, position, size, color, action)
 end
 local hud = Instance.new("Frame")
 hud.Name, hud.AnchorPoint = "StatusPanel", Vector2.new(0.5, 0)
-hud.Position, hud.Size = UDim2.new(0.5, 0, 0, 8), UDim2.new(0.94, 0, 0, 160)
+hud.Position, hud.Size = UDim2.new(0.5, 0, 0, 8), UDim2.new(0.94, 0, 0, 182)
 hud.BackgroundColor3, hud.BackgroundTransparency, hud.Parent = ink, 0.06, screen
 round(hud, 16)
+local outline = Instance.new("UIStroke")
+outline.Color, outline.Thickness, outline.Transparency, outline.Parent = gold, 2, 0.2, hud
 local limit = Instance.new("UISizeConstraint")
-limit.MaxSize, limit.Parent = Vector2.new(620, 160), hud
-local title = text(hud, "Title", 8, 24, 18, mint)
+limit.MaxSize, limit.Parent = Vector2.new(620, 182), hud
+local title = text(hud, "Title", 8, 24, 18, gold)
 title.Text = "SWITCHBACK COURIERS"
 local status = text(hud, "Route", 35, 26, 17)
 status.Text = "Connecting to the delivery depot…"
 local goal = text(hud, "Goal", 62, 25, 16)
 local message = text(hud, "Message", 89, 39, 14, white)
-local saving = text(hud, "Saving", 132, 20, 12, muted)
+local expedition = text(hud, "Expedition", 130, 23, 14, gold)
+expedition.Text = "EXPLORE • Follow the golden trails beyond the depot"
+local saving = text(hud, "Saving", 156, 18, 11, muted)
 saving.Text = "Practice • Session progress is not saved"
 
 local actions = Instance.new("Frame")
@@ -92,14 +98,16 @@ local function layout()
     local compact = camera and camera.ViewportSize.Y < 500
     local portrait = camera and camera.ViewportSize.Y > camera.ViewportSize.X
     title.Visible = not compact
-    hud.Size = UDim2.new(0.94, 0, 0, if compact then 105 else 160)
+    hud.Size = UDim2.new(0.94, 0, 0, if compact then 126 else 182)
     status.Position, status.TextSize = UDim2.new(0, 14, 0, if compact then 3 else 35), if compact then 14 else 17
     goal.Position, goal.TextSize = UDim2.new(0, 14, 0, if compact then 26 else 62), if compact then 14 else 16
     message.Position, message.Size, message.TextSize = UDim2.new(0, 14, 0, if compact then 52 else 89), UDim2.new(1, -28, 0, if compact then 29 else 39), if compact then 12 else 14
-    saving.Position, saving.TextSize = UDim2.new(0, 14, 0, if compact then 83 else 132), if compact then 10 else 12
+    expedition.Position, expedition.Size = UDim2.new(0, 14, 0, if compact then 83 else 130), UDim2.new(1, -28, 0, if compact then 18 else 23)
+    expedition.TextSize = if compact or (camera and camera.ViewportSize.X < 420) then 12 else 14
+    saving.Position, saving.TextSize = UDim2.new(0, 14, 0, if compact then 105 else 156), if compact then 10 else 11
     -- One centered action; portrait lifts it above the default thumbstick/jump row.
     actions.Position = UDim2.new(0.5, 0, 1, if portrait then -120 elseif compact then -12 else -24)
-    shells.Position = UDim2.new(1, -138, 0, if compact then 121 else 176)
+    shells.Position = UDim2.new(1, -138, 0, if compact then 142 else 198)
 end
 local viewportConnection
 local function watchCamera()
@@ -109,6 +117,29 @@ local function watchCamera()
 end
 workspace:GetPropertyChangedSignal("CurrentCamera"):Connect(watchCamera)
 watchCamera()
+local collectedIds, adventureVisuals = {}, {}
+local function showCollected(item)
+    local id = item:GetAttribute("AdventureId")
+    if not id and item.Parent then id = item.Parent:GetAttribute("AdventureId") end
+    if not id then return end
+    if item:IsA("BasePart") then
+        item.LocalTransparencyModifier = if collectedIds[id] then 0.8 else 0
+    elseif item:IsA("ProximityPrompt") or item:IsA("BillboardGui") then
+        item.Enabled = not collectedIds[id]
+    end
+end
+task.spawn(function()
+    local world = workspace:WaitForChild("SwitchbackWorld", 15)
+    local adventure = world and world:WaitForChild("PlatformerAdventure", 15)
+    if not adventure then return end
+    local function index(item)
+        local id = item:GetAttribute("AdventureId")
+        if not id and item.Parent then id = item.Parent:GetAttribute("AdventureId") end
+        if id then table.insert(adventureVisuals, item); showCollected(item) end
+    end
+    adventure.DescendantAdded:Connect(index)
+    for _, item in adventure:GetDescendants() do index(item) end
+end)
 local function seconds(value)
     return if type(value) == "number" then string.format("%.1fs", value) else "—"
 end
@@ -127,6 +158,14 @@ snapshot.OnClientEvent:Connect(function(data)
         goal.Text = "Go to the parcel box. Press E or tap Take parcel."
     end
     message.Text, saving.Text = data.message, data.mode .. " • " .. data.persistence
+    local exploration = data.adventure
+    if type(exploration) == "table" then
+        expedition.Text = string.format("EXPLORE %d/%d  |  %d session pts  |  %d/6 flags", exploration.collected, exploration.total, exploration.score, exploration.landmarks)
+        if not running and exploration.message and exploration.message ~= "" then message.Text = exploration.message end
+        collectedIds = {}
+        for _, id in exploration.collectedIds or {} do collectedIds[id] = true end
+        for _, item in adventureVisuals do if item.Parent then showCollected(item) end end
+    end
     goal.TextColor3 = if data.polarity == "Cyan" then cyan else amber
     start.Visible, switch.Visible = not running, running
     start.Text = if not data.nearPickup then "Move to parcel box" elseif data.state == "Completed" then "Retry delivery [E]" else "Take parcel [E]"

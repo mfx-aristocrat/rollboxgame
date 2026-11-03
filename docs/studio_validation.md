@@ -74,3 +74,23 @@ In a subsequent clean playtest without those fixtures, the agent focused the Stu
 Only Edit remains discoverable through this package. Edit-context `RunService:IsRunning()` does not report live gameplay state. The regression returns actual server/client evidence via `StudioTestService:EndTest`; an empty MCP output buffer alone did not reveal the original crash. In this session MCP `stop_playtest` did not end a test; ordinary Studio Shift+F5 did. Preserve any user-owned active test before attempting new validation.
 
 Account eligibility, maximum player count, private access, maturity questionnaire, actual pass ownership and private published app testing remain external configuration gates. Use docs/deployment.md. No public release is authorized.
+
+## M03-R2 platformer expansion — 2026-11-03
+
+Current source build: **0.4.0-platformer-adventure**, SHA256 **48f48739bc345d2dc4a7285881065c014a6ba0575b92aae861f66aa53719a3a5**. Source/config and generated artifact match; 29 Luau files compile and 121 standalone cases pass. These are separate from the real-engine results below.
+
+| ID | Required check | Verified evidence / remaining work |
+| --- | --- | --- |
+| A01 | Outfit and respawn | PASS real Studio: 24 massless, unanchored, noncolliding costume Parts; cap and bib present; outfit returns after death. Normal desktop preview visibly shows cap, shirt, overalls and boots. Front-angle and touch camera review pending. R6/R15 composition covered by standalone engine-boundary tests; live rig was R15. |
+| A02 | Movement-based tokens and personal completion | PASS real Studio: character walks from eight studs away into token range; score 0→1; repeated sample stays 1. Client HUD shows progress. Personal fade implementation/source covered; two-client fade/isolation runtime check pending. |
+| A03 | Native free crate prompt and duplicates | PASS real Studio: E activates native crate prompt, score 1→6; repeated activation stays 6; far E leaves score unchanged; delivery coins/completions stay 0. Dead/far/duplicate/rate-limit cases also pass adapter tests. |
+| A04 | Springs and scored-run safety | PASS real Studio idle spring motion: root reached Y≈16.49 above a pad centered at Y=0.6, sampled upward speed≈42.70. Fixed launch speed 70, standing bounds and cooldown tested in rules/adapter; running-run exclusion passes adapter tests but remains pending as an end-to-end live run check. |
+| A05 | Existing pickup and reset lifecycle | PASS real Studio: original pickup regression 14/14; expansion regression also takes a parcel, then death cancels delivery while six exploration points persist and outfit respawns. |
+| A06 | Six-region traversal and performance | Automated connected-path, slope, surface support, clearance, builder property/collision/budget checks pass. Live full map traversal, eight-player and named device performance remain PENDING. |
+| A07 | Responsive HUD | Source review found/fixed compact row overlap, clarified session score, added CoreUISafeInsets. Normal desktop Studio preview is readable. Actual 640×360/844×390/portrait touch and gamepad checks remain PENDING. |
+
+Commands: `python scripts/studio-pickup-check.py` and `python scripts/studio-pickup-check.py --suite adventure --output .tools/adventure-engine-result.json`. Expansion suite: **21/21 assertions PASS**, no captured server/client errors; both suites verified tagged fixture cleanup. Sanitized results: `validation/platformer-pickup-pass.json` and `validation/platformer-adventure-pass.json`.
+
+The initial expansion fixture sampled the first HUD before walking/replication finished: the first snapshot had zero tokens and the next had one, while crate/spring/outfit/pickup/respawn already passed. This was a test synchronization failure, preserved in `validation/platformer-adventure-initial.json`. The fixture now waits for the real root to reach the token and for the server snapshot before asserting; final first/duplicate snapshots are both one point. This timing adjustment was not a gameplay reward change.
+
+Only scoped repository scripts were synchronized after equality checks, with originals backed up under ignored `.tools`; updates were read back. No account/security setting, save store, cloud publishing or paid asset change. The later normal F5 desktop preview had no diagnostic fixtures. Broader R/S/P gates remain pending, so M03-R2 is AWAITING_VALIDATION.

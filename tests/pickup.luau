@@ -80,7 +80,7 @@ local function serverHarness()
         table.insert(objects, item)
         return item
     end
-    local player = { UserId = 123, CharacterAdded = signal() }
+    local player = { UserId = 123, CharacterAdded = signal(), CharacterAppearanceLoaded = signal() }
     local data = { profile = Profile.createCodec(Config).default(), mode = "Practice", message = "Not saved" }
     local playerData = {
         open = function() return data end, canWrite = function() return writable end,
@@ -92,6 +92,8 @@ local function serverHarness()
         ServerSettings = { persistenceEnabled = false }, Persistence = {},
         PlayerData = { new = function() return playerData end },
         World = { build = function() return { prompt = prompt } end },
+        Adventure = { new = function() return { add = function() end, remove = function() end, step = function() end, snapshot = function() return nil end, destroy = function() end } end },
+        CourierAppearance = { apply = function() end },
     }
     local shared = setmetatable({}, { __index = function(_, name) return name end })
     local parent = setmetatable({}, { __index = function(_, name) return name end })
@@ -127,7 +129,7 @@ local function serverHarness()
         writable = function(value) writable = value end,
         ids = function() return ids end,
         addPlayer = function()
-            local other = { UserId = 456, CharacterAdded = signal() }
+            local other = { UserId = 456, CharacterAdded = signal(), CharacterAppearanceLoaded = signal() }
             services.Players.PlayerAdded:Fire(other)
             local otherRoot = object("Part")
             otherRoot.Position, otherRoot.CFrame = root.Position, root.CFrame
@@ -278,6 +280,22 @@ return function()
         client.received:Fire(state)
         client.input:Fire({ KeyCode = client.enum.KeyCode.E }, false)
         assert(client.requests[1][1] == "Retry")
+    end)
+    test("exploration snapshot updates HUD without changing delivery balance", function()
+        local server, client = serverHarness(), clientHarness()
+        server.request("Snapshot")
+        local state = server.latest()
+        state.adventure = { collected = 3, total = 40, score = 12, landmarks = 1, message = "Garden pennant found!", collectedIds = { "token-01" } }
+        client.received:Fire(state)
+        assert(client.find("Expedition").Text == "EXPLORE 3/40  |  12 session pts  |  1/6 flags")
+        assert(client.find("Message").Text == "Garden pennant found!")
+        assert(string.find(client.find("Route").Text, "0 coins"))
+        server.request("Start")
+        state = server.latest()
+        state.adventure = { collected = 3, total = 40, score = 12, landmarks = 1, message = "Old exploration hint", collectedIds = {} }
+        client.received:Fire(state)
+        assert(client.find("Route").Text == "CARRYING PARCEL • 0 coins")
+        assert(client.find("Message").Text == state.message, "delivery guidance must remain visible while carrying")
     end)
     return count
 end

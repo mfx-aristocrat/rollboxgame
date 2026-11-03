@@ -25,7 +25,8 @@ return function()
     test("bounded finite deterministic source geometry", function()
         local again = WorldLayout.create(Config)
         assert(#layout.surfaces == #again.surfaces and #layout.paths == #again.paths and #layout.props == #again.props)
-        assert(#layout.surfaces <= 24 and #layout.paths <= 32 and #layout.props <= 60, "generation budget exceeded")
+        assert(#layout.surfaces <= 24 and #layout.paths <= 44 and #layout.props <= 80, "generation budget exceeded")
+        assert(layout.partBudget <= 1100, "landscape must retain a bounded native-part budget")
         for index, surface in layout.surfaces do
             for axis = 1, 3 do
                 assert(finite(surface.position[axis]) and finite(surface.size[axis]) and surface.size[axis] > 0)
@@ -40,7 +41,7 @@ return function()
         for _, prop in layout.props do
             assert(within(prop.position[1], prop.position[3], if prop.kind == "lagoon" then 60 else 16 * prop.scale))
         end
-        assert(layout.bounds.maxX - layout.bounds.minX >= 800 and layout.bounds.maxZ - layout.bounds.minZ >= 800)
+        assert(layout.bounds.maxX - layout.bounds.minX > 920 and layout.bounds.maxZ - layout.bounds.minZ > 920)
     end)
     test("every region reachable from hub without a mandatory gate", function()
         local reached = { hub = true }
@@ -50,7 +51,7 @@ return function()
                 if reached[path.b] then reached[path.a] = true end
             end
         end
-        assert(#layout.regions >= 4)
+        assert(#layout.regions >= 6)
         local names, elevations = {}, {}
         for _, region in layout.regions do
             assert(not names[region.name] and reached[region.node])
@@ -145,11 +146,24 @@ return function()
         for _, prop in layout.props do
             local radius = if prop.kind == "lagoon" then 60 elseif prop.kind == "dock" then 8 elseif prop.kind == "lookout" then 5 else 14 * prop.scale
             assert(distanceToSegment(prop.position, spawn, Config.pickup.position) > radius + 12, "spawn/station obstructed")
-            if prop.kind ~= "lagoon" and prop.kind ~= "dock" and prop.kind ~= "lookout" then
+            if prop.collidable and prop.kind ~= "dock" then
                 for _, path in layout.paths do
                     assert(distanceToSegment(prop.position, layout.nodes[path.a], layout.nodes[path.b]) > radius + path.width / 2 + 2, prop.kind .. " at " .. prop.position[1] .. "," .. prop.position[3] .. " obstructs " .. path.a .. "->" .. path.b)
                 end
             end
+        end
+    end)
+    test("new southern regions have distinctive source scenery and collision-safe props", function()
+        local regions, kinds = {}, {}
+        for _, region in layout.regions do regions[region.id] = region end
+        assert(regions.gardens.name == "SUNPETAL GARDENS" and regions.mesa.name == "CLOUDSTEP MESA")
+        assert(layout.nodes[regions.gardens.node][3] > 450 and layout.nodes[regions.mesa.node][3] > 450)
+        for _, prop in layout.props do
+            kinds[prop.kind] = true
+            assert(prop.collidable == (prop.kind == "dock"), "scenery cannot obstruct walking or catch runners")
+        end
+        for _, kind in { "flowerbed", "roundHill", "cloud", "cottage", "arch", "pennants" } do
+            assert(kinds[kind], "missing authored scenery: " .. kind)
         end
     end)
     return count

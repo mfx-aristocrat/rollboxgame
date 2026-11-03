@@ -1,6 +1,8 @@
 local World = {}
 local WorldLayout = require(game:GetService("ReplicatedStorage").Shared.WorldLayout)
 local TerrainWorld = require(script.Parent.TerrainWorld)
+local AdventureLayout = require(game:GetService("ReplicatedStorage").Shared.AdventureLayout)
+local AdventureWorld = require(script.Parent.AdventureWorld)
 
 function World.build(config)
     local existing = workspace:FindFirstChild("SwitchbackWorld")
@@ -37,12 +39,13 @@ function World.build(config)
         corner.Parent = label
         return anchor
     end
-    local dark = Color3.fromRGB(42, 54, 76)
-    local rail = Color3.fromRGB(99, 125, 156)
+    local dark = Color3.fromRGB(100, 193, 76)
+    local rail = Color3.fromRGB(224, 159, 93)
     local mint = Color3.fromRGB(114, 245, 182)
     TerrainWorld.build(model, WorldLayout.create(config))
     -- Root height is ~12; deck top is 9.5. All landings are ordinary anchored parts.
     local function deck(name, x, z, width, length)
+        part(name .. "Cliff", Vector3.new(width, 6, length), Vector3.new(x, 4.5, z), Color3.fromRGB(204, 134, 76), Enum.Material.Sandstone)
         part(name, Vector3.new(width, 2, length), Vector3.new(x, 8.5, z), dark)
     end
     deck("DepotRoof", 0, 2, 38, 26)
@@ -54,6 +57,10 @@ function World.build(config)
     deck("ShortcutLanding", 0, -81, 10, 10)
     deck("ShortcutExit", 0, -92, 10, 8)
     deck("FinalLane", 0, -125, 20, 66)
+    -- Contrasting stone pavers make the delivery direction readable on the grass.
+    for index = 0, 5 do
+        part("DepotPaver" .. index, Vector3.new(5, 0.12, 2.4), Vector3.new(0, 9.56, 8 - index * 6), Color3.fromRGB(255, 226, 163))
+    end
     -- Buildings below the deck are decorative and do not supply alternate gates.
     for index = 1, 8 do
         local side = if index % 2 == 0 then 1 else -1
@@ -91,10 +98,12 @@ function World.build(config)
     end
     part("DeliveryPad", Vector3.new(14, 0.3, 9), Vector3.new(0, 9.7, -148), mint, Enum.Material.Neon)
     sign("DestinationSign", Vector3.new(0, 19, -148), "DELIVER HERE\nAll four gates → 25 coins", mint)
+    local adventure = AdventureWorld.build(model, AdventureLayout.create(config))
     local lighting = game:GetService("Lighting")
-    lighting.ClockTime, lighting.Brightness = 10, 2
-    lighting.Ambient = Color3.fromRGB(150, 166, 194)
-    return { model = model, prompt = prompt }
+    lighting.ClockTime, lighting.Brightness = 11, 2.5
+    lighting.Ambient = Color3.fromRGB(170, 180, 206)
+    lighting.OutdoorAmbient = Color3.fromRGB(186, 199, 223)
+    return { model = model, prompt = prompt, adventure = adventure }
 end
 
 return World

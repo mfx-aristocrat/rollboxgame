@@ -1,0 +1,65 @@
+{
+  "status": "FAIL",
+  "assertions": {
+    "outfit": true,
+    "outfitPhysics": true,
+    "world": true,
+    "catalog": true,
+    "walkCollection": false,
+    "hud": true,
+    "tokenOnce": false,
+    "farCrate": true,
+    "cratePrompt": true,
+    "crateReward": true,
+    "crateOnce": true,
+    "deliveryEconomy": true,
+    "springMotion": true,
+    "pickup": true,
+    "respawn": true,
+    "respawnCollection": true,
+    "noClientErrors": true,
+    "fixture": true,
+    "completed": true,
+    "succeeded": false,
+    "noServerErrors": true
+  },
+  "testResult": {
+    "finished": true,
+    "score": 6,
+    "springUpSpeed": 53.0567626953125,
+    "springMaxY": 16.400741577148438,
+    "outfitParts": 24,
+    "reason": "adventure_failed",
+    "fixture": "adventure-engine-v1",
+    "client": {
+      "expedition": "EXPLORE  2/40 finds  •  6 points  •  0/6 pennants",
+      "errors": []
+    },
+    "assertions": {
+      "outfitPhysics": true,
+      "springMotion": true,
+      "walkCollection": false,
+      "tokenOnce": false,
+      "respawnCollection": true,
+      "crateReward": true,
+      "outfit": true,
+      "world": true,
+      "crateOnce": true,
+      "deliveryEconomy": true,
+      "cratePrompt": true,
+      "hud": true,
+      "catalog": true,
+      "pickup": true,
+      "farCrate": true,
+      "respawn": true,
+      "noClientErrors": true
+    },
+    "serverErrors": []
+  },
+  "cleanup": {
+    "verified": true,
+    "reused": 0,
+    "changed": 2,
+    "status": "CLEANED"
+  }
+}

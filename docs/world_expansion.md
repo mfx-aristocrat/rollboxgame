@@ -1,5 +1,7 @@
 # Source-generated exploration world
 
+Current platformer extension (2026-11-03): [platformer_expansion.md](platformer_expansion.md) adds Sunpetal Gardens and Cloudstep Mesa, expanding bounds to x[-560,560], z[-460,900] (**1120×1360 studs**). There are six regions, 20 terrain surfaces and 35 path links; source builders produce 603 landscape Parts and 120 adventure Parts, within caps of 1100/240. Scenery includes rounded hills, oversized flowers, cloud puffs, cottages, arches and pennants. 40 personal session collectibles and four spring pads are described in the expansion brief. The earlier four-region contract and initial evidence below remain historical context; runtime evidence is recorded separately in studio_validation.md.
+
 Scope authorized 2026-11-03: enlarge the environment while retaining the Training slice and its pending runtime gates. This environmental expansion does not add scored routes, unlocks, rewards or purchases.
 
 ## Acceptance contract (before implementation)
