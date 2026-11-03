@@ -27,7 +27,7 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Deliverables: source-generated world, server gameplay, client controls/UI, core-rule tests, exact Studio validation script.
 - Acceptance: design's slice criteria demonstrated; server validates actions; free retry/recovery; two-player isolation; touch/desktop controls. Evaluate fun/clarity before adding substantial content.
 - Automated checks: core gameplay unit tests, invalid remote/rate-limit tests, place build/smoke. Studio: new player full loop, two clients, touch emulator, death/respawn; record observations and revise design.
-- Evidence: Training world/server/client source implemented, 20 pure gameplay cases pass; all Luau compiles and repeated builds match. Required Studio S01–S09 remain pending because computer-use cannot capture the Studio window; user has installed/opened it. Commit/push recorded in state; no merge to main until required gates pass. No substantial content expansion before slice evaluation.
+- Evidence: Training world/server/client source implemented, 20 pure gameplay cases pass; all Luau compiles and repeated builds match. Commit **e4794e8** pushed to develop; Windows/Ubuntu CI **41550690715 SUCCESS**. Required Studio S01–S09 remain pending because computer-use cannot capture the Studio window; user has installed/opened it. No merge to main until required gates pass. No substantial content expansion before slice evaluation.
 
 ## M04 — Persistent progression and lifecycle reliability
 - Objective/scope: versioned saves, test/production separation, bounded retries, session ownership, shutdown/disconnect safety and failure UI.
@@ -36,7 +36,7 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Deliverables: persistence adapter/service, progression integration, failure-recovery tests and configuration instructions.
 - Acceptance: new/returning player retains progression, failed load cannot overwrite saves, stale servers cannot write, concurrent sessions handled, failed writes recover visibly.
 - Automated checks: fake-store load/save/retry/conflict/migration cases. Studio: private published test experience with API access, reconnect and simultaneous clients. Pending account access blocks runtime completion.
-- Evidence: 37 persistence and 13 lifecycle fake-store cases pass; versioned codec, lease/retry/operation deduplication, guarded server adapter and lifecycle integration implemented. Astra/xhigh review's lease-renewal race fixed and regression-tested; late load/save cleanup also tested. Disabled by default. Required private-service Studio P01–P05 pending; M03 also pending. Commit/push recorded in state; not merged to main.
+- Evidence: 37 persistence and 13 lifecycle fake-store cases pass; versioned codec, lease/retry/operation deduplication, guarded server adapter and lifecycle integration implemented. Astra/xhigh review's lease-renewal race fixed and regression-tested; late load/save cleanup also tested. Commit **e4794e8** pushed to develop; Windows/Ubuntu CI **41550690715 SUCCESS**. Disabled by default. Required private-service Studio P01–P05 pending; M03 also pending. Not merged to main.
 
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.

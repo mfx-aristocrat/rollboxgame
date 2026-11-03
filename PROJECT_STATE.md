@@ -5,7 +5,8 @@ Updated: 2026-11-03 (Europe/Warsaw). Source implemented through Training slice a
 ## Repository and current work
 - Repository: https://github.com/mfx-aristocrat/rollboxgame (public; preserved).
 - Working branch: develop.
-- Last verified stable local main and origin/main: fd712fa7db106e282680d94b49925cb35dff691e. M01 (801769d) and M02 (e77a0b7 + fd712fa) are committed, pushed and merged. Remote develop also fd712fa at the last pre-implementation push check; implementation push pending below.
+- Last verified stable local main and origin/main: fd712fa7db106e282680d94b49925cb35dff691e. M01 (801769d) and M02 (e77a0b7 + fd712fa) are committed, pushed and merged.
+- Last verified implementation local develop and origin/develop: **e4794e85a114f657f7628504bac81bca91d88dd5**, committed/pushed and checked via ls-remote. Working tree clean after that push. This handoff-only documentation update follows it; inspect Git for the latest documentation HEAD when resuming.
 - Current milestones: M03 and M04 AWAITING_VALIDATION; source and automated tests implemented, mandatory runtime gates pending. M05 expansion blocked on observed slice feedback. M06 not complete.
 - User brief preserved in Git. Original README content preserved as docs/original_obby_guide.md; current uppercase README.md documents the actual project.
 
@@ -14,6 +15,7 @@ Updated: 2026-11-03 (Europe/Warsaw). Source implemented through Training slice a
 - PowerShell 7.6.5, Python 3.15.1 and Git/gh available. Pinned local Rojo 7.7.1 and Lune 0.11.1 installed with archive hashes verified; setup/CI also support Linux x86_64. No Luau type analysis or engine simulation claimed.
 - User installed and signed into Studio. Executable verified present at LOCALAPPDATA/Roblox/Versions/version-7062aec9dbe74b14/RobloxStudioBeta.exe. Studio runtime checks not yet performed. No credentials stored in source/state.
 - M02 Windows/Linux CI passed on develop (41549094589) and main (41549127631); original foundation CI 41548927180 also passed.
+- Implementation CI [41550690715](https://github.com/mfx-aristocrat/rollboxgame/actions/runs/41550690715) for e4794e8: **both Windows and Ubuntu jobs SUCCESS**, head SHA verified. Built place artifact available from that run. Runtime gates still pending.
 - Latest local scripts/check.ps1: 14 Luau files compile; **70 behavioral cases pass** (20 gameplay, 37 persistence, 13 lifecycle); place mapping/source checks pass; two byte-identical builds. build/RollboxGame.rbxlx SHA256: 2b559a2d396f64222d641a89f80a3453dbfdf42e4444bc5151a9a187499a4043 (regenerate after any source change).
 - This validates pure rules/fake stores and serialized place structure, not Roblox engine behavior, real saving, performance or player comprehension.
 - No Studio playtests run.
@@ -38,8 +40,7 @@ Updated: 2026-11-03 (Europe/Warsaw). Source implemented through Training slice a
 - Five unfamiliar testers (two touch), real baseline mobile hardware, private experience/API access and Studio permission remain external gates. M05 content must wait for S01–S09 evidence.
 
 ## Exact next actions
-1. Commit/push reviewed pending-runtime work to develop only, inspect both CI jobs, then record actual implementation SHA and remote verification. Automated checks currently pass; reviews addressed.
-2. Enable Studio in computer-use app permissions (user action). Open the generated build/RollboxGame.rbxlx in Studio and run docs/studio_validation.md S01–S08: first loop twice→Mint, wrong gate/fall/reset, two clients and touch layouts. Record actual Output/screenshots/failures; revise and retest as needed.
-3. Arrange S09 with five unfamiliar testers, two touch; require 4/5 first delivery <3 min and correct explanation, 3/5 voluntary retry. If the gate fails, revise the mechanic; do not add routes to compensate.
-4. Create/publish a private test experience only; owner configures API access. Follow docs/persistence.md to set the actual test universe ID, enable test persistence and run P01–P05/reconnect/failure/ownership cases. Keep production disabled.
-5. Mark M03/M04 DONE only with required runtime evidence, then complete their develop→main Git workflow. Resume M05 content/pass tests and M06 release/hardware/account checks. Public release or paid expenditure still requires explicit approval.
+1. Enable Studio in computer-use app permissions (user action). Open `C:\Users\micha\OneDrive\Dokumenty\ChatGPT\RollboxGame\build\RollboxGame.rbxlx` in Studio (File > Open from File), start F5, and run docs/studio_validation.md S01–S08: first loop twice→Mint, wrong gate/fall/reset, two clients and touch layouts. Record actual Output/screenshots/failures; revise and retest as needed. All currently unblocked implementation/review/automated checks are saved and pushed; no claimed engine run.
+2. Arrange S09 with five unfamiliar testers, two touch; require 4/5 first delivery <3 min and correct explanation, 3/5 voluntary retry. If the gate fails, revise the mechanic; do not add routes to compensate.
+3. Create/publish a private test experience only; owner configures API access. Follow docs/persistence.md to set the actual test universe ID, enable test persistence and run P01–P05/reconnect/failure/ownership cases. Keep production disabled.
+4. Mark M03/M04 DONE only with required runtime evidence, then complete their develop→main Git workflow. Resume M05 content/pass tests and M06 release/hardware/account checks. Public release or paid expenditure still requires explicit approval.
