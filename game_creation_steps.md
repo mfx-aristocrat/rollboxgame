@@ -63,6 +63,7 @@ Repository update 2026-11-03: user merged PR #1 into main (260d22c), bringing th
 - Git evidence: base main 260d22c (user-merged PR #1), fast-forwarded into develop preserving clean source. Expansion commit/CI recorded in PROJECT_STATE.md after push. Do not merge as a completed milestone while mandatory runtime checks remain pending.
 - Expansion pushed as **800d793ef72e442e6b881229e7ce0dbba350c028**; Windows/Ubuntu CI **41679099759 SUCCESS**, remote SHAs verified. [Draft PR #2](https://github.com/mfx-aristocrat/rollboxgame/pull/2) open against main; no merge while the remaining gates are pending.
 - Floor-flicker feedback subtask (2026-11-03) validated: zero exposed conflicting floor planes (27 → 0), <=0.5-stud walking transitions, reachable collectibles/springs; 123 standalone cases and 22/22 real Studio assertions pass. Eight affected floor gaps all 0 before, 0.125–0.375 studs after; scoped desktop visual check passed, fixtures cleaned. Git evidence in PROJECT_STATE.md; diagnosis in docs/floor_flicker_fix.md. Parent M03-R2 remains AWAITING_VALIDATION for its broader gates.
+- Floor repair commit **22f35705505c8eb0e4f3401bb85abc62e7acc530** pushed to develop; Windows/Ubuntu CI **41683230503 SUCCESS**, both remote heads verified. Existing draft PR #2 updated; main remains unchanged.
 
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.
