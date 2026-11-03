@@ -47,7 +47,7 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Automated checks: red→green production-call-chain pickup tests, bounds/path connectivity/grade/clearance world checks, all existing suites and reproducible build, Windows/Linux CI.
 - Studio checks: approach the box from both sides and boundary distances, press E/tap prompt, confirm visible carried box and Running HUD; two clients independently pick up; walk all terrain paths; fall/respawn and complete original route. User report is not evidence these revised tests passed.
 - Evidence: 17 production-entrypoint pickup adapters and 7 world checks pass, total 94 behavioral cases; 18 Luau compile; repeated builds match. Source pickup range mismatch reproduced before fix; geometry tests also found and fixed plaza/terrain/ramp/junction obstructions. Studio R01–R06 pending due app permission; no main merge before required runtime validation.
-- Git evidence: current revision commit/push and CI recorded in PROJECT_STATE.md; develop only.
+- Git evidence: **db4cb69** committed/pushed to develop; Windows and Ubuntu CI **41554997023 SUCCESS**, remote code SHA verified. Handoff documentation follows in a separate commit. No main merge while R01–R06/runtime gates are pending.
 
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.
