@@ -18,34 +18,34 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Deliverables: tool lock/setup scripts, Rojo mapping, source folders, smoke check, CI, README setup and source-of-truth rules.
 - Acceptance: clean setup, explicit tool versions, successful repeated build with matching hash, generated place contains server/client/shared scripts, CI runs same checks.
 - Automated checks: tool version checks, build twice/hash, generated-place structural smoke test, diff check. Studio: opening the generated place is deferred to M03 runtime gate and must remain explicit.
-- Git evidence: foundation e77a0b7; Windows and Ubuntu CI both passed in Actions run 41548927180. Completion documentation/whitespace commit follows; main fast-forward merge and remote heads verified in state. Roblox opening deferred to M03.
+- Git evidence: foundation e77a0b7; completion fd712fa. Windows and Ubuntu CI passed (41548927180; final develop 41549094589, main 41549127631). Both remote heads verified fd712fa7db106e282680d94b49925cb35dff691e. Roblox opening deferred to M03.
 
 ## M03 — Playable vertical slice
 - Objective/scope: one environment, central mechanic, onboarding, essential responsive UI and a complete session progression cycle, according to the selected design.
 - Dependencies: M01, M02.
-- Status: IN_PROGRESS.
+- Status: AWAITING_VALIDATION.
 - Deliverables: source-generated world, server gameplay, client controls/UI, core-rule tests, exact Studio validation script.
 - Acceptance: design's slice criteria demonstrated; server validates actions; free retry/recovery; two-player isolation; touch/desktop controls. Evaluate fun/clarity before adding substantial content.
 - Automated checks: core gameplay unit tests, invalid remote/rate-limit tests, place build/smoke. Studio: new player full loop, two clients, touch emulator, death/respawn; record observations and revise design.
-- Git evidence: pending. Remain AWAITING_VALIDATION if Studio unavailable; no substantial content expansion before slice evaluation.
+- Evidence: Training world/server/client source implemented, 20 pure gameplay cases pass; all Luau compiles and repeated builds match. Required Studio S01–S09 remain pending because computer-use cannot capture the Studio window; user has installed/opened it. Commit/push recorded in state; no merge to main until required gates pass. No substantial content expansion before slice evaluation.
 
 ## M04 — Persistent progression and lifecycle reliability
 - Objective/scope: versioned saves, test/production separation, bounded retries, session ownership, shutdown/disconnect safety and failure UI.
 - Dependencies: M03 design interfaces; implementation/tests may proceed independently while M03 runtime remains pending. Completion requires M03.
-- Status: IN_PROGRESS.
+- Status: AWAITING_VALIDATION.
 - Deliverables: persistence adapter/service, progression integration, failure-recovery tests and configuration instructions.
 - Acceptance: new/returning player retains progression, failed load cannot overwrite saves, stale servers cannot write, concurrent sessions handled, failed writes recover visibly.
 - Automated checks: fake-store load/save/retry/conflict/migration cases. Studio: private published test experience with API access, reconnect and simultaneous clients. Pending account access blocks runtime completion.
-- Git evidence: pending.
+- Evidence: 37 persistence and 13 lifecycle fake-store cases pass; versioned codec, lease/retry/operation deduplication, guarded server adapter and lifecycle integration implemented. Astra/xhigh review's lease-renewal race fixed and regression-tested; late load/save cleanup also tested. Disabled by default. Required private-service Studio P01–P05 pending; M03 also pending. Commit/push recorded in state; not merged to main.
 
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.
 - Dependencies: validated M03; M04 for persistent unlocks.
-- Status: TODO.
+- Status: BLOCKED.
 - Deliverables: initial release content and cosmetic configuration, purchase flow/tests as applicable, asset register and UI review.
 - Acceptance: design's release scope and quality budgets met; satisfying free loop; unconfigured purchases hidden; server verifies entitlements. Developer products, if later added, require durable receipt deduplication and failure tests.
 - Automated checks: economy/inventory/purchase tests, security review, build/check. Studio: successful/cancelled purchases via supported testing, desktop/touch UX, multi-client and performance gates.
-- Git evidence: pending.
+- Git evidence: none; intentionally blocked on observed M03 slice gate. Three-route scope and pass configuration documented; only Training/Mint implemented. No invented IDs or paid actions.
 
 ## M06 — Private release candidate and deployment handoff
 - Objective/scope: reproducible release candidate, private publishing/configuration, release verification and rollback instructions.
@@ -54,7 +54,7 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Deliverables: release checklist, exact account configuration, validation evidence, build checksum and rollback procedure.
 - Acceptance: mandatory tests pass, account settings/IDs verified, no unresolved material bugs, final validated code merged/pushed. Public release remains separate explicit approval.
 - Automated checks: all CI + clean build; verified remote SHAs. Studio: first-time/returning/mobile/multiplayer/reconnect/performance and private published smoke tests.
-- Git evidence: pending.
+- Git evidence: none; docs/deployment.md is preparatory only, runtime/account prerequisites not verified.
 
 ## Expansion backlog
 Additional environments, social events, leaderboards, developer products and user-generated content require separate scope/evidence after the initial release is validated.
