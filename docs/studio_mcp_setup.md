@@ -10,6 +10,10 @@ Installed 2026-11-03 on this Windows host at the user's request: the exact unsco
 - SDK smoke check initialized server version 2.6.0, discovered **69 tools**, and called `get_connected_instances`: **0 instances**. Server startup/tool discovery passed; Studio connection and runtime tests have **not** passed. The temporary check process was closed after verification.
 - No game, place, scripts, account permissions, publishing settings or saved data were modified by the installation.
 
+### Connection verified — 2026-11-03
+
+Native Codex MCP tools are now available. `get_connected_instances` returned one Edit session; `get_place_info` read **Place1**, place ID **101188910650353**, universe ID **10774439666**. `execute_luau` explicitly targeted Edit and returned JSON confirming `IsStudio=true`, `IsRunning=false`. This proves connection, metadata read and read-only plugin-context Luau execution. No place was changed and no playtest was started. Source/build identity and place visibility remain unverified; inspect them before gameplay testing. Rediscover the instance each session. The installed tool set does not expose `get_studio_state`; use its actual supported schemas rather than assuming another fork's API.
+
 ## Finish connecting (user actions)
 
 1. Save current Studio work. Fully close and reopen Roblox Studio to load the local plugin. Do not discard unsaved work or publish publicly for this setup.
