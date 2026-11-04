@@ -1,0 +1,600 @@
+{
+  "status": "FAIL",
+  "assertions": {
+    "initiallyLocked": true,
+    "lockedRejected": true,
+    "farCrate": true,
+    "nativeMushroom": true,
+    "hud": true,
+    "onceOnly": true,
+    "higherJump": true,
+    "oneExtraRise": true,
+    "holdBlocked": false,
+    "thirdBlocked": true,
+    "landingRecharge": false,
+    "malformedRejected": false,
+    "focusBlocked": false,
+    "grass": true,
+    "pickup": true,
+    "poweredDelivery": false,
+    "deliveryReward": true,
+    "respawnRetention": true,
+    "noClientErrors": false,
+    "fixture": true,
+    "completed": true,
+    "succeeded": false,
+    "noServerErrors": true
+  },
+  "testResult": {
+    "players": 2,
+    "finished": true,
+    "livePlayers": 2,
+    "reason": "powerups_failed",
+    "intents": [
+      {
+        "y": 12.6015625,
+        "arguments": 1,
+        "stage": "lockedForge",
+        "vy": 0.5634765625
+      },
+      {
+        "y": 13.41132926940918,
+        "arguments": 1,
+        "stage": "double",
+        "vy": 0
+      },
+      {
+        "y": 15.005633354187012,
+        "arguments": 1,
+        "stage": "third",
+        "vy": 0
+      },
+      {
+        "y": 13.585664749145508,
+        "arguments": 2,
+        "stage": "malformed",
+        "vy": 0
+      }
+    ],
+    "stages": {
+      "initial": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "explorationScore": 0
+        },
+        "peak": 12.618025779724121,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 0,
+        "base": 12.618025779724121,
+        "ability": "MUSHROOM • Find the crate on the west trail"
+      },
+      "cyanTwo": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.498024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "hold": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 1,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.88263702392578,
+        "rises": 0,
+        "height": 7.26461124420166,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "opened": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "malformed": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 1,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.884355545043945,
+        "rises": 0,
+        "height": 7.266329765319824,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "respawn": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 25,
+          "completedRuns": 1,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 13.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 13.498024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "otherLocked": {
+        "errors": [
+          "Players.Player1.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "explorationScore": 0
+        },
+        "peak": 13.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 0,
+        "base": 13.498024940490723,
+        "ability": "MUSHROOM • Find the crate on the west trail"
+      },
+      "cyanFour": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.498024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "otherOpened": {
+        "errors": [
+          "Players.Player1.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 0
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "carryingJump": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "pickup": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "single": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "explorationScore": 0
+        },
+        "peak": 12.618025779724121,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 0,
+        "base": 12.618025779724121,
+        "ability": "MUSHROOM • Find the crate on the west trail"
+      },
+      "quick": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.884355545043945,
+        "rises": 0,
+        "height": 7.266329765319824,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "amberThree": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.498024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "lockedForge": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "explorationScore": 0
+        },
+        "peak": 12.618025779724121,
+        "rises": 0,
+        "height": 0.1180257797241211,
+        "crateEvents": 0,
+        "base": 12.5,
+        "ability": "MUSHROOM • Find the crate on the west trail"
+      },
+      "focus": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.887187957763672,
+        "rises": 0,
+        "height": 7.269162178039551,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "double": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "explorationScore": 1
+        },
+        "peak": 26.620620727539062,
+        "rises": 1,
+        "height": 14.002594947814941,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "delivered": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Completed",
+          "coins": 25,
+          "completedRuns": 1,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "late": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.618025779724121,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "farCrate": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "explorationScore": 0
+        },
+        "peak": 12.618025779724121,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 0,
+        "base": 12.618025779724121,
+        "ability": "MUSHROOM • Find the crate on the west trail"
+      },
+      "duplicateCrate": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "third": {
+        "errors": [
+          "Players.Player2.PlayerScripts.ChatScript:116: Error calling SetCore CoreGuiChatConnections: SetCore: CoreGuiChatConnections has not been registered by the CoreScripts"
+        ],
+        "spaceEvents": 3,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "explorationScore": 1
+        },
+        "peak": 26.638412475585938,
+        "rises": 1,
+        "height": 14.020386695861816,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      }
+    },
+    "fixture": "powerups-engine-v1",
+    "readyPlayers": 2,
+    "assertions": {
+      "grass": true,
+      "oneExtraRise": true,
+      "initiallyLocked": true,
+      "holdBlocked": false,
+      "onceOnly": true,
+      "deliveryReward": true,
+      "independentLock": true,
+      "higherJump": true,
+      "noClientErrors": false,
+      "focusBlocked": false,
+      "independentCrate": true,
+      "nativeMushroom": true,
+      "poweredDelivery": false,
+      "landingRecharge": false,
+      "thirdBlocked": true,
+      "hud": true,
+      "lockedRejected": true,
+      "pickup": true,
+      "farCrate": true,
+      "malformedRejected": false,
+      "respawnRetention": true
+    },
+    "serverErrors": []
+  },
+  "cleanup": {
+    "verified": true,
+    "reused": 0,
+    "changed": 2,
+    "status": "CLEANED"
+  }
+}

@@ -13,7 +13,7 @@ Assume one developer, no advertising budget, no external artist, and original ge
 1. At a route's depot, interact to take a parcel. The server creates a unique run ID, records route/start time, sets polarity to Amber, and expects gate 1.
 2. Press **Q** or the large **Switch** touch button to toggle Amber/Cyan. Both show a symbol and text as well as color. Server enforces a **0.5-second cooldown**; this is not a resource and never costs currency.
 3. Cross gates in their authored order with matching polarity. A gate is a visible frame/trigger, not a client-controlled unlock. The server verifies the expected gate, alive character, position, polarity and feasible timing before advancing.
-4. Wrong polarity returns the character to the preceding safe checkpoint with an explanatory message and brief feedback. The timer continues. A fall also returns to the last safe checkpoint without deleting the parcel; a full character reset/death abandons the current run and offers a free restart.
+4. Wrong polarity returns the character to the preceding safe checkpoint with an explanatory message and brief feedback. The timer continues. Under the user-authorized M03-R4 ocean revision, falling below the course cancels the parcel run and allows native swimming, with shore ramps and a free return action. A full character reset/death also abandons the current run and offers a free restart. Earned coins remain.
 5. Reach the destination after all gates to deliver. Server awards **25 coins**, increments completedRuns once, updates the route's personal best, and shows the result. The run becomes complete before another completion request can grant anything.
 6. Retry immediately, choose another unlocked route, or equip/buy a cosmetic using earned coins. Coins never run out in a way that blocks play.
 
@@ -47,7 +47,7 @@ Desktop: default movement/jump/camera, E or normal prompt activation for depots,
 
 Amber is always accompanied by sun/“A”; Cyan by moon/“C”. Use shape/text markers even if lighting or color perception changes. Preserve normal camera freedom; avoid strobe effects, forced camera shake or tiny timing-only instructions. Feedback: parcel glow, short gate pulse, completion banner, unobtrusive cooldown fill. Provide reduced-effects and sound toggles if effects/audio are added. No audio asset is required for understanding or completion. Initial sound may remain off until original/licensed clips exist; no unverified asset IDs.
 
-Visual direction: clean toy-scale rooftops, bold courier signage, pale sky, charcoal walkways and clear safety rails. Author parts, materials, lighting and vector/text UI in code. No Toolbox imports, third-party characters, branded imagery or dependency on uploaded art. Later asset additions require origin and license records.
+Visual direction: readable platformer geography and courier signage within a natural coastal presentation. The 2026-11-04 user-authorized revision adds original generated PBR grass/stone/timber/paving, botanical meshes, matte boulders, regional tints, directional lighting and restrained atmosphere. Gameplay cues and source collider geography stay intact. Author layout/UI/configuration in code; track accepted model/material exports through Rojo and record provenance. No copied third-party characters or branded imagery. Details and matched renders: docs/graphics/README.md; execution: graphic_improvement_plan.md.
 
 ## Economy and persistence contract
 
@@ -105,7 +105,7 @@ Build Training, the four ordered gates, one shortcut, switching/recovery, essent
 
 Required automated checks: toggle cooldown; wrong/correct/out-of-order gate; early/duplicate destination; one reward per run; route unlock thresholds; 50-coin Mint purchase and duplicate/insufficient balance requests; malformed/spammed intents; reset/leave cleanup; repeatable build and expected script hierarchy.
 
-Required Studio checks: fresh profile completes pickup → switch → delivery twice → Mint equip; incorrect polarity/fall recovers; reset cancels safely; two clients have independent runs/rewards/polarity; touch and keyboard complete the course; no errors in Output. Then observe **five first-time testers, at least two on touch**: four deliver within three minutes without spoken instruction, four can explain polarity, and three voluntarily retry. Record counts and observations rather than inventing statistical confidence. Execute and record these checks in [studio_validation.md](studio_validation.md). The coordinator may use structured manual instructions when account access is unavailable, but instructions are not test results.
+Required Studio checks: fresh profile completes pickup → switch → delivery twice → Mint equip; incorrect polarity recovers; a fall cancels into swimming and shore return; reset cancels safely; two clients have independent runs/rewards/polarity; touch and keyboard complete the course; no errors in Output. Then observe **five first-time testers, at least two on touch**: four deliver within three minutes without spoken instruction, four can explain polarity, and three voluntarily retry. Record counts and observations rather than inventing statistical confidence. Execute and record these checks in [studio_validation.md](studio_validation.md). The coordinator may use structured manual instructions when account access is unavailable, but instructions are not test results.
 
 If clarity or interest fails, revise gate spacing, switch feedback, shortcut value or control placement and repeat the affected tests. Reduce the mechanic if touch overload is the cause. Do not add routes or cosmetics to hide a failed central loop. Keep M03 `AWAITING_VALIDATION` until runtime and player-observation gates pass.
 
@@ -129,6 +129,8 @@ Performance numbers are **project targets**, not Roblox requirements or achieved
 After private launch testing, record early bounce, first delivery, voluntary replay and day-1/day-7 returns with cohort sizes and source. These are product learning measures, not additional invented “industry standard” release numbers. Re-evaluate the demand hypothesis before advertising expenditure or a large expansion.
 
 ## Deferred expansion and planning transition
+
+User-authorized 2026-11-03 expansion after PR #1: the new [platformer expansion brief](platformer_expansion.md) supersedes the earlier content-freeze assumption for this specific task. Two regions, source-built courier outfit and session-only exploration items/springs may proceed alongside pending slice validation. It adds no scored delivery routes or saved-economy changes, and does not pass the original observation, multiplayer, persistence or release gates.
 
 ### 2026-11-03 feedback revision
 

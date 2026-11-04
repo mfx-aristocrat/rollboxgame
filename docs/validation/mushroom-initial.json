@@ -1,0 +1,484 @@
+{
+  "status": "FAIL",
+  "assertions": {
+    "initiallyLocked": true,
+    "lockedRejected": true,
+    "farCrate": true,
+    "nativeMushroom": true,
+    "hud": true,
+    "onceOnly": true,
+    "higherJump": true,
+    "oneExtraRise": true,
+    "holdBlocked": true,
+    "thirdBlocked": false,
+    "landingRecharge": false,
+    "malformedRejected": true,
+    "focusBlocked": true,
+    "grass": true,
+    "pickup": true,
+    "poweredDelivery": false,
+    "deliveryReward": true,
+    "respawnRetention": true,
+    "noClientErrors": true,
+    "fixture": true,
+    "completed": true,
+    "succeeded": false,
+    "noServerErrors": true
+  },
+  "testResult": {
+    "players": 1,
+    "finished": true,
+    "stages": {
+      "initial": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "explorationScore": 0
+        },
+        "peak": 12.617935180664062,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 0,
+        "base": 12.617935180664062,
+        "ability": "MUSHROOM • Find the crate on the west trail"
+      },
+      "cyanTwo": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.498024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "hold": {
+        "errors": [],
+        "spaceEvents": 1,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.884355545043945,
+        "rises": 0,
+        "height": 7.266329765319824,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "opened": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "malformed": {
+        "errors": [],
+        "spaceEvents": 1,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.88263702392578,
+        "rises": 0,
+        "height": 7.26461124420166,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "respawn": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 25,
+          "completedRuns": 1,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 13.490133285522461,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 13.490133285522461,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "lockedForge": {
+        "errors": [],
+        "spaceEvents": 1,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "explorationScore": 0
+        },
+        "peak": 19.884355545043945,
+        "rises": 0,
+        "height": 7.266329765319824,
+        "crateEvents": 0,
+        "base": 12.618025779724121,
+        "ability": "MUSHROOM • Find the crate on the west trail"
+      },
+      "carryingJump": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.889354705810547,
+        "rises": 0,
+        "height": 7.266329765319824,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "cyanFour": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.498024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "single": {
+        "errors": [],
+        "spaceEvents": 1,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "explorationScore": 0
+        },
+        "peak": 19.88263702392578,
+        "rises": 0,
+        "height": 7.26461124420166,
+        "crateEvents": 0,
+        "base": 12.618025779724121,
+        "ability": "MUSHROOM • Find the crate on the west trail"
+      },
+      "quick": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "explorationScore": 1
+        },
+        "peak": 21.17801856994629,
+        "rises": 0,
+        "height": 8.559992790222168,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "amberThree": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.498024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "double": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "explorationScore": 1
+        },
+        "peak": 24.98369789123535,
+        "rises": 1,
+        "height": 12.36567211151123,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "pickup": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Running",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "focus": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.884355545043945,
+        "rises": 0,
+        "height": 7.266329765319824,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "delivered": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Completed",
+          "coins": 25,
+          "completedRuns": 1,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "late": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.884355545043945,
+        "rises": 1,
+        "height": 7.266329765319824,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "farCrate": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "explorationScore": 0
+        },
+        "peak": 12.618025779724121,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 0,
+        "base": 12.618025779724121,
+        "ability": "MUSHROOM • Find the crate on the west trail"
+      },
+      "duplicateCrate": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      },
+      "third": {
+        "errors": [],
+        "spaceEvents": 3,
+        "snapshot": {
+          "state": "Idle",
+          "coins": 0,
+          "completedRuns": 0,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "explorationScore": 1
+        },
+        "peak": 19.838960647583008,
+        "rises": 0,
+        "height": 7.220934867858887,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP • Press Space twice"
+      }
+    },
+    "fixture": "powerups-engine-v1",
+    "serverErrors": [],
+    "assertions": {
+      "grass": true,
+      "oneExtraRise": true,
+      "initiallyLocked": true,
+      "holdBlocked": true,
+      "onceOnly": true,
+      "deliveryReward": true,
+      "higherJump": true,
+      "focusBlocked": true,
+      "noClientErrors": true,
+      "nativeMushroom": true,
+      "thirdBlocked": false,
+      "landingRecharge": false,
+      "hud": true,
+      "lockedRejected": true,
+      "poweredDelivery": false,
+      "pickup": true,
+      "farCrate": true,
+      "malformedRejected": true,
+      "respawnRetention": true
+    },
+    "reason": "powerups_failed"
+  },
+  "cleanup": {
+    "verified": true,
+    "reused": 0,
+    "changed": 2,
+    "status": "CLEANED"
+  }
+}

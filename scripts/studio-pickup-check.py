@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the real E-key pickup regression through an existing local MCP bridge.
+"""Run real pickup/adventure regressions through an existing local MCP bridge.
 
 Requires robloxstudio-mcp 2.6.0, one connected Edit instance, and the current
 source already synchronized to Studio. Never publishes, changes game source or
@@ -64,10 +64,11 @@ def long_string(value):
     return "[" + equals + "[" + value + "]" + equals + "]"
 
 
-def fixtures():
+def fixtures(suite="pickup"):
+    stem = {"pickup": "Pickup", "adventure": "Adventure", "powerups": "Powerups", "ocean": "Ocean"}[suite]
     specs = (
-        ("ServerScriptService", "__RollboxPickupRuntimeProbe", "Script", "pickup.server.luau"),
-        ("StarterPlayerScripts", "__RollboxPickupRuntimeClient", "LocalScript", "pickup.client.luau"),
+        ("ServerScriptService", "__Rollbox" + stem + "RuntimeProbe", "Script", suite + ".server.luau"),
+        ("StarterPlayerScripts", "__Rollbox" + stem + "RuntimeClient", "LocalScript", suite + ".client.luau"),
     )
     return [
         {"parent": parent, "name": name, "className": class_name,
@@ -211,7 +212,30 @@ class Bridge:
         return state
 
 
-def validate_result(result):
+def validate_result(result, suite="pickup"):
+    if suite == "ocean":
+        names = ("seafloorWaterProbe", "terrainPreservation", "locked", "lockedFire", "farCrate", "nativeCrate", "independentAbilities", "noEconomy", "nativeFire", "targetHit", "invalidRejected", "focusBlocked", "cooldown", "projectilesRetired", "dryReturn", "fallCancelled", "nativeSwimming", "swimMotion", "returnLand", "retainedAfterWater", "shoreRamps", "respawn", "noClientErrors")
+        checks=result.get("assertions", {})
+        if not isinstance(checks,dict): checks={}
+        assertions={name:checks.get(name) is True for name in names}
+        assertions.update(fixture=result.get("fixture")=="ocean-engine-v1",completed=result.get("finished") is True,succeeded=result.get("reason")=="ocean_succeeded",noServerErrors=result.get("serverErrors")==[])
+        return assertions
+    if suite == "powerups":
+        names = ("initiallyLocked", "lockedRejected", "farCrate", "nativeMushroom", "hud", "onceOnly", "higherJump", "oneExtraRise", "holdBlocked", "thirdBlocked", "landingRecharge", "malformedRejected", "focusBlocked", "grass", "pickup", "poweredDelivery", "deliveryReward", "respawnRetention", "noClientErrors")
+        checks=result.get("assertions",{})
+        if not isinstance(checks,dict): checks={}
+        assertions = {name: checks.get(name) is True for name in names}
+        assertions.update(fixture=result.get("fixture") == "powerups-engine-v1", completed=result.get("finished") is True,
+                          succeeded=result.get("reason") == "powerups_succeeded", noServerErrors=result.get("serverErrors") == [])
+        return assertions
+    if suite == "adventure":
+        names = ("outfit", "outfitPhysics", "world", "floorLayersSeparated", "catalog", "walkCollection", "hud", "tokenOnce", "farCrate", "cratePrompt", "crateReward", "crateOnce", "deliveryEconomy", "springMotion", "pickup", "respawn", "respawnCollection", "noClientErrors")
+        assertions = {name: result.get("assertions", {}).get(name) is True for name in names}
+        assertions.update(fixture=result.get("fixture") == "adventure-engine-v1",
+                          completed=result.get("finished") is True,
+                          succeeded=result.get("reason") == "adventure_succeeded",
+                          noServerErrors=result.get("serverErrors") == [])
+        return assertions
     client = result.get("client", {})
     assertions = {
         "fixture": result.get("fixture") == "pickup-engine-v1",
@@ -234,7 +258,7 @@ def validate_result(result):
 
 def run(args, evidence):
     bridge = Bridge(args.base_url, evidence)
-    specs = fixtures()
+    specs = fixtures(args.suite)
     evidence["fixtures"] = [
         {"name": spec["name"], "parent": spec["parent"],
          "sha256": hashlib.sha256(spec["source"].encode("utf-8")).hexdigest()}
@@ -258,7 +282,8 @@ def run(args, evidence):
         ambiguous = True
         evidence["start"] = bridge.call("start_playtest", {"mode": "play"}, timeout=45)
         ambiguous = False
-        deadline = time.monotonic() + 45
+        duration = 240 if args.suite == "ocean" else 160 if args.suite == "powerups" else 45
+        deadline = time.monotonic() + duration
         while time.monotonic() < deadline:
             output = bridge.call("get_playtest_output", {"target": "edit"},
                                  timeout=max(0.1, min(8, deadline - time.monotonic())))
@@ -272,7 +297,7 @@ def run(args, evidence):
                 if not isinstance(result, dict):
                     raise CheckFailure("Fixture result is not an object")
                 evidence["testResult"] = result
-                evidence["assertions"] = validate_result(result)
+                evidence["assertions"] = validate_result(result, args.suite)
                 if not all(evidence["assertions"].values()):
                     raise CheckFailure("Runtime assertions failed")
                 break
@@ -280,7 +305,7 @@ def run(args, evidence):
                 raise CheckFailure("Unknown playtest state")
             time.sleep(min(1, max(0, deadline - time.monotonic())))
         else:
-            raise CheckFailure("Playtest did not finish within 45 seconds")
+            raise CheckFailure("Playtest did not finish within the suite timeout")
     finally:
         if touched:
             # Never enqueue a delete behind a timed-out start/install request.
@@ -304,6 +329,7 @@ def run(args, evidence):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", type=local_url, default="http://127.0.0.1:58741")
+    parser.add_argument("--suite", choices=("pickup", "adventure", "powerups", "ocean"), default="pickup")
     parser.add_argument("--output", type=Path, default=ROOT / ".tools" / "pickup-engine-result.json")
     args = parser.parse_args()
     evidence = {"driver": "studio-pickup-check-v1", "status": "FAIL",

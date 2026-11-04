@@ -1,0 +1,23 @@
+{
+  "ClassName": "MaterialVariant",
+  "Properties": {
+    "BaseMaterial": "WoodPlanks",
+    "ColorMap": "rbxassetid://118834280638760",
+    "NormalMap": "rbxassetid://77694131052955",
+    "RoughnessMap": "rbxassetid://122188970948991",
+    "MetalnessMap": "",
+    "StudsPerTile": 6,
+    "MaterialPattern": "Regular",
+    "Attributes": {
+      "RollboxVisualAsset": {
+        "Bool": true
+      },
+      "AssetOrigin": {
+        "String": "Roblox Assistant Material Generator / 2026-11-04"
+      },
+      "GeneratedCandidate": {
+        "String": "Rollbox_WeatheredTimber_v11"
+      }
+    }
+  }
+}

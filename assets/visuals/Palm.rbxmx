@@ -1,0 +1,149 @@
+<roblox version="4">
+  <Item class="Model" referent="0">
+    <Properties>
+      <string name="Name">Palm</string>
+      <BinaryString name="AttributesSerialize">BAAAAAsAAABBc3NldE9yaWdpbgIsAAAAUm9ibG94IEFzc2lzdGFudCBNZXNoIEdlbmVyYXRvciAvIDIwMjYtMTEtMDQQAAAAUHVibGlzaGVkQXNzZXRJZAIOAAAAOTk0MTg0MTI3NzE1MzQSAAAAUm9sbGJveFZpc3VhbEFzc2V0AwEMAAAAU291cmNlSGVpZ2h0BgAAAABFJzNA</BinaryString>
+      <Ref name="PrimaryPart">1</Ref>
+    </Properties>
+    <Item class="Part" referent="1">
+      <Properties>
+        <string name="Name">GroundPivot</string>
+        <bool name="Anchored">true</bool>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Vector3 name="size">
+          <X>0.1000061</X>
+          <Y>0.1000061</Y>
+          <Z>0.1000061</Z>
+        </Vector3>
+        <float name="Transparency">1</float>
+      </Properties>
+    </Item>
+    <Item class="MeshPart" referent="2">
+      <Properties>
+        <string name="Name">trunk_geom</string>
+        <bool name="Anchored">true</bool>
+        <CoordinateFrame name="CFrame">
+          <X>-0.084121704</X>
+          <Y>5.945526</Y>
+          <Z>3.3744812</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">true</bool>
+        <Color3uint8 name="Color3uint8">16777215</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">272</token>
+        <Content name="MeshContent">
+          <uri>rbxassetid://91138529920211</uri>
+        </Content>
+        <token name="RenderFidelity">0</token>
+        <Vector3 name="size">
+          <X>4.296814</X>
+          <Y>11.891052</Y>
+          <Z>10.251389</Z>
+        </Vector3>
+        <Content name="TextureContent">
+          <uri>rbxassetid://79063693814042</uri>
+        </Content>
+        <Vector3 name="InitialSize">
+          <X>4.296807289123535</X>
+          <Y>11.891048431396484</Y>
+          <Z>10.25139045715332</Z>
+        </Vector3>
+      </Properties>
+      <Item class="SurfaceAppearance" referent="surface0">
+        <Properties>
+          <string name="Name">RollboxMeshSurface</string>
+          <Content name="ColorMapContent">
+            <uri>rbxassetid://79063693814042</uri>
+          </Content>
+          <Content name="RoughnessMapContent">
+            <uri>rbxassetid://122188970948991</uri>
+          </Content>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="MeshPart" referent="3">
+      <Properties>
+        <string name="Name">fronds_geom</string>
+        <bool name="Anchored">true</bool>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>12.646042</Y>
+          <Z>-0.27442932</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">true</bool>
+        <Color3uint8 name="Color3uint8">16777215</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">272</token>
+        <Content name="MeshContent">
+          <uri>rbxassetid://112167736252585</uri>
+        </Content>
+        <token name="RenderFidelity">0</token>
+        <Vector3 name="size">
+          <X>16.434982</X>
+          <Y>13.015274</Y>
+          <Z>16.45079</Z>
+        </Vector3>
+        <Content name="TextureContent">
+          <uri>rbxassetid://105487320966350</uri>
+        </Content>
+        <Vector3 name="InitialSize">
+          <X>16.43498420715332</X>
+          <Y>13.015268325805664</Y>
+          <Z>16.450794219970703</Z>
+        </Vector3>
+      </Properties>
+      <Item class="SurfaceAppearance" referent="surface1">
+        <Properties>
+          <string name="Name">RollboxMeshSurface</string>
+          <Content name="ColorMapContent">
+            <uri>rbxassetid://105487320966350</uri>
+          </Content>
+          <Content name="RoughnessMapContent">
+            <uri>rbxassetid://81995746409800</uri>
+          </Content>
+        </Properties>
+      </Item>
+    </Item>
+  </Item>
+</roblox>

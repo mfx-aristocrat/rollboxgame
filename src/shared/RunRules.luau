@@ -6,6 +6,8 @@ end
 local actions = {
 	Start = "transaction", Retry = "transaction", Switch = "switch",
 	BuyMint = "transaction", EquipDefault = "transaction", EquipMint = "transaction", Snapshot = "snapshot",
+	DoubleJump = "jump",
+	ReturnLand = "rescue",
 }
 
 function RunRules.newLimiter(now)
@@ -22,7 +24,7 @@ end
 function RunRules.admitIntent(limiter, action, argument, now)
 	-- No payload tables, instance references, route IDs or client times are accepted.
 	if not take(limiter.total, now, 4, 8) then return false, "rate_limited" end
-	if type(action) ~= "string" or #action > 24 or not actions[action] or argument ~= nil then
+	if type(action) ~= "string" or #action > 24 or not actions[action] or (argument ~= nil and action ~= "DoubleJump") then
 		return false, "invalid_intent"
 	end
 	local group = actions[action]

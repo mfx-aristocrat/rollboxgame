@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "finished": true,
+  "images": 17,
+  "statuses": [
+    {
+      "id": "rbxassetid://79063693814042",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://101095133646738",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://85371546182487",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://118834280638760",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://77694131052955",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://73748699149126",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://107712893093075",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://134268422168072",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://105487320966350",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://122188970948991",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://72568191316169",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://81995746409800",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://111940086684063",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://95783077020096",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://122356647940259",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://122867767711757",
+      "status": "Success"
+    },
+    {
+      "id": "rbxassetid://132430754287090",
+      "status": "Success"
+    }
+  ]
+}

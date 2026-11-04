@@ -1,0 +1,145 @@
+{
+  "driverStatus": "PASS",
+  "startedUtc": "2026-11-03T22:37:58.670199+00:00",
+  "testResult": {
+    "finished": true,
+    "score": 6,
+    "tokenSnapshot": {
+      "message": "+1 trail token",
+      "total": 40,
+      "score": 1,
+      "landmarkTotal": 6,
+      "collected": 1,
+      "collectedIds": [
+        "token-01"
+      ],
+      "landmarks": 0
+    },
+    "serverErrors": [],
+    "reason": "adventure_succeeded",
+    "floorSamples": [
+      {
+        "top": "WalkingPath1",
+        "x": -18.5,
+        "gap": 0.125,
+        "z": 4
+      },
+      {
+        "top": "WalkingPath20",
+        "x": 18.5,
+        "gap": 0.125,
+        "z": 4
+      },
+      {
+        "top": "WalkingPath1",
+        "x": -10,
+        "gap": 0.125,
+        "z": 8
+      },
+      {
+        "top": "WalkingPath60",
+        "x": 290,
+        "gap": 0.25,
+        "z": 550
+      },
+      {
+        "top": "WalkingPath65",
+        "x": 390,
+        "gap": 0.25,
+        "z": 700
+      },
+      {
+        "top": "WalkingPath56",
+        "x": 176,
+        "gap": 0.375,
+        "z": 790
+      },
+      {
+        "top": "WalkingPath15",
+        "x": 338.5,
+        "gap": 0.375,
+        "z": 210.46
+      },
+      {
+        "top": "MeadowFoundation",
+        "x": -275,
+        "gap": 0.25,
+        "z": 427.5
+      }
+    ],
+    "outfitParts": 24,
+    "fixture": "adventure-engine-v1",
+    "springUpSpeed": 34.059913635253906,
+    "springMaxY": 16.367801666259766,
+    "tokenStart": [
+      -72,
+      12.5,
+      8
+    ],
+    "client": {
+      "expedition": "EXPLORE 2/40  |  6 session pts  |  0/6 flags",
+      "errors": []
+    },
+    "assertions": {
+      "outfitPhysics": true,
+      "springMotion": true,
+      "walkCollection": true,
+      "tokenOnce": true,
+      "respawnCollection": true,
+      "crateReward": true,
+      "outfit": true,
+      "world": true,
+      "crateOnce": true,
+      "floorLayersSeparated": true,
+      "deliveryEconomy": true,
+      "cratePrompt": true,
+      "respawn": true,
+      "catalog": true,
+      "pickup": true,
+      "farCrate": true,
+      "hud": true,
+      "noClientErrors": true
+    },
+    "duplicateSnapshot": {
+      "message": "+1 trail token",
+      "total": 40,
+      "score": 1,
+      "landmarkTotal": 6,
+      "collected": 1,
+      "collectedIds": [
+        "token-01"
+      ],
+      "landmarks": 0
+    }
+  },
+  "assertions": {
+    "outfit": true,
+    "outfitPhysics": true,
+    "world": true,
+    "floorLayersSeparated": true,
+    "catalog": true,
+    "walkCollection": true,
+    "hud": true,
+    "tokenOnce": true,
+    "farCrate": true,
+    "cratePrompt": true,
+    "crateReward": true,
+    "crateOnce": true,
+    "deliveryEconomy": true,
+    "springMotion": true,
+    "pickup": true,
+    "respawn": true,
+    "respawnCollection": true,
+    "noClientErrors": true,
+    "fixture": true,
+    "completed": true,
+    "succeeded": true,
+    "noServerErrors": true
+  },
+  "cleanup": {
+    "verified": true,
+    "reused": 0,
+    "changed": 2,
+    "status": "CLEANED"
+  }
+}

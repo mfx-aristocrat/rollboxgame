@@ -1,0 +1,109 @@
+{
+  "lighting": "Realistic",
+  "finished": true,
+  "method": "Warm single-client RenderStepped A/B; identical lighting; three Studio processes open; assets remain resident in both modes",
+  "rows": [
+    {
+      "view": "depot",
+      "seconds": 5.2343012019991875,
+      "textureMemoryMb": 39.5301513671875,
+      "medianMs": 28.30040082335472,
+      "totalMemoryMb": 804.765625,
+      "frames": 180,
+      "p95Ms": 46.50089889764786,
+      "fpsFromMean": 34.38854453604062,
+      "viewport": [
+        1277.142822265625,
+        674.2857055664062
+      ],
+      "mode": "baselineAppearance",
+      "maxMs": 51.32170021533966,
+      "meanMs": 29.07945112221771
+    },
+    {
+      "view": "meadow",
+      "seconds": 4.738996792584658,
+      "textureMemoryMb": 41.5933837890625,
+      "medianMs": 25.790100917220116,
+      "totalMemoryMb": 798.66796875,
+      "frames": 180,
+      "p95Ms": 44.57399994134903,
+      "fpsFromMean": 37.98272247865938,
+      "viewport": [
+        1277.142822265625,
+        674.2857055664062
+      ],
+      "mode": "baselineAppearance",
+      "maxMs": 47.25079983472824,
+      "meanMs": 26.327759958803654
+    },
+    {
+      "view": "coast",
+      "seconds": 4.739716895855963,
+      "textureMemoryMb": 41.5933837890625,
+      "medianMs": 24.520600214600563,
+      "totalMemoryMb": 815.66796875,
+      "frames": 180,
+      "p95Ms": 45.40859907865524,
+      "fpsFromMean": 37.976951778992934,
+      "viewport": [
+        1277.142822265625,
+        674.2857055664062
+      ],
+      "mode": "baselineAppearance",
+      "maxMs": 51.44989863038063,
+      "meanMs": 26.331760532533128
+    },
+    {
+      "view": "depot",
+      "seconds": 4.081265307031572,
+      "textureMemoryMb": 41.5904541015625,
+      "medianMs": 22.161899134516716,
+      "totalMemoryMb": 848.0390625,
+      "frames": 180,
+      "p95Ms": 39.685700088739395,
+      "fpsFromMean": 44.10396934741777,
+      "viewport": [
+        1277.142822265625,
+        674.2857055664062
+      ],
+      "mode": "graphics",
+      "maxMs": 45.37710174918175,
+      "meanMs": 22.6736961501754
+    },
+    {
+      "view": "meadow",
+      "seconds": 5.3537771021947265,
+      "textureMemoryMb": 41.5904541015625,
+      "medianMs": 28.497999534010887,
+      "totalMemoryMb": 852.51953125,
+      "frames": 180,
+      "p95Ms": 46.20309919118881,
+      "fpsFromMean": 33.62112328625165,
+      "viewport": [
+        1277.142822265625,
+        674.2857055664062
+      ],
+      "mode": "graphics",
+      "maxMs": 49.39179867506027,
+      "meanMs": 29.743206123304034
+    },
+    {
+      "view": "coast",
+      "seconds": 4.9043104983866215,
+      "textureMemoryMb": 41.5904541015625,
+      "medianMs": 26.167400181293488,
+      "totalMemoryMb": 786.72265625,
+      "frames": 180,
+      "p95Ms": 45.319098979234695,
+      "fpsFromMean": 36.70240700690033,
+      "viewport": [
+        1277.142822265625,
+        674.2857055664062
+      ],
+      "mode": "graphics",
+      "maxMs": 51.58879980444908,
+      "meanMs": 27.24616943548123
+    }
+  ]
+}

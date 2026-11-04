@@ -1,5 +1,33 @@
 # Studio validation evidence and procedure
 
+## M03-R4 cannon, ocean and shore scenery — 2026-11-03
+
+Version `0.6.0-cannon-ocean`: 54 Luau compile, 186 standalone cases and matching source/build checks PASS. Real single-client engine suite **27/27 PASS**, including native E/F unlock/target, lock/range/invalid/focus/cooldown checks, projectile cleanup, no coins, actual course fall then Swimming/motion, R shore return, four shore traversals, respawn retention and native voxel-preservation/idempotence/deep-water probes. Client/server error histories empty; exact fixtures cleaned. See [feature contract/evidence](cannon_ocean_expansion.md) and `validation/cannon-ocean-pass.json`; initial failures retained separately. Automated input-adapter/layout checks do not pass actual device/multiplayer gates.
+
+Repeat with `python scripts/studio-pickup-check.py --suite ocean --output .tools/ocean-result.json` after safe source sync to an idle Studio. Before runtime mutation preserve Studio source/editor buffers; this session exact-source readbacks/backups covered16 initial scripts and subsequent scoped client/shore fixes. No publishing or security changes.
+
+| Gate | Required evidence | Result |
+| --- | --- | --- |
+| O01 | Native nearby orange crate unlock; F target hit; invalid/focus/cooldown; no economy | PASS, single client |
+| O02 | Walk off Training shortcut carrying; cancel delivery; native Swimming/motion; R return | PASS, single client |
+| O03 | Four marked shore ramps connect native water to ordinary land | PASS, all four native traversals |
+| O04 | Native mixed terrain/partial water preservation, empty-only fill, repeat/deepest probe | PASS |
+| O05 | Keyboard/mouse versus actual touch/gamepad aim/fire/swim/return; compact UI after cosmetic unlock | PENDING actual devices; source layout/inset adapters PASS |
+| O06 | Two clients independently unlock/fire/fade; passing player cannot be damaged/block a target; leave cleanup | PENDING native multiplayer; authority/cleanup adapters PASS |
+| O07 | Named low-end device startup/water render/frame/memory budgets | PENDING |
+
+The following M03-R3/M03-R2 evidence is historical. Latest build/Git/checks and current running/idle state are maintained in PROJECT_STATE.md.
+
+## M03-R3 grass and mushroom — 2026-11-03
+
+Build version 0.5.0-mushroom-double-jump; SHA256 **da22e3ae3aa7434d1d7796959dd96842a7a0af938d70274ca3e454bc9a4099b7**. Automated: 39 Luau compile, 153 cases, source mapping and byte-identical builds pass; floor-overlap regression remains green.
+
+Single-client real keyboard suite: **23/23 PASS**. Native mushroom E, lock/far/malformed/focus protection, hold and third-press limits, landing reset, respawn retention and powered Training delivery (25 coins exactly) pass. Measured root jump heights: ordinary≈7.27, double/carrying≈14.00, quick≈12.96, late≈12.84, third≈14.00. No captured errors; fixtures cleaned. Input/approval timing defects from initial trials were fixed and preserved in evidence.
+
+Two-client real run: independent locked state and native crate unlock both PASS. Aggregate input suite FAIL due missed background VirtualInput events and an engine ChatScript/CoreGui registration error; do not infer a complete multiplayer pass. Actual touch/gamepad/emulator verification remains pending. Existing adapter tests cover keyboard/gamepad/native touch edges, cancellation and cleanup. See docs/mushroom_double_jump.md and validation/mushroom-*.json.
+
+Normal desktop F5 preview visibly shows the textured Grass course, decorative tufts and mushroom discovery hint. It was left running at the depot after exact-source fixture cleanup; no cloud publishing occurred.
+
 Real Studio startup/near-box E pickup now passes (2026-11-03); see the regression evidence below. Broader slice, input, terrain, persistence and release checks remain pending. Fill actual outcomes, build SHA, tester/device, date, Output logs and screenshots; record failures before revisions. Standalone automated checks are recorded separately in PROJECT_STATE.md.
 
 ## M03 slice gates
@@ -54,7 +82,7 @@ Stop the old playtest, reopen the rebuilt `build/RollboxGame.rbxlx` (or synchron
 | R02 | Move out of range; then spam pickup while carrying; try with chat/shop focused | Out-of-range feedback; no duplicate parcel/reward or timer reset; no unintended pickup while typing/in modal | PENDING |
 | R03 | Two clients take parcels from the same station | Shared station remains; each receives its own parcel/run and clear HUD | PENDING |
 | R04 | Walk from hub side exits through Meadow, Coast, Redstone and Frostpeak, including both connecting bridges | Continuous paths/ramps, readable signs, no trapped movement or obstructed spawn/station; distinct explorable terrain | PENDING |
-| R05 | Complete all original Training gates, safe detour and shortcut; fall at several points, reset and retry | Gate order/reward unchanged; falling recovers before any new terrain catches the runner | PENDING |
+| R05 | Complete all original Training gates, safe detour and shortcut; fall at several points, reset and retry | Gate order/reward unchanged; falling cancels the delivery and permits native swimming, with shore return and no reward (M03-R4 supersedes prior checkpoint fall recovery) | PENDING |
 | R06 | Use phone landscape/portrait and gamepad prompt; inspect pickup/box/camera and expanded map performance | Input and carried box remain readable/usable; no errors; record actual frame/memory measurements rather than inferring performance from part count | PENDING |
 
 R01–R06 are required before accepting this revision's runtime behavior. Existing S01–S09 and persistence/release gates still apply.
@@ -74,3 +102,31 @@ In a subsequent clean playtest without those fixtures, the agent focused the Stu
 Only Edit remains discoverable through this package. Edit-context `RunService:IsRunning()` does not report live gameplay state. The regression returns actual server/client evidence via `StudioTestService:EndTest`; an empty MCP output buffer alone did not reveal the original crash. In this session MCP `stop_playtest` did not end a test; ordinary Studio Shift+F5 did. Preserve any user-owned active test before attempting new validation.
 
 Account eligibility, maximum player count, private access, maturity questionnaire, actual pass ownership and private published app testing remain external configuration gates. Use docs/deployment.md. No public release is authorized.
+
+## M03-R2 platformer expansion — 2026-11-03
+
+Current source build: **0.4.0-platformer-adventure**, SHA256 **48f48739bc345d2dc4a7285881065c014a6ba0575b92aae861f66aa53719a3a5**. Source/config and generated artifact match; 29 Luau files compile and 121 standalone cases pass. These are separate from the real-engine results below.
+
+| ID | Required check | Verified evidence / remaining work |
+| --- | --- | --- |
+| A01 | Outfit and respawn | PASS real Studio: 24 massless, unanchored, noncolliding costume Parts; cap and bib present; outfit returns after death. Normal desktop preview visibly shows cap, shirt, overalls and boots. Front-angle and touch camera review pending. R6/R15 composition covered by standalone engine-boundary tests; live rig was R15. |
+| A02 | Movement-based tokens and personal completion | PASS real Studio: character walks from eight studs away into token range; score 0→1; repeated sample stays 1. Client HUD shows progress. Personal fade implementation/source covered; two-client fade/isolation runtime check pending. |
+| A03 | Native free crate prompt and duplicates | PASS real Studio: E activates native crate prompt, score 1→6; repeated activation stays 6; far E leaves score unchanged; delivery coins/completions stay 0. Dead/far/duplicate/rate-limit cases also pass adapter tests. |
+| A04 | Springs and scored-run safety | PASS real Studio idle spring motion: root reached Y≈16.49 above a pad centered at Y=0.6, sampled upward speed≈42.70. Fixed launch speed 70, standing bounds and cooldown tested in rules/adapter; running-run exclusion passes adapter tests but remains pending as an end-to-end live run check. |
+| A05 | Existing pickup and reset lifecycle | PASS real Studio: original pickup regression 14/14; expansion regression also takes a parcel, then death cancels delivery while six exploration points persist and outfit respawns. |
+| A06 | Six-region traversal and performance | Automated connected-path, slope, surface support, clearance, builder property/collision/budget checks pass. Live full map traversal, eight-player and named device performance remain PENDING. |
+| A07 | Responsive HUD | Source review found/fixed compact row overlap, clarified session score, added CoreUISafeInsets. Normal desktop Studio preview is readable. Actual 640×360/844×390/portrait touch and gamepad checks remain PENDING. |
+
+Commands: `python scripts/studio-pickup-check.py` and `python scripts/studio-pickup-check.py --suite adventure --output .tools/adventure-engine-result.json`. Expansion suite: **21/21 assertions PASS**, no captured server/client errors; both suites verified tagged fixture cleanup. Sanitized results: `validation/platformer-pickup-pass.json` and `validation/platformer-adventure-pass.json`.
+
+The initial expansion fixture sampled the first HUD before walking/replication finished: the first snapshot had zero tokens and the next had one, while crate/spring/outfit/pickup/respawn already passed. This was a test synchronization failure, preserved in `validation/platformer-adventure-initial.json`. The fixture now waits for the real root to reach the token and for the server snapshot before asserting; final first/duplicate snapshots are both one point. This timing adjustment was not a gameplay reward change.
+
+### Floor-flicker feedback repair
+
+Latest build SHA256 **0d3dd8f50d1a97ff506ac3b6dcf4b1aa57f21e47e76cbaf3177e25ab989f8c35** supersedes the initial expansion build above. **30 Luau compile; 123 standalone cases PASS**, including native complete-world floor overlap/step/support checks. Exposed conflicting planes: **27 before → 0 after**.
+
+Real Studio regression: **22/22 assertions PASS**. Eight targeted per-floor raycast gaps (west/east depot edges, hub path, Mesa, crown, bridge junction, lagoon dock and exposed foundation seam) were all 0 before. After: **0.125, 0.125, 0.125, 0.25, 0.25, 0.375, 0.375, 0.25** studs. Collection, native crate E/duplicates, pickup, spring motion, outfit and respawn still pass; no captured server/client errors; owned test fixtures cleaned/read back. Trace files: `validation/floor-engine-before.json` and `validation/floor-engine-after.json`; details in [floor_flicker_fix.md](floor_flicker_fix.md).
+
+Desktop visual preview used a temporary camera/walking script across the hub, Mesa and crown; inspected crown views before/after Windows movement/zoom showed a consistent stone path against grass. The preview was stopped and its exact-source fixture removed/read back. This scoped visual check complements the rendered-plane and raycast tests; broader A/R/S/P gates remain separate.
+
+Only scoped repository scripts were synchronized after equality checks, with originals backed up under ignored `.tools`; updates were read back. No account/security setting, save store, cloud publishing or paid asset change. The later normal F5 desktop preview had no diagnostic fixtures. Broader R/S/P gates remain pending, so M03-R2 is AWAITING_VALIDATION.

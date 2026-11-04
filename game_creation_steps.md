@@ -2,6 +2,8 @@
 
 Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs remain unchanged when scope is refined. Required Studio gates apply to runtime milestones, not research/tool-only milestones.
 
+Repository update 2026-11-03: user merged PR #1 into main (260d22c), bringing the earlier implementation and pickup repairs into main. Historical “not merged” notes below describe their original checkpoints; this user merge does not establish pending runtime gates as passed. New M03-R2 expansion stays on develop pending its remaining validation.
+
 ## M01 — Repository, research and release design
 - Objective/scope: preserve the brief; establish durable instructions; compare original concepts against current evidence; select a modest initial release and architecture before gameplay.
 - Dependencies: none.
@@ -49,6 +51,44 @@ Statuses: TODO, IN_PROGRESS, BLOCKED, AWAITING_VALIDATION, DONE. Stable IDs rema
 - Evidence: 17 production-entrypoint pickup adapters and 7 world checks pass, total 94 standalone cases; 20 Luau compile including two optional Studio fixtures; repeated builds match. Source pickup range mismatch and geometry obstructions were reproduced/fixed. A subsequent real Studio red trace found startup crashing on the runtime `FallenPartsDestroyHeight` setter before pickup registered. The setting now serializes in Rojo Workspace properties; XML regression failed before/passes after. Real Studio regression: **14/14 assertions PASS**, fixtures cleaned. A clean viewport E press also produced CARRYING PARCEL. R01 is partial; range/touch/native-only and R02–R06 remain pending. See docs/runtime_pickup_startup_fix.md; no main merge before required runtime validation.
 - Git evidence: **db4cb69** committed/pushed to develop; Windows and Ubuntu CI **41554997023 SUCCESS**, remote code SHA verified. Handoff documentation follows in a separate commit. No main merge while R01–R06/runtime gates are pending.
 - Startup repair Git evidence: **77caa6579702672dede2d1c3411d9d421acb3f0c** committed/pushed to develop; Windows and Ubuntu CI **41633735629 SUCCESS**, both remote heads verified. Real pickup regression and clean viewport E pass recorded in docs; broader gates still pending, so no main merge.
+
+## M03-R2 — Platformer adventure, courier outfit and world expansion
+- Objective/scope: user's explicit expansion request after merging PR #1; bright classic-platformer scenery and red-cap/overalls courier, exploration items and spring pads around the preserved delivery loop. Detailed pre-implementation brief: docs/platformer_expansion.md.
+- Dependencies: merged main 260d22c with startup repair. Earlier slice/release gates remain pending; this new scope is explicitly authorized.
+- Status: AWAITING_VALIDATION.
+- Deliverables: two connected new regions, original character styling, token trails/landmarks/free bonus crates/springs, session exploration HUD, meaningful automated and Studio checks.
+- Acceptance: six reachable regions; at least 24 tokens/four crates/six landmarks/four springs; per-player once-only session score; range/alive/cooldown checks; springs disabled during scored delivery; respawn-safe noncolliding outfit; original course/pickup preserved.
+- Required checks: existing suites plus adventure rules/layout; reproducible build and CI; real Studio pickup, collection/crate/spring/outfit/respawn and viewport evidence. Record pending device/multiplayer checks without claiming completion.
+- Evidence: six regions across 1120×1360 studs; 30 tokens, four crates, six landmarks, four springs and a 24-part courier outfit. 29 Luau compile; 121 standalone cases pass; repeated build SHA256 48f48739bc345d2dc4a7285881065c014a6ba0575b92aae861f66aa53719a3a5. Real Studio pickup 14/14 and expansion 21/21 assertions PASS; fixtures cleaned; normal desktop preview visible. Full traversal, touch/gamepad, two-client and scored-spring end-to-end gates remain pending. See docs/studio_validation.md A01–A07.
+- Git evidence: base main 260d22c (user-merged PR #1), fast-forwarded into develop preserving clean source. Expansion commit/CI recorded in PROJECT_STATE.md after push. Do not merge as a completed milestone while mandatory runtime checks remain pending.
+- Expansion pushed as **800d793ef72e442e6b881229e7ce0dbba350c028**; Windows/Ubuntu CI **41679099759 SUCCESS**, remote SHAs verified. [Draft PR #2](https://github.com/mfx-aristocrat/rollboxgame/pull/2) open against main; no merge while the remaining gates are pending.
+- Floor-flicker feedback subtask (2026-11-03) validated: zero exposed conflicting floor planes (27 → 0), <=0.5-stud walking transitions, reachable collectibles/springs; 123 standalone cases and 22/22 real Studio assertions pass. Eight affected floor gaps all 0 before, 0.125–0.375 studs after; scoped desktop visual check passed, fixtures cleaned. Git evidence in PROJECT_STATE.md; diagnosis in docs/floor_flicker_fix.md. Parent M03-R2 remains AWAITING_VALIDATION for its broader gates.
+- Floor repair commit **22f35705505c8eb0e4f3401bb85abc62e7acc530** pushed to develop; Windows/Ubuntu CI **41683230503 SUCCESS**, both remote heads verified. Existing draft PR #2 updated; main remains unchanged.
+
+## M03-R3 — Grass presentation and mushroom double jump
+- Objective/scope: explicit user request for grass-like green floors and a discoverable mushroom crate granting a two-press higher jump. Pre-implementation contract: docs/mushroom_double_jump.md.
+- Dependencies: current develop 08a13ca including floor repair; earlier broader validation remains pending.
+- Status: AWAITING_VALIDATION.
+- Deliverables: source-built grass presentation, per-player session mushroom unlock, server-validated one-air-jump mechanic, default keyboard/touch/gamepad input integration, clear feedback, automated and Studio evidence.
+- Acceptance/checks: grass without floor conflicts/obstructions; near-only once-per-player crate; ordinary jump before unlock and demonstrably higher double jump afterward; hold/third blocked, landing reset, respawn retention, isolation; delivery validation preserved. Full test procedure and exact limits in the feature contract.
+- Evidence: Grass on nine course decks, 144 noncolliding blades; 153 automated cases and 39 Luau compile. Native single-client power-up suite 23/23 PASS: ordinary peak≈7.27, powered≈14.00; hold/third blocked, landing recharge, focus/invalid requests, respawn retention and complete powered delivery award25. Multi-client/device evidence remains separate. Git checkpoint follows in PROJECT_STATE.md; no main merge while required gates remain pending.
+- Git evidence: **b82ab2114a07a7494e1a7a30c2e87f3fd6ffd1a2** pushed to develop, Windows/Ubuntu CI **41726985838 SUCCESS**, remote heads verified; draft PR #2 updated. Two-player native collection independence passed, aggregate multi-input test remains failed for background input/CoreGui reasons; actual device gates pending. No merge to main.
+
+## M03-R4 — Cannon mushroom, native ocean and shore scenery
+- Objective/scope: user explicitly requests a second shooting mushroom, improved landscape and swimming below the terrain with routes back to land. Pre-implementation contract: docs/cannon_ocean_expansion.md.
+- Dependencies: current develop 8feabd4 with double jump; earlier broader runtime gates remain pending.
+- Status: AWAITING_VALIDATION.
+- Deliverables: independent per-session cannon unlock/targets, native ocean with four shore exits and safe return action, source-built scenery, controls/HUD, automated and actual Studio evidence.
+- Acceptance/checks: contract's bounded server-authoritative firing, no PvP/economy effects; native Swimming and climbable shores; falling cancels delivery; dry/dead/flood rescue rejection; preserve existing Terrain/user work, course rewards, double jump and floor separation. Reproducible build/CI and real runtime evidence required. Device/multiplayer gaps must remain explicit.
+- Evidence: 54 Luau compile; 186 standalone cases, all source/build checks and matching builds pass. Real single-client cannon/ocean suite **27/27 PASS**, including native E/F, target hit, cooldown/focus/malformed protection, native Swimming/motion, fall cancellation, all four shore exits, return, respawn and native mixed-voxel preservation. No captured errors; fixtures cleaned. Device/multiplayer and broader release gates remain pending; keep on develop. Git/CI checkpoint in PROJECT_STATE.md.
+
+## M03-R5 — Graphics and texture realism
+- User-authorized 2026-11-04: highest achievable graphics/texture quality, with sequential iterative execution. Full plan: `graphic_improvement_plan.md` (G01–G09).
+- Status: AWAITING_VALIDATION. G01–G06 implemented/reviewed; G07 broader hardware/device gates pending, G08 all four local native suites pass; actual device/multiplayer gates remain pending. Source gameplay checkpoint e06982b is preserved.
+- Acceptance: improved actual Studio views at identical cameras, material scale/maps/assets source-controlled, clear sunlight and readable game cues, richer scenery silhouettes, unchanged collisions/gameplay, bounded detail and measured available performance; actual device gaps remain explicit.
+- Required checks: plan's step-by-step render/source/material/build/regression gates, provenance, CI and Git/state updates. No public release or paid spend.
+- Evidence: six curated PBR variants, three normalized mesh templates, 35 trees/27 boulders/403 decorative Parts within700 budget, 155 original colliders preserved; ten before/after views inspected. 61 Luau compile/201 standalone/5 adapter tests and byte-identical builds pass. Clean native assets load17/17 images with correct mesh dimensions; real pickup14/14, adventure/floor22/22, mushroom/delivery23/23 and cannon/ocean27/27 pass with no captured errors and fixture cleanup. Local performance and limitations in docs/graphics/README.md.
+- Git/CI: graphics source **3e24ef32700a7cdba5be553e3b24f0075509b94f** pushed on develop. Windows/Ubuntu CI **41874399056** (push) and **41874408249** (PR) SUCCESS for that exact source head. Remote branches verified; draft PR #2 updated. Documentation-only handoff follows; main stays260d22c while mandatory gates remain pending.
 
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.

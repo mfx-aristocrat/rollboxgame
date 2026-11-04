@@ -1,0 +1,1246 @@
+{
+  "driverStatus": "PASS",
+  "startedUtc": "2026-11-03T22:36:57.537169+00:00",
+  "testResult": {
+    "players": 1,
+    "finished": true,
+    "livePlayers": 1,
+    "reason": "powerups_succeeded",
+    "intents": [
+      {
+        "y": 13.67763900756836,
+        "arguments": 1,
+        "stage": "lockedForge",
+        "vy": 0
+      },
+      {
+        "y": 13.957992553710938,
+        "arguments": 1,
+        "stage": "double",
+        "vy": 0
+      },
+      {
+        "y": 14.792276382446289,
+        "arguments": 1,
+        "stage": "third",
+        "vy": 0
+      },
+      {
+        "y": 13.193361282348633,
+        "arguments": 1,
+        "stage": "quick",
+        "vy": 0
+      },
+      {
+        "y": 16.56560516357422,
+        "arguments": 1,
+        "stage": "late",
+        "vy": 32.7788200378418
+      },
+      {
+        "y": 13.35807991027832,
+        "arguments": 2,
+        "stage": "malformed",
+        "vy": 43.185855865478516
+      },
+      {
+        "y": 13.270299911499023,
+        "arguments": 1,
+        "stage": "carryingJump",
+        "vy": 0
+      }
+    ],
+    "stages": {
+      "initial": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 12.5,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 0,
+        "base": 12.5,
+        "ability": "MUSHROOM \u2022 Find the crate on the west trail"
+      },
+      "cyanTwo": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 5.817407800001092,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0.03201129997614771,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Cyan",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Parcel set to Cyan. Match the next gate.",
+          "completedRuns": 0,
+          "nextPolarity": "Cyan",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 2
+        },
+        "peak": 12.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.498024940490723,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "hold": {
+        "errors": [],
+        "spaceEvents": 1,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 19.884355545043945,
+        "rises": 0,
+        "height": 7.266329765319824,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "opened": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "malformed": {
+        "errors": [],
+        "spaceEvents": 1,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 19.884355545043945,
+        "rises": 0,
+        "height": 7.266329765319824,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "respawn": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "tutorialComplete": true,
+          "mode": "Practice",
+          "bestTime": 18.383045899972785,
+          "coins": 25,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": true,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.",
+          "completedRuns": 1,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 13.490133285522461,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 13.490133285522461,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "lockedForge": {
+        "errors": [],
+        "spaceEvents": 1,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 19.887187957763672,
+        "rises": 0,
+        "height": 7.269162178039551,
+        "crateEvents": 0,
+        "base": 12.618025779724121,
+        "ability": "MUSHROOM \u2022 Find the crate on the west trail"
+      },
+      "carryingJump": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 1.7176168999867514,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "nearPickup": true,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Parcel picked up! Carry it through gate 1: A / SUN.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 26.601015090942383,
+        "rises": 1,
+        "height": 13.97799015045166,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "cyanFour": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 14.85042189998785,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0.21599180001066998,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Cyan",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Parcel set to Cyan. Match the next gate.",
+          "completedRuns": 0,
+          "nextPolarity": "Cyan",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 4
+        },
+        "peak": 12.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.498024940490723,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "single": {
+        "errors": [],
+        "spaceEvents": 1,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 19.819095611572266,
+        "rises": 0,
+        "height": 7.2010698318481445,
+        "crateEvents": 0,
+        "base": 12.618025779724121,
+        "ability": "MUSHROOM \u2022 Find the crate on the west trail"
+      },
+      "quick": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 25.66072654724121,
+        "rises": 1,
+        "height": 13.04270076751709,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "amberThree": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 13.300557999988087,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0.165594800026156,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Parcel set to Amber. Match the next gate.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 3
+        },
+        "peak": 12.498024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.498024940490723,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "double": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 26.620620727539062,
+        "rises": 1,
+        "height": 14.002594947814941,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "pickup": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0.449677900003735,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": true,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Parcel picked up! Carry it through gate 1: A / SUN.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "focus": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 19.884355545043945,
+        "rises": 0,
+        "height": 7.266329765319824,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "delivered": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 18.383045899972785,
+          "nextUnlock": "More routes planned after playtesting",
+          "cooldownRemaining": 0,
+          "routeName": "Training",
+          "coins": 25,
+          "tutorialComplete": true,
+          "equippedCosmetic": "default",
+          "bestTime": 18.383045899972785,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": true
+          },
+          "inWater": false,
+          "resultTime": 18.383045899972785,
+          "nearPickup": true,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Cyan",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Delivered! +25 coins. Retry for a faster time or earn Mint.",
+          "completedRuns": 1,
+          "nextPolarity": "Deliver",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Completed",
+          "mode": "Practice",
+          "nextGate": 5
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "late": {
+        "errors": [],
+        "spaceEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 25.457782745361328,
+        "rises": 1,
+        "height": 12.839756965637207,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "farCrate": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 12.618025779724121,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 0,
+        "base": 12.618025779724121,
+        "ability": "MUSHROOM \u2022 Find the crate on the west trail"
+      },
+      "duplicateCrate": {
+        "errors": [],
+        "spaceEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Mushroom found! Press jump again in the air.",
+            "unlocked": true,
+            "ready": true
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 12.623024940490723,
+        "rises": 0,
+        "height": 0,
+        "crateEvents": 1,
+        "base": 12.623024940490723,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      },
+      "third": {
+        "errors": [],
+        "spaceEvents": 3,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Double jump! Land to recharge.",
+            "unlocked": true,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "+1 trail token",
+            "total": 40,
+            "score": 1,
+            "landmarkTotal": 6,
+            "collected": 1,
+            "collectedIds": [
+              "token-05"
+            ],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "peak": 26.620620727539062,
+        "rises": 1,
+        "height": 14.002594947814941,
+        "crateEvents": 1,
+        "base": 12.618025779724121,
+        "ability": "DOUBLE JUMP \u2022 Press Space twice"
+      }
+    },
+    "fixture": "powerups-engine-v1",
+    "readyPlayers": 1,
+    "assertions": {
+      "grass": true,
+      "oneExtraRise": true,
+      "initiallyLocked": true,
+      "holdBlocked": true,
+      "onceOnly": true,
+      "deliveryReward": true,
+      "higherJump": true,
+      "focusBlocked": true,
+      "noClientErrors": true,
+      "nativeMushroom": true,
+      "thirdBlocked": true,
+      "landingRecharge": true,
+      "hud": true,
+      "lockedRejected": true,
+      "poweredDelivery": true,
+      "pickup": true,
+      "farCrate": true,
+      "malformedRejected": true,
+      "respawnRetention": true
+    },
+    "serverErrors": []
+  },
+  "assertions": {
+    "initiallyLocked": true,
+    "lockedRejected": true,
+    "farCrate": true,
+    "nativeMushroom": true,
+    "hud": true,
+    "onceOnly": true,
+    "higherJump": true,
+    "oneExtraRise": true,
+    "holdBlocked": true,
+    "thirdBlocked": true,
+    "landingRecharge": true,
+    "malformedRejected": true,
+    "focusBlocked": true,
+    "grass": true,
+    "pickup": true,
+    "poweredDelivery": true,
+    "deliveryReward": true,
+    "respawnRetention": true,
+    "noClientErrors": true,
+    "fixture": true,
+    "completed": true,
+    "succeeded": true,
+    "noServerErrors": true
+  },
+  "cleanup": {
+    "verified": true,
+    "reused": 0,
+    "changed": 2,
+    "status": "CLEANED"
+  }
+}
