@@ -70,7 +70,7 @@ function JumpController:_approve(data)
 	local character=self.player.Character
 	local root=character and character:FindFirstChild("HumanoidRootPart")
 	local humanoid=character and character:FindFirstChildOfClass("Humanoid")
-	if not root or not humanoid or humanoid.Health<=0 or self.phase~="consumed" or self:_blocked() then return end
+	if not root or not humanoid or humanoid.Health<=0 or humanoid:GetState()==Enum.HumanoidStateType.Swimming or self.phase~="consumed" or self:_blocked() then return end
 	local velocity=root.AssemblyLinearVelocity
 	root.AssemblyLinearVelocity=Vector3.new(math.clamp(velocity.X,-40,40),52,math.clamp(velocity.Z,-40,40))
 end
@@ -102,6 +102,10 @@ function JumpController:_observe()
 		return
 	end
 	local state, now = humanoid:GetState(), self.clock()
+	if state == Enum.HumanoidStateType.Swimming then
+		self.phase, self.groundSince, self.firstPress, self.pending = "unarmed", nil, false, nil
+		return
+	end
 	local vertical = root.AssemblyLinearVelocity.Y
 	local standing = state == Enum.HumanoidStateType.Running or state == Enum.HumanoidStateType.Landed
 	if standing and humanoid.FloorMaterial ~= Enum.Material.Air and math.abs(vertical) <= 5 then

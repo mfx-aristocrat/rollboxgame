@@ -7,6 +7,7 @@ local actions = {
 	Start = "transaction", Retry = "transaction", Switch = "switch",
 	BuyMint = "transaction", EquipDefault = "transaction", EquipMint = "transaction", Snapshot = "snapshot",
 	DoubleJump = "jump",
+	ReturnLand = "rescue",
 }
 
 function RunRules.newLimiter(now)

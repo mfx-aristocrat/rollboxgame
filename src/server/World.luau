@@ -5,6 +5,10 @@ local AdventureLayout = require(game:GetService("ReplicatedStorage").Shared.Adve
 local AdventureWorld = require(script.Parent.AdventureWorld)
 local PowerupWorld = require(script.Parent.PowerupWorld)
 local PowerupConfig = require(game:GetService("ReplicatedStorage").Shared.PowerupConfig)
+local BlasterWorld = require(script.Parent.BlasterWorld)
+local BlasterConfig = require(game:GetService("ReplicatedStorage").Shared.BlasterConfig)
+local OceanWorld = require(script.Parent.OceanWorld)
+local OceanConfig = require(game:GetService("ReplicatedStorage").Shared.OceanConfig)
 
 function World.build(config)
     local existing = workspace:FindFirstChild("SwitchbackWorld")
@@ -106,7 +110,9 @@ function World.build(config)
     lighting.Ambient = Color3.fromRGB(170, 180, 206)
     lighting.OutdoorAmbient = Color3.fromRGB(186, 199, 223)
     local powerups = PowerupWorld.build(model, PowerupConfig)
-    return { model = model, prompt = prompt, adventure = adventure, powerups = powerups }
+    local blaster = BlasterWorld.build(model, BlasterConfig)
+    local ocean = OceanWorld.build(model, OceanConfig)
+    return { model = model, prompt = prompt, adventure = adventure, powerups = powerups, blaster = blaster, ocean = ocean }
 end
 
 return World

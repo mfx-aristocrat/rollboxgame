@@ -36,13 +36,13 @@ local function button(parent, name, caption, position, size, color, action)
 end
 local hud = Instance.new("Frame")
 hud.Name, hud.AnchorPoint = "StatusPanel", Vector2.new(0.5, 0)
-hud.Position, hud.Size = UDim2.new(0.5, 0, 0, 8), UDim2.new(0.94, 0, 0, 204)
+hud.Position, hud.Size = UDim2.new(0.5, 0, 0, 8), UDim2.new(0.94, 0, 0, 228)
 hud.BackgroundColor3, hud.BackgroundTransparency, hud.Parent = ink, 0.06, screen
 round(hud, 16)
 local outline = Instance.new("UIStroke")
 outline.Color, outline.Thickness, outline.Transparency, outline.Parent = gold, 2, 0.2, hud
 local limit = Instance.new("UISizeConstraint")
-limit.MaxSize, limit.Parent = Vector2.new(620, 204), hud
+limit.MaxSize, limit.Parent = Vector2.new(620, 228), hud
 local title = text(hud, "Title", 8, 24, 18, gold)
 title.Text = "SWITCHBACK COURIERS"
 local status = text(hud, "Route", 35, 26, 17)
@@ -53,18 +53,21 @@ local expedition = text(hud, "Expedition", 130, 23, 14, gold)
 expedition.Text = "EXPLORE • Follow the golden trails beyond the depot"
 local ability = text(hud, "Ability", 154, 20, 13, mint)
 ability.Text = "MUSHROOM • Find the crate on the west trail"
-local saving = text(hud, "Saving", 178, 18, 11, muted)
+local weapon = text(hud, "Weapon", 178, 20, 13, gold)
+weapon.Text = "CANNON • Find the orange crate on the east trail"
+local saving = text(hud, "Saving", 202, 18, 11, muted)
 saving.Text = "Practice • Session progress is not saved"
 
 local actions = Instance.new("Frame")
 actions.Name, actions.BackgroundTransparency, actions.AnchorPoint = "Actions", 1, Vector2.new(0.5, 1)
 actions.Position, actions.Size, actions.Parent = UDim2.new(0.5, 0, 1, -24), UDim2.fromOffset(300, 68), screen
 local latest
+local blasterController
 local function takeParcel()
     intent:FireServer(if latest and latest.state == "Completed" then "Retry" else "Start")
 end
 local start = button(actions, "Start", "Take parcel", UDim2.fromOffset(80, 0), UDim2.fromOffset(140, 68), mint, function()
-    takeParcel()
+    if latest and latest.inWater then intent:FireServer("ReturnLand") else takeParcel() end
 end)
 local switch = button(actions, "Switch", "Switch [Q]", UDim2.fromOffset(76, 0), UDim2.fromOffset(148, 68), amber, function()
     intent:FireServer("Switch")
@@ -91,26 +94,39 @@ local shells = button(screen, "OpenShells", "Shells", UDim2.new(0.5, -62, 1, -13
     setShop(not modal.Visible)
 end)
 shells.Visible = false
+local fireButton = button(screen,"FireCannon","Fire [F]",UDim2.new(1,-158,1,-210),UDim2.fromOffset(140,58),gold,function()
+    if blasterController then blasterController:fire() end
+end)
+fireButton.Visible=false
+local crosshair=text(screen,"CannonCrosshair",0,30,24,gold)
+crosshair.AnchorPoint,crosshair.Position,crosshair.Size=Vector2.new(0.5,0.5),UDim2.fromScale(0.5,0.5),UDim2.fromOffset(30,30)
+crosshair.Text,crosshair.TextXAlignment,crosshair.Visible="+",Enum.TextXAlignment.Center,false
 setShop = function(open)
     modal.Visible, hud.Visible, actions.Visible = open, not open, not open
     shells.Visible = not open and latest ~= nil and latest.tutorialComplete == true
+    fireButton.Visible=not open and latest~=nil and latest.blaster~=nil and latest.blaster.unlocked==true
+    crosshair.Visible=fireButton.Visible and UserInputService.PreferredInput~=Enum.PreferredInput.KeyboardAndMouse
 end
 local function layout()
     local camera = workspace.CurrentCamera
     local compact = camera and camera.ViewportSize.Y < 500
     local portrait = camera and camera.ViewportSize.Y > camera.ViewportSize.X
     title.Visible = not compact
-    hud.Size = UDim2.new(0.94, 0, 0, if compact then 148 else 204)
+    hud.Size = UDim2.new(0.94, 0, 0, if compact then 172 else 228)
     status.Position, status.TextSize = UDim2.new(0, 14, 0, if compact then 3 else 35), if compact then 14 else 17
+    status.Size=UDim2.new(1,if compact then -130 else -28,0,26)
     goal.Position, goal.TextSize = UDim2.new(0, 14, 0, if compact then 26 else 62), if compact then 14 else 16
     message.Position, message.Size, message.TextSize = UDim2.new(0, 14, 0, if compact then 52 else 89), UDim2.new(1, -28, 0, if compact then 29 else 39), if compact then 12 else 14
     expedition.Position, expedition.Size = UDim2.new(0, 14, 0, if compact then 83 else 130), UDim2.new(1, -28, 0, if compact then 18 else 23)
     expedition.TextSize = if compact or (camera and camera.ViewportSize.X < 420) then 12 else 14
     ability.Position, ability.TextSize = UDim2.new(0, 14, 0, if compact then 104 else 154), if compact then 11 else 13
-    saving.Position, saving.TextSize = UDim2.new(0, 14, 0, if compact then 127 else 178), if compact then 10 else 11
+    weapon.Position, weapon.TextSize = UDim2.new(0,14,0,if compact then 127 else 178),if compact then 11 else 13
+    saving.Position, saving.TextSize = UDim2.new(0, 14, 0, if compact then 151 else 202), if compact then 10 else 11
     -- One centered action; portrait lifts it above the default thumbstick/jump row.
     actions.Position = UDim2.new(0.5, 0, 1, if portrait then -120 elseif compact then -12 else -24)
-    shells.Position = UDim2.new(1, -138, 0, if compact then 164 else 220)
+    shells.Position = UDim2.new(1, if compact then -98 else -138, 0, if compact then 8 else 244)
+    shells.Size,shells.TextSize=UDim2.fromOffset(if compact then 80 else 124,if compact then 26 else 46),if compact then 12 else 16
+    fireButton.Position=UDim2.new(1,-158,1,if compact then -150 elseif portrait then -240 else -210)
 end
 local viewportConnection
 local function watchCamera()
@@ -120,7 +136,7 @@ local function watchCamera()
 end
 workspace:GetPropertyChangedSignal("CurrentCamera"):Connect(watchCamera)
 watchCamera()
-local collectedIds, adventureVisuals, powerupVisuals = {}, {}, {}
+local collectedIds, adventureVisuals, powerupVisuals, cannonVisuals = {}, {}, {}, {}
 local function showCollected(item)
     local id = item:GetAttribute("AdventureId")
     if not id and item.Parent then id = item.Parent:GetAttribute("AdventureId") end
@@ -156,6 +172,16 @@ end)
 local function seconds(value)
     return if type(value) == "number" then string.format("%.1fs", value) else "—"
 end
+task.spawn(function()
+    local world=workspace:WaitForChild("SwitchbackWorld",15)
+    local model=world and world:WaitForChild("OrangeMushroomBlaster",15)
+    if not model then return end
+    local function index(item)
+        if item:GetAttribute("PowerupId")=="orangeMushroom" and not string.find(item.Name,"Target") then table.insert(cannonVisuals,item) end
+    end
+    model.DescendantAdded:Connect(index)
+    for _,item in model:GetDescendants() do index(item) end
+end)
 snapshot.OnClientEvent:Connect(function(data)
     if type(data) ~= "table" then return end
     latest = data
@@ -177,6 +203,19 @@ snapshot.OnClientEvent:Connect(function(data)
     local jumpHint = if preferred == Enum.PreferredInput.Touch then "Tap jump twice" elseif preferred == Enum.PreferredInput.Gamepad then "Press jump twice" else "Press Space twice"
     ability.Text = if unlocked then "DOUBLE JUMP • " .. jumpHint else "MUSHROOM • Find the crate on the west trail"
     ability.TextColor3 = if unlocked then mint else muted
+    local cannon=type(data.blaster)=="table" and data.blaster.unlocked==true
+    local fireHint=if preferred==Enum.PreferredInput.Touch then "Aim at + • tap Fire" elseif preferred==Enum.PreferredInput.Gamepad then "Aim at + • R2" else "Aim mouse • click / F"
+    weapon.Text=if cannon then string.format("CANNON • %s • %d hits",fireHint,data.blaster.hits or 0) else "CANNON • Orange mushroom on the east trail"
+    fireButton.Visible=cannon and not modal.Visible
+    fireButton.Text=if preferred==Enum.PreferredInput.Touch then "Fire cannon" elseif preferred==Enum.PreferredInput.Gamepad then "Fire [R2]" else "Fire [F]"
+    crosshair.Visible=fireButton.Visible and preferred~=Enum.PreferredInput.KeyboardAndMouse
+    for _,item in cannonVisuals do
+        if item.Parent then
+            if item:IsA("ProximityPrompt") then item.Enabled=not cannon
+            elseif item:IsA("BasePart") then item.LocalTransparencyModifier=if cannon then 0.55 else 0 end
+        end
+    end
+    if data.inWater then goal.Text="SWIM • Move toward the shore flags or return to land" end
     for _, item in powerupVisuals do
         if item.Parent then
             if item:IsA("ProximityPrompt") then item.Enabled = not unlocked
@@ -193,7 +232,8 @@ snapshot.OnClientEvent:Connect(function(data)
     end
     goal.TextColor3 = if data.polarity == "Cyan" then cyan else amber
     start.Visible, switch.Visible = not running, running
-    start.Text = if not data.nearPickup then "Move to parcel box" elseif data.state == "Completed" then "Retry delivery [E]" else "Take parcel [E]"
+    local returnHint=if preferred==Enum.PreferredInput.Touch then "Return to shore" elseif preferred==Enum.PreferredInput.Gamepad then "Return to shore [Y]" else "Return to shore [R]"
+    start.Text = if data.inWater then returnHint elseif not data.nearPickup then "Move to parcel box" elseif data.state == "Completed" then "Retry delivery [E]" else "Take parcel [E]"
     switch.Text = if data.cooldownRemaining > 0 then "Switch ready soon" else "Switch [Q]\n" .. data.polarity
     switch.BackgroundColor3 = if data.polarity == "Cyan" then cyan else amber
     shells.Visible = not modal.Visible and data.tutorialComplete == true
@@ -207,7 +247,15 @@ local jumpController = require(script.Parent.JumpController).new({
     isUnlocked = function() return latest ~= nil and latest.powerup ~= nil and latest.powerup.unlocked == true end,
     isBlocked = function() return modal.Visible end,
 })
-script.Destroying:Connect(function() jumpController:destroy() end)
+blasterController=require(script.Parent.BlasterController).new({
+    player=player,isBlocked=function() return modal.Visible end,
+    aimPoint=function() return crosshair.AbsolutePosition+crosshair.AbsoluteSize/2 end,
+    isUnlocked=function() return latest~=nil and latest.blaster~=nil and latest.blaster.unlocked==true end,
+    inWater=function() return latest~=nil and latest.inWater==true end,
+    fire=function(direction) remotes:WaitForChild("CannonFire"):FireServer(direction) end,
+    returnLand=function() intent:FireServer("ReturnLand") end,
+})
+script.Destroying:Connect(function() jumpController:destroy(); blasterController:destroy() end)
 UserInputService.InputBegan:Connect(function(input, processed)
     if processed or modal.Visible or UserInputService:GetFocusedTextBox() then return end
     if input.KeyCode == Enum.KeyCode.Q then

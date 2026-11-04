@@ -339,5 +339,18 @@ return function()
 		h.controller:_approve({kind="jump",nonce=2,character=h.player.Character,epoch=1})
 		assert(h.root.AssemblyLinearVelocity.Y==5)
 	end)
+    test("native swimming clears server charge and delayed client boost",function()
+        local h=serverHarness();local p,root,humanoid=h.player()
+        h.prompt.Triggered:Fire(p);h.service:step(p,10);h.service:step(p,10.2)
+        humanoid.GetState=function() return E.HumanoidStateType.Swimming end
+        root.AssemblyLinearVelocity=V.new(0,30,0);h.service:step(p,10.3)
+        assert(not h.service:requestJump(p,10.4,1) and not h.service:snapshot(p).ready)
+        local c=clientHarness();c.tick(1);c.tick(1.2)
+        c.edge(E.UserInputState.Begin);c.edge(E.UserInputState.End);c.jump();c.tick(1.3);c.edge(E.UserInputState.Begin)
+        assert(c.requests()==1)
+        c.humanoid.state=E.HumanoidStateType.Swimming;c.tick(1.4)
+        c.controller:_approve({kind="jump",nonce=1,character=c.player.Character,epoch=1})
+        assert(c.root.AssemblyLinearVelocity.Y~=52 and c.controller.pending==nil)
+    end)
 	return count
 end

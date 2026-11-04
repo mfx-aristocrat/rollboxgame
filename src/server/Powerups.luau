@@ -45,11 +45,20 @@ function Powerups:_observe(player, state, now)
 		return nil
 	end
 	-- Humanoid.FloorMaterial is not replicated. Raycast collidable geometry with the
+	-- Native swimming cannot arm an air-jump or keep a delayed approval alive.
+	local swimming = humanoid.GetState and humanoid:GetState() == Enum.HumanoidStateType.Swimming
+	if swimming then
+		if not state.swimming then self:resetAir(player) end
+		state.swimming = true
+		return nil
+	end
+	state.swimming = false
 	-- character collision group, excluding its outfit/parcel and all its body parts.
 	local params = RaycastParams.new()
 	params.FilterType = Enum.RaycastFilterType.Exclude
 	params.FilterDescendantsInstances, params.RespectCanCollide = { character }, true
 	params.CollisionGroup = root.CollisionGroup
+	params.IgnoreWater = true
 	local footDistance = root.Size.Y / 2 + humanoid.HipHeight
 	if humanoid.RigType == Enum.HumanoidRigType.R6 then
 		local leg = character:FindFirstChild("Left Leg") or character:FindFirstChild("Right Leg")

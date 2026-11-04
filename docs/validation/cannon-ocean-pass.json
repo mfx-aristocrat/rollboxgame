@@ -1,0 +1,2048 @@
+{
+  "driverStatus": "PASS",
+  "startedUtc": "2026-11-03T22:34:57.599722+00:00",
+  "assertions": {
+    "seafloorWaterProbe": true,
+    "terrainPreservation": true,
+    "locked": true,
+    "lockedFire": true,
+    "farCrate": true,
+    "nativeCrate": true,
+    "independentAbilities": true,
+    "noEconomy": true,
+    "nativeFire": true,
+    "targetHit": true,
+    "invalidRejected": true,
+    "focusBlocked": true,
+    "cooldown": true,
+    "projectilesRetired": true,
+    "dryReturn": true,
+    "fallCancelled": true,
+    "nativeSwimming": true,
+    "swimMotion": true,
+    "returnLand": true,
+    "retainedAfterWater": true,
+    "shoreRamps": true,
+    "respawn": true,
+    "noClientErrors": true,
+    "fixture": true,
+    "completed": true,
+    "succeeded": true,
+    "noServerErrors": true
+  },
+  "testResult": {
+    "serverErrors": [],
+    "finished": true,
+    "stages": {
+      "initial": {
+        "cannon": false,
+        "fireEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": true,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 0,
+        "state": "Running",
+        "position": [
+          0,
+          13.498024940490723,
+          5
+        ],
+        "distance": 0.042972564697265625,
+        "swimFrames": 0,
+        "errors": [],
+        "weapon": "CANNON \u2022 Orange mushroom on the east trail"
+      },
+      "nativeFire": {
+        "cannon": true,
+        "fireEvents": 1,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 1",
+            "activeProjectiles": 0,
+            "shots": 1,
+            "unlocked": true,
+            "hits": 1
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "distance": 0,
+        "position": [
+          87.00001525878906,
+          12.623024940490723,
+          25.999845504760742
+        ],
+        "errors": [],
+        "swimFrames": 81,
+        "aim": {
+          "pointer": [
+            638.5,
+            337.0000305175781
+          ],
+          "direction": [
+            0.7785913348197937,
+            -0.15657442808151245,
+            0.6076841950416565
+          ],
+          "wanted": [
+            638.5,
+            337.0000305175781
+          ],
+          "origin": [
+            75.25315856933594,
+            20.60736656188965,
+            16.831520080566406
+          ]
+        },
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 1 hits"
+      },
+      "coastRamp": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          460.90106201171875,
+          -1.12445068359375,
+          274.97088623046875
+        ],
+        "distance": 90.28285217285156,
+        "swimFrames": 193,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "gateOne": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 3.283591700019315,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Gate cleared. Next: Cyan.",
+          "completedRuns": 0,
+          "nextPolarity": "Cyan",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 2
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          0.32628846168518066,
+          12.498024940490723,
+          -28.660104751586914
+        ],
+        "distance": 33.351375579833984,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "farState": {
+        "cannon": false,
+        "fireEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": true,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 0,
+        "state": "Swimming",
+        "position": [
+          49.94409942626953,
+          -13.127545356750488,
+          24.044252395629883
+        ],
+        "distance": 2.028557538986206,
+        "swimFrames": 76,
+        "errors": [],
+        "weapon": "CANNON \u2022 Orange mushroom on the east trail"
+      },
+      "mesaWater": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": true,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          620.7266845703125,
+          -10.126975059509277,
+          716.2474365234375
+        ],
+        "distance": 0,
+        "swimFrames": 206,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "meadowLand": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          -423.55389404296875,
+          1.2480251789093018,
+          199.9973602294922
+        ],
+        "distance": 38.09535598754883,
+        "swimFrames": 184,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "mesaLand": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          513.791748046875,
+          15.248024940490723,
+          600.2776489257812
+        ],
+        "distance": 36.130435943603516,
+        "swimFrames": 206,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "gardensRamp": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          -551.3226318359375,
+          0.665554940700531,
+          739.9713745117188
+        ],
+        "distance": 81.24685668945312,
+        "swimFrames": 200,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "coastLand": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          423.32373046875,
+          -0.7519747614860535,
+          274.99737548828125
+        ],
+        "distance": 37.579185485839844,
+        "swimFrames": 193,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "dryReturn": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          87.00001525878906,
+          12.623024940490723,
+          25.999845504760742
+        ],
+        "distance": 0,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "opened": {
+        "cannon": true,
+        "fireEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Cannon unlocked! Aim at the striped practice targets.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": true,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          87.00001525878906,
+          12.623024940490723,
+          25.999845504760742
+        ],
+        "distance": 0,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 0 hits"
+      },
+      "switchTwo": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 4.04942779999692,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0.06767200003378093,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Cyan",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Parcel set to Cyan. Match the next gate.",
+          "completedRuns": 0,
+          "nextPolarity": "Cyan",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 2
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          0.32628846168518066,
+          12.498024940490723,
+          -28.660104751586914
+        ],
+        "distance": 0,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "malformed": {
+        "cannon": true,
+        "fireEvents": 1,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 1",
+            "activeProjectiles": 0,
+            "shots": 1,
+            "unlocked": true,
+            "hits": 1
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          87.00001525878906,
+          12.623024940490723,
+          25.999845504760742
+        ],
+        "distance": 0,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 1 hits"
+      },
+      "respawn": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": true,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          0,
+          13.498024940490723,
+          5
+        ],
+        "distance": 9.918212890625e-05,
+        "swimFrames": 206,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "gardensLand": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          -513.095458984375,
+          1.2480251789093018,
+          739.9979248046875
+        ],
+        "distance": 38.23162078857422,
+        "swimFrames": 200,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "coastWater": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": true,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          550.7294311523438,
+          -10.126975059509277,
+          274.06982421875
+        ],
+        "distance": 0,
+        "swimFrames": 193,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "meadowWater": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": true,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          -549.88330078125,
+          -10.126975059509277,
+          199.21022033691406
+        ],
+        "distance": 0,
+        "swimFrames": 184,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "burst": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          87.00001525878906,
+          12.623024940490723,
+          25.999845504760742
+        ],
+        "distance": 0,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "takeParcel": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0.39916299999458715,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": true,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Parcel picked up! Carry it through gate 1: A / SUN.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          7,
+          12.623024940490723,
+          6
+        ],
+        "distance": 0,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "gardensWater": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": true,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          -631.8463745117188,
+          -10.126975059509277,
+          739.2647094726562
+        ],
+        "distance": 0,
+        "swimFrames": 200,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "mesaRamp": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          549.8187866210938,
+          14.5131254196167,
+          602.9083862304688
+        ],
+        "distance": 135.94412231445312,
+        "swimFrames": 206,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "meadowRamp": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          -461.64495849609375,
+          0.6769075393676758,
+          199.9685821533203
+        ],
+        "distance": 88.90052795410156,
+        "swimFrames": 184,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "lockedFire": {
+        "cannon": false,
+        "fireEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": true,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 0,
+        "state": "Running",
+        "position": [
+          0,
+          13.498024940490723,
+          5
+        ],
+        "distance": 0,
+        "swimFrames": 0,
+        "errors": [],
+        "weapon": "CANNON \u2022 Orange mushroom on the east trail"
+      },
+      "return": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": true,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          0,
+          13.323023796081543,
+          8
+        ],
+        "distance": 78.02692413330078,
+        "swimFrames": 177,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "leaveDepot": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0.9334972000215203,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": true,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": true,
+          "polarity": "Amber",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Parcel picked up! Carry it through gate 1: A / SUN.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          3.568531036376953,
+          12.972936630249023,
+          4.529902458190918
+        ],
+        "distance": 3.749480724334717,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "swim": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": true,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Delivery cancelled by the fall. Swim to a marked shore ramp or use Return to shore.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Swimming",
+        "position": [
+          10.24433708190918,
+          -15.835001945495605,
+          -63.74159240722656
+        ],
+        "distance": 16.971229553222656,
+        "swimFrames": 167,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "duplicate": {
+        "cannon": true,
+        "fireEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Cannon unlocked! Aim at the striped practice targets.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": true,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          87.00001525878906,
+          12.623024940490723,
+          25.999845504760742
+        ],
+        "distance": 0,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 0 hits"
+      },
+      "fall": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 7.149586100014858,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Cyan",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Gate cleared. Next: Amber.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 3
+        },
+        "crateEvents": 1,
+        "state": "Freefall",
+        "position": [
+          0.004590278957039118,
+          1.4617823362350464,
+          -71.4396743774414
+        ],
+        "distance": 19.86296272277832,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "farCrate": {
+        "cannon": false,
+        "fireEvents": 0,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": true,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Find the orange mushroom crate on the east trail.",
+            "activeProjectiles": 0,
+            "shots": 0,
+            "unlocked": false,
+            "hits": 0
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 0,
+        "state": "Swimming",
+        "position": [
+          49.947784423828125,
+          -15.365377426147461,
+          23.98202896118164
+        ],
+        "distance": 3.0768930912017822,
+        "swimFrames": 48,
+        "errors": [],
+        "weapon": "CANNON \u2022 Orange mushroom on the east trail"
+      },
+      "gateTwo": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 6.116758899996057,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Cyan",
+          "carryingParcel": true,
+          "routeId": "training",
+          "message": "Gate cleared. Next: Amber.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 2",
+            "activeProjectiles": 0,
+            "shots": 2,
+            "unlocked": true,
+            "hits": 2
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Running",
+          "equippedCosmetic": "default",
+          "nextGate": 3
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "position": [
+          0.034198008477687836,
+          12.498024940490723,
+          -54.92490005493164
+        ],
+        "distance": 26.266420364379883,
+        "swimFrames": 81,
+        "errors": [],
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 2 hits"
+      },
+      "focus": {
+        "cannon": true,
+        "fireEvents": 2,
+        "snapshot": {
+          "ownsMint": false,
+          "gateCount": 4,
+          "elapsed": 0,
+          "nextUnlock": "More routes planned after playtesting",
+          "routeName": "Training",
+          "cooldownRemaining": 0,
+          "mode": "Practice",
+          "tutorialComplete": false,
+          "coins": 0,
+          "inWater": false,
+          "powerup": {
+            "message": "Find a mushroom crate to unlock double jump.",
+            "unlocked": false,
+            "ready": false
+          },
+          "nearPickup": false,
+          "adventure": {
+            "message": "Explore for trail tokens, free crates and landmark flags. Session score resets on leave.",
+            "total": 40,
+            "score": 0,
+            "landmarkTotal": 6,
+            "collected": 0,
+            "collectedIds": [],
+            "landmarks": 0
+          },
+          "nearDepot": false,
+          "polarity": "Amber",
+          "carryingParcel": false,
+          "routeId": "training",
+          "message": "Move closer to the parcel box at the depot, then press E or Take parcel.",
+          "completedRuns": 0,
+          "nextPolarity": "Amber",
+          "blaster": {
+            "message": "Bullseye! Target hits: 1",
+            "activeProjectiles": 0,
+            "shots": 1,
+            "unlocked": true,
+            "hits": 1
+          },
+          "persistence": "Session only \u2014 progress resets on leave",
+          "state": "Idle",
+          "equippedCosmetic": "default",
+          "nextGate": 1
+        },
+        "crateEvents": 1,
+        "state": "Running",
+        "distance": 0,
+        "position": [
+          87.00001525878906,
+          12.623024940490723,
+          25.999845504760742
+        ],
+        "errors": [],
+        "swimFrames": 81,
+        "aim": {
+          "pointer": [
+            638.5,
+            337.0000305175781
+          ],
+          "direction": [
+            0.7785913348197937,
+            -0.15657442808151245,
+            0.6076841950416565
+          ],
+          "wanted": [
+            638.5,
+            337.0000305175781
+          ],
+          "origin": [
+            75.25315856933594,
+            20.60736656188965,
+            16.831520080566406
+          ]
+        },
+        "weapon": "CANNON \u2022 Aim mouse \u2022 click / F \u2022 1 hits"
+      }
+    },
+    "reason": "ocean_succeeded",
+    "fixture": "ocean-engine-v1",
+    "nativeAimFire": {
+      "at": 40254.91359030001,
+      "direction": [
+        0.7864500284194946,
+        -0.06873252242803574,
+        0.6138177514076233
+      ]
+    },
+    "assertions": {
+      "fallCancelled": true,
+      "nativeFire": true,
+      "terrainPreservation": true,
+      "seafloorWaterProbe": true,
+      "dryReturn": true,
+      "locked": true,
+      "nativeSwimming": true,
+      "retainedAfterWater": true,
+      "noClientErrors": true,
+      "respawn": true,
+      "returnLand": true,
+      "focusBlocked": true,
+      "projectilesRetired": true,
+      "noEconomy": true,
+      "lockedFire": true,
+      "independentAbilities": true,
+      "shoreRamps": true,
+      "swimMotion": true,
+      "cooldown": true,
+      "targetHit": true,
+      "farCrate": true,
+      "invalidRejected": true,
+      "nativeCrate": true
+    },
+    "lastFire": {
+      "at": 40258.414197200036,
+      "direction": [
+        0.7864084839820862,
+        -0.0694921612739563,
+        0.6137853860855103
+      ]
+    }
+  },
+  "cleanup": {
+    "verified": true,
+    "reused": 0,
+    "changed": 2,
+    "status": "CLEANED"
+  }
+}

@@ -33,6 +33,8 @@ local playerData = require(script.Parent.PlayerData).new(Settings, codec, {
 })
 local world = require(script.Parent.World).build(Config)
 local adventure = require(script.Parent.Adventure).new(world.adventure, Config)
+local blaster = require(script.Parent.Blaster).new(world.blaster, require(Shared.BlasterConfig))
+local shores = require(script.Parent.Shores).new(require(Shared.OceanConfig))
 local powerups
 local CourierAppearance = require(script.Parent.CourierAppearance)
 
@@ -44,6 +46,11 @@ local snapshot = Instance.new("RemoteEvent")
 snapshot.Name, snapshot.Parent = "Snapshot", remotes
 local jumpApproval=Instance.new("RemoteEvent")
 jumpApproval.Name,jumpApproval.Parent="JumpApproval",remotes
+local cannonFire = Instance.new("RemoteEvent")
+cannonFire.Name,cannonFire.Parent="CannonFire",remotes
+cannonFire.OnServerEvent:Connect(function(player,...)
+    if select("#",...) == 1 then blaster:fire(player,...,os.clock()) end
+end)
 powerups=require(script.Parent.Powerups).new(world.powerups,require(Shared.PowerupConfig),{
     notify=function(player,data) jumpApproval:FireClient(player,data) end,
 })
@@ -86,6 +93,7 @@ local function send(player)
         nearPickup = nearPickup(root), carryingParcel = run ~= nil and run.state == "Running",
         adventure = adventure:snapshot(player),
         powerup = powerups:snapshot(player),
+        blaster = blaster:snapshot(player), inWater = shores:inWater(root),
     })
 end
 local function parcel(player)
@@ -159,6 +167,17 @@ local function handle(player, action, ...)
         return
     end
     if action == "Snapshot" then send(player); return end
+    if action == "ReturnLand" then
+        if argumentCount ~= 0 then return end
+        local _, root = alive(player)
+        local landing = shores:request(player,root,now)
+        if landing then
+            abort(player,"Back on shore! Your abilities and earned coins stay; take a new parcel at the depot.")
+            teleport(player,vector(landing))
+            send(player)
+        end
+        return
+    end
     if not playerData.canWrite(player.UserId) then
         session.message = session.data.message
         send(player)
@@ -214,7 +233,9 @@ local function joined(player)
     sessions[player] = { data = data, profile = data.profile, limiter = Rules.newLimiter(os.clock()), message = "Take a parcel at the depot. Match each gate using Q or Switch." }
     adventure:add(player)
     powerups:add(player)
+    blaster:add(player)
     local function characterAdded(character)
+        blaster:characterAdded(player)
         powerups:resetAir(player)
         abort(player, "Take a parcel at the depot. Resets cancel the delivery; earned coins stay.")
         local function setCollision(item)
@@ -252,11 +273,13 @@ Players.PlayerRemoving:Connect(function(player)
         sessions[player] = nil
         adventure:remove(player)
         powerups:remove(player)
+        blaster:remove(player)
+        shores:remove(player)
         playerData.close(player.UserId, os.time() + 20)
     end
 end)
 for _, player in Players:GetPlayers() do joined(player) end
-game:BindToClose(function() adventure:destroy(); powerups:destroy(); playerData.shutdown() end)
+game:BindToClose(function() adventure:destroy(); powerups:destroy(); blaster:destroy(); playerData.shutdown() end)
 
 local sampleAccumulator, snapshotAccumulator = 0, 0
 RunService.Heartbeat:Connect(function(dt)
@@ -267,6 +290,7 @@ RunService.Heartbeat:Connect(function(dt)
     if broadcast then snapshotAccumulator = 0 end
     if sample then playerData.tick() end
     local now = os.clock()
+    blaster:step(dt,now)
     for player, session in pairs(sessions) do
         local run = session.run
         local _, root = alive(player)
@@ -280,7 +304,7 @@ RunService.Heartbeat:Connect(function(dt)
                 abort(player, "Delivery time limit reached. Retry free at the depot.")
                 teleport(player, vector(Config.route.depot))
             elseif root.Position.Y < Config.fallY then
-                recover(player, "Safe recovery — your timer continues. Try the left path.")
+                abort(player, "Delivery cancelled by the fall. Swim to a marked shore ramp or use Return to shore.")
             elseif session.previous and not Rules.validMovement(session.previous, current, now - session.previousAt, Config) then
                 abort(player, "Run reset after an unexpected movement. Please retry.")
                 teleport(player, vector(Config.route.depot))

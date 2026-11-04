@@ -74,6 +74,14 @@ Repository update 2026-11-03: user merged PR #1 into main (260d22c), bringing th
 - Evidence: Grass on nine course decks, 144 noncolliding blades; 153 automated cases and 39 Luau compile. Native single-client power-up suite 23/23 PASS: ordinary peak≈7.27, powered≈14.00; hold/third blocked, landing recharge, focus/invalid requests, respawn retention and complete powered delivery award25. Multi-client/device evidence remains separate. Git checkpoint follows in PROJECT_STATE.md; no main merge while required gates remain pending.
 - Git evidence: **b82ab2114a07a7494e1a7a30c2e87f3fd6ffd1a2** pushed to develop, Windows/Ubuntu CI **41726985838 SUCCESS**, remote heads verified; draft PR #2 updated. Two-player native collection independence passed, aggregate multi-input test remains failed for background input/CoreGui reasons; actual device gates pending. No merge to main.
 
+## M03-R4 — Cannon mushroom, native ocean and shore scenery
+- Objective/scope: user explicitly requests a second shooting mushroom, improved landscape and swimming below the terrain with routes back to land. Pre-implementation contract: docs/cannon_ocean_expansion.md.
+- Dependencies: current develop 8feabd4 with double jump; earlier broader runtime gates remain pending.
+- Status: AWAITING_VALIDATION.
+- Deliverables: independent per-session cannon unlock/targets, native ocean with four shore exits and safe return action, source-built scenery, controls/HUD, automated and actual Studio evidence.
+- Acceptance/checks: contract's bounded server-authoritative firing, no PvP/economy effects; native Swimming and climbable shores; falling cancels delivery; dry/dead/flood rescue rejection; preserve existing Terrain/user work, course rewards, double jump and floor separation. Reproducible build/CI and real runtime evidence required. Device/multiplayer gaps must remain explicit.
+- Evidence: 54 Luau compile; 186 standalone cases, all source/build checks and matching builds pass. Real single-client cannon/ocean suite **27/27 PASS**, including native E/F, target hit, cooldown/focus/malformed protection, native Swimming/motion, fall cancellation, all four shore exits, return, respawn and native mixed-voxel preservation. No captured errors; fixtures cleaned. Device/multiplayer and broader release gates remain pending; keep on develop. Git/CI checkpoint in PROJECT_STATE.md.
+
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.
 - Dependencies: validated M03; M04 for persistent unlocks.

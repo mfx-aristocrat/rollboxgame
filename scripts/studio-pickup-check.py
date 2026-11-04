@@ -65,7 +65,7 @@ def long_string(value):
 
 
 def fixtures(suite="pickup"):
-    stem = {"pickup": "Pickup", "adventure": "Adventure", "powerups": "Powerups"}[suite]
+    stem = {"pickup": "Pickup", "adventure": "Adventure", "powerups": "Powerups", "ocean": "Ocean"}[suite]
     specs = (
         ("ServerScriptService", "__Rollbox" + stem + "RuntimeProbe", "Script", suite + ".server.luau"),
         ("StarterPlayerScripts", "__Rollbox" + stem + "RuntimeClient", "LocalScript", suite + ".client.luau"),
@@ -213,6 +213,13 @@ class Bridge:
 
 
 def validate_result(result, suite="pickup"):
+    if suite == "ocean":
+        names = ("seafloorWaterProbe", "terrainPreservation", "locked", "lockedFire", "farCrate", "nativeCrate", "independentAbilities", "noEconomy", "nativeFire", "targetHit", "invalidRejected", "focusBlocked", "cooldown", "projectilesRetired", "dryReturn", "fallCancelled", "nativeSwimming", "swimMotion", "returnLand", "retainedAfterWater", "shoreRamps", "respawn", "noClientErrors")
+        checks=result.get("assertions", {})
+        if not isinstance(checks,dict): checks={}
+        assertions={name:checks.get(name) is True for name in names}
+        assertions.update(fixture=result.get("fixture")=="ocean-engine-v1",completed=result.get("finished") is True,succeeded=result.get("reason")=="ocean_succeeded",noServerErrors=result.get("serverErrors")==[])
+        return assertions
     if suite == "powerups":
         names = ("initiallyLocked", "lockedRejected", "farCrate", "nativeMushroom", "hud", "onceOnly", "higherJump", "oneExtraRise", "holdBlocked", "thirdBlocked", "landingRecharge", "malformedRejected", "focusBlocked", "grass", "pickup", "poweredDelivery", "deliveryReward", "respawnRetention", "noClientErrors")
         checks=result.get("assertions",{})
@@ -275,7 +282,7 @@ def run(args, evidence):
         ambiguous = True
         evidence["start"] = bridge.call("start_playtest", {"mode": "play"}, timeout=45)
         ambiguous = False
-        duration = 160 if args.suite == "powerups" else 45
+        duration = 240 if args.suite == "ocean" else 160 if args.suite == "powerups" else 45
         deadline = time.monotonic() + duration
         while time.monotonic() < deadline:
             output = bridge.call("get_playtest_output", {"target": "edit"},
@@ -322,7 +329,7 @@ def run(args, evidence):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", type=local_url, default="http://127.0.0.1:58741")
-    parser.add_argument("--suite", choices=("pickup", "adventure", "powerups"), default="pickup")
+    parser.add_argument("--suite", choices=("pickup", "adventure", "powerups", "ocean"), default="pickup")
     parser.add_argument("--output", type=Path, default=ROOT / ".tools" / "pickup-engine-result.json")
     args = parser.parse_args()
     evidence = {"driver": "studio-pickup-check-v1", "status": "FAIL",

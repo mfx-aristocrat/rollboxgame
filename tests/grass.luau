@@ -5,17 +5,20 @@ local Config = require("../src/shared/Config")
 local WorldLayout = require("../src/shared/WorldLayout")
 local AdventureLayout = require("../src/shared/AdventureLayout")
 local PowerupConfig = require("../src/shared/PowerupConfig")
+local BlasterConfig = require("../src/shared/BlasterConfig")
+local OceanConfig = require("../src/shared/OceanConfig")
 
 return function()
     -- Execute the actual production builders; the adapter supplies only Roblox globals/services.
     local terrainKey, adventureKey, layoutKey, adventureLayoutKey, powerupKey, powerupConfigKey = {}, {}, {}, {}, {}, {}
-    local modules = { [layoutKey] = WorldLayout, [adventureLayoutKey] = AdventureLayout, [powerupConfigKey] = PowerupConfig }
+    local blasterKey, blasterConfigKey, oceanKey, oceanConfigKey = {}, {}, {}, {}
+    local modules = { [blasterConfigKey]=BlasterConfig, [oceanConfigKey]=OceanConfig, [layoutKey] = WorldLayout, [adventureLayoutKey] = AdventureLayout, [powerupConfigKey] = PowerupConfig }
     local environment = {
         Instance = roblox.Instance, Enum = roblox.Enum, CFrame = roblox.CFrame,
         Vector3 = roblox.Vector3, Color3 = roblox.Color3, UDim2 = roblox.UDim2, UDim = roblox.UDim,
-        workspace = roblox.Instance.new("Folder"), script = { Parent = { TerrainWorld = terrainKey, AdventureWorld = adventureKey, PowerupWorld = powerupKey } },
+        workspace = roblox.Instance.new("Folder"), script = { Parent = { TerrainWorld = terrainKey, AdventureWorld = adventureKey, PowerupWorld = powerupKey, BlasterWorld=blasterKey, OceanWorld=oceanKey } },
         game = { GetService = function(_, name)
-            if name == "ReplicatedStorage" then return { Shared = { WorldLayout = layoutKey, AdventureLayout = adventureLayoutKey, PowerupConfig = powerupConfigKey } } end
+            if name == "ReplicatedStorage" then return { Shared = { WorldLayout = layoutKey, AdventureLayout = adventureLayoutKey, PowerupConfig = powerupConfigKey, BlasterConfig=blasterConfigKey, OceanConfig=oceanConfigKey } } end
             assert(name == "Lighting", name)
             return {}
         end },
@@ -27,6 +30,9 @@ return function()
     modules[terrainKey] = load("src/server/TerrainWorld.luau")
     modules[adventureKey] = load("src/server/AdventureWorld.luau")
     modules[powerupKey] = load("src/server/PowerupWorld.luau")
+    modules[blasterKey] = load("src/server/BlasterWorld.luau")
+    local ocean = load("src/server/OceanWorld.luau")
+    modules[oceanKey] = {build=function(parent,config) return ocean.build(parent,config,false) end}
     local model = load("src/server/World.luau").build(Config).model
     for _, name in { "DepotRoof", "FirstLane", "SafeDetour", "DetourEntry", "DetourExit", "ShortcutTakeoff", "ShortcutLanding", "ShortcutExit", "FinalLane" } do
         local floor = assert(model:FindFirstChild(name), name)

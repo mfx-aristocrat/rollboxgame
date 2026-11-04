@@ -21,7 +21,7 @@ local function signal()
     }
 end
 
-local function clientHarness(forward)
+local function clientHarness(forward, viewport)
     local objects, requests = {}, {}
     local input, received, properties, focused = signal(), signal(), signal(), false
     local intent = { FireServer = function(_, action, ...)
@@ -51,10 +51,10 @@ local function clientHarness(forward)
             Instance = instance, Enum = enum,
             Color3 = { fromRGB = dimensions }, Vector2 = { new = dimensions },
             UDim = { new = dimensions }, UDim2 = { new = dimensions, fromOffset = dimensions, fromScale = dimensions },
-            workspace = { CurrentCamera = nil, GetPropertyChangedSignal = function() return properties end },
+            workspace = { CurrentCamera = if viewport then {ViewportSize=viewport,GetPropertyChangedSignal=function() return properties end} else nil, GetPropertyChangedSignal = function() return properties end },
             task = { spawn = function() end, wait = function() end },
-            script = { Parent = { JumpController = "JumpController" }, Destroying = signal() },
-            require = function(name) assert(name == "JumpController"); return { new = function() return { destroy = function() end } end } end,
+            script = { Parent = { JumpController = "JumpController", BlasterController="BlasterController" }, Destroying = signal() },
+            require = function(name) assert(name == "JumpController" or name == "BlasterController"); return { new = function() return { destroy = function() end } end } end,
         },
     })()
     local function find(name)
@@ -67,6 +67,7 @@ end
 
 local function serverHarness()
     local objects, messages, now, writable, ids, jumpRequests = {}, {}, 10, true, 0, 0
+    local water, rescue, fireRequests = false, nil, 0
     local function object(class)
         local item = { ClassName = class, children = {} }
         function item:FindFirstChild(name)
@@ -85,7 +86,7 @@ local function serverHarness()
     local player = { UserId = 123, CharacterAdded = signal(), CharacterAppearanceLoaded = signal() }
     local data = { profile = Profile.createCodec(Config).default(), mode = "Practice", message = "Not saved" }
     local playerData = {
-        open = function() return data end, canWrite = function() return writable end,
+        open = function() return data end, canWrite = function() return writable end, tick=function() end,
         changed = function() error("pickup must never change saved progression") end,
     }
     local prompt = { Triggered = signal() }
@@ -96,7 +97,9 @@ local function serverHarness()
         World = { build = function() return { prompt = prompt } end },
         Adventure = { new = function() return { add = function() end, remove = function() end, step = function() end, snapshot = function() return nil end, destroy = function() end } end },
         CourierAppearance = { apply = function() end },
-        PowerupConfig = {},
+        PowerupConfig = {}, BlasterConfig = {}, OceanConfig = {},
+        Blaster = {new=function() return {add=function() end,remove=function() end,characterAdded=function() end,step=function() end,snapshot=function() return {unlocked=false,hits=0} end,fire=function() fireRequests+=1 end,destroy=function() end} end},
+        Shores = {new=function() return {inWater=function() return water end,request=function() return rescue end,remove=function() end} end},
         Powerups = { new = function() return {
             add = function() end, remove = function() end, resetAir = function() end,
             step = function() end, snapshot = function() return { unlocked = false, ready = false } end,
@@ -127,9 +130,10 @@ local function serverHarness()
     local humanoid = { Health = 100 }
     local character = object("Model")
     character.children = { HumanoidRootPart = root, Humanoid = humanoid }
+    function character:PivotTo(frame) root.Position,root.CFrame=frame.Position,frame end
     player.Character = character
-    local intent
-    for _, item in objects do if item.Name == "Intent" then intent = item end end
+    local intent, cannon
+    for _, item in objects do if item.Name == "Intent" then intent = item elseif item.Name=="CannonFire" then cannon=item end end
     return {
         player = player, prompt = prompt, root = root, humanoid = humanoid, character = character, data = data,
         request = function(action, ...) intent.OnServerEvent:Fire(player, action, ...) end,
@@ -138,6 +142,9 @@ local function serverHarness()
         writable = function(value) writable = value end,
         ids = function() return ids end,
         jumpRequests = function() return jumpRequests end,
+        fire=function(...) cannon.OnServerEvent:Fire(player,...) end,fireRequests=function() return fireRequests end,
+        tick=function(dt) services.RunService.Heartbeat:Fire(dt) end,
+        water=function(value,landing) water,rescue=value,landing end,
         addPlayer = function()
             local other = { UserId = 456, CharacterAdded = signal(), CharacterAppearanceLoaded = signal() }
             services.Players.PlayerAdded:Fire(other)
@@ -327,6 +334,45 @@ return function()
         state.powerup = { unlocked = true, ready = true }
         client.received:Fire(state)
         assert(client.find("Ability").Text == "DOUBLE JUMP • Press Space twice")
+    end)
+    test("falling cancels delivery and permits gravity toward swimming without reward",function()
+        local h=serverHarness();h.request("Start")
+        h.root.Position=roblox.Vector3.new(0,-10,-74);h.time(11);h.tick(0.11)
+        assert(h.latest().state=="Idle" and h.root.Position.Y==-10 and h.data.profile.coins==0)
+        assert(h.character:FindFirstChild("CourierParcel")==nil)
+    end)
+    test("shore rescue remains available when saves are unavailable and ignores client destinations",function()
+        local h=serverHarness();h.request("Start");h.writable(false)
+        h.time(11);h.water(true,{420,0.25,275})
+        h.request("ReturnLand",{100,100,100});assert(h.root.Position.X==7)
+        h.time(12);h.request("ReturnLand")
+        assert(h.root.Position==roblox.Vector3.new(420,0.25,275) and h.latest().state=="Idle" and h.data.profile.coins==0)
+    end)
+    test("cannon entrypoint requires exactly one payload and bypasses delivery throttle",function()
+        local h=serverHarness();h.writable(false)
+        h.fire();h.fire(roblox.Vector3.xAxis,"extra");assert(h.fireRequests()==0)
+        h.fire(roblox.Vector3.xAxis);assert(h.fireRequests()==1)
+    end)
+    test("cannon and swimming HUD expose independent actions",function()
+        local h,c=serverHarness(),clientHarness();h.request("Snapshot");local state=h.latest()
+        state.blaster={unlocked=true,hits=3};state.inWater=true;c.received:Fire(state)
+        assert(string.find(c.find("Weapon").Text,"3 hits") and c.find("FireCannon").Visible)
+        assert(string.find(c.find("Goal").Text,"SWIM") and c.find("Start").Text=="Return to shore [R]")
+        c.find("Start").Activated:Fire();assert(c.requests[1][1]=="ReturnLand")
+    end)
+    test("compact landscape shells and fire reserve separate action slots",function()
+        for _,size in {{X=640,Y=324},{X=844,Y=354}} do
+            local c=clientHarness(nil,size)
+            local shells,fire=c.find("OpenShells"),c.find("FireCannon")
+            local function rect(item)
+                local p,s=item.Position,item.Size
+                return {x=size.X*p[1]+p[2],y=size.Y*p[3]+p[4],w=s[1],h=s[2]}
+            end
+            local a,b=rect(shells),rect(fire)
+            assert(a.y+a.h<=b.y or b.y+b.h<=a.y or a.x+a.w<=b.x or b.x+b.w<=a.x)
+            assert(a.y>=0 and b.y+b.h<=size.Y)
+            assert(c.find("Route").Size[2]==-130)
+        end
     end)
     return count
 end

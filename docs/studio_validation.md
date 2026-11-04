@@ -1,5 +1,23 @@
 # Studio validation evidence and procedure
 
+## M03-R4 cannon, ocean and shore scenery — 2026-11-03
+
+Version `0.6.0-cannon-ocean`: 54 Luau compile, 186 standalone cases and matching source/build checks PASS. Real single-client engine suite **27/27 PASS**, including native E/F unlock/target, lock/range/invalid/focus/cooldown checks, projectile cleanup, no coins, actual course fall then Swimming/motion, R shore return, four shore traversals, respawn retention and native voxel-preservation/idempotence/deep-water probes. Client/server error histories empty; exact fixtures cleaned. See [feature contract/evidence](cannon_ocean_expansion.md) and `validation/cannon-ocean-pass.json`; initial failures retained separately. Automated input-adapter/layout checks do not pass actual device/multiplayer gates.
+
+Repeat with `python scripts/studio-pickup-check.py --suite ocean --output .tools/ocean-result.json` after safe source sync to an idle Studio. Before runtime mutation preserve Studio source/editor buffers; this session exact-source readbacks/backups covered16 initial scripts and subsequent scoped client/shore fixes. No publishing or security changes.
+
+| Gate | Required evidence | Result |
+| --- | --- | --- |
+| O01 | Native nearby orange crate unlock; F target hit; invalid/focus/cooldown; no economy | PASS, single client |
+| O02 | Walk off Training shortcut carrying; cancel delivery; native Swimming/motion; R return | PASS, single client |
+| O03 | Four marked shore ramps connect native water to ordinary land | PASS, all four native traversals |
+| O04 | Native mixed terrain/partial water preservation, empty-only fill, repeat/deepest probe | PASS |
+| O05 | Keyboard/mouse versus actual touch/gamepad aim/fire/swim/return; compact UI after cosmetic unlock | PENDING actual devices; source layout/inset adapters PASS |
+| O06 | Two clients independently unlock/fire/fade; passing player cannot be damaged/block a target; leave cleanup | PENDING native multiplayer; authority/cleanup adapters PASS |
+| O07 | Named low-end device startup/water render/frame/memory budgets | PENDING |
+
+The following M03-R3/M03-R2 evidence is historical. Latest build/Git/checks and current running/idle state are maintained in PROJECT_STATE.md.
+
 ## M03-R3 grass and mushroom — 2026-11-03
 
 Build version 0.5.0-mushroom-double-jump; SHA256 **da22e3ae3aa7434d1d7796959dd96842a7a0af938d70274ca3e454bc9a4099b7**. Automated: 39 Luau compile, 153 cases, source mapping and byte-identical builds pass; floor-overlap regression remains green.
@@ -64,7 +82,7 @@ Stop the old playtest, reopen the rebuilt `build/RollboxGame.rbxlx` (or synchron
 | R02 | Move out of range; then spam pickup while carrying; try with chat/shop focused | Out-of-range feedback; no duplicate parcel/reward or timer reset; no unintended pickup while typing/in modal | PENDING |
 | R03 | Two clients take parcels from the same station | Shared station remains; each receives its own parcel/run and clear HUD | PENDING |
 | R04 | Walk from hub side exits through Meadow, Coast, Redstone and Frostpeak, including both connecting bridges | Continuous paths/ramps, readable signs, no trapped movement or obstructed spawn/station; distinct explorable terrain | PENDING |
-| R05 | Complete all original Training gates, safe detour and shortcut; fall at several points, reset and retry | Gate order/reward unchanged; falling recovers before any new terrain catches the runner | PENDING |
+| R05 | Complete all original Training gates, safe detour and shortcut; fall at several points, reset and retry | Gate order/reward unchanged; falling cancels the delivery and permits native swimming, with shore return and no reward (M03-R4 supersedes prior checkpoint fall recovery) | PENDING |
 | R06 | Use phone landscape/portrait and gamepad prompt; inspect pickup/box/camera and expanded map performance | Input and carried box remain readable/usable; no errors; record actual frame/memory measurements rather than inferring performance from part count | PENDING |
 
 R01–R06 are required before accepting this revision's runtime behavior. Existing S01–S09 and persistence/release gates still apply.
