@@ -1,12 +1,12 @@
 # Project state
 
-Updated 2026-11-04 (Europe/Warsaw). Active task: user-requested graphics overhaul, executed through `graphic_improvement_plan.md`. G01–G06 are implemented and locally reviewed. G07/G08 await broader device/performance/multiplayer validation; all four local native regression suites pass. No release-readiness claim.
+Updated 2026-11-04 (Europe/Warsaw). Active task: user-requested graphics overhaul, executed through `graphic_improvement_plan.md`. G01–G06 are implemented and locally reviewed; all four local native regression suites pass. G07–G09 await broader device/performance/multiplayer/merge gates. No release-readiness claim.
 
 ## Repository and checkpoints
 
 - Repository `mfx-aristocrat/rollboxgame`, PUBLIC visibility reverified and preserved. Work on `develop`; main/origin/main remain `260d22c90e57a43bf318b24a4b3353397823238a` (user-merged PR #1).
-- Last verified local/origin/develop HEAD: `da50ad5ce36ab730dce09974470cb4c5a24dbeeb` (initial graphics plan/docs). Current graphics source/assets/evidence are not yet committed. Previous cannon/ocean code `e06982b478b425c1db33266291398ae9d1c5e87c` passed Windows/Ubuntu CI 41817684416 and 41817678860.
-- Draft PR #2 remains OPEN/DRAFT, develop→main: https://github.com/mfx-aristocrat/rollboxgame/pull/2. Keep stable main unchanged while mandatory gates remain pending. Routine commits/pushes and later validated merges are authorized; no force pushes.
+- Verified graphics source checkpoint: local/origin/develop `3e24ef32700a7cdba5be553e3b24f0075509b94f`, committed and pushed. Both Windows and Ubuntu jobs passed in push CI **41874399056** and PR CI **41874408249** for that exact source SHA. Remote main `260d22c90e57a43bf318b24a4b3353397823238a` verified unchanged. Documentation-only handoff updates follow this source checkpoint; build/source evidence remains the same. Previous cannon/ocean code `e06982b478b425c1db33266291398ae9d1c5e87c` remains preserved in history.
+- Draft PR #2 updated to include the graphics scope and remains OPEN/DRAFT, develop→main: https://github.com/mfx-aristocrat/rollboxgame/pull/2. Keep stable main unchanged while mandatory gates remain pending. Routine commits/pushes and later validated merges are authorized; no force pushes.
 - Roadmap M03-R5 is AWAITING_VALIDATION in practical scope; earlier M03/M03-R1–R4 and M04 gates still apply. Full brief `Roblox_Game_Creation_Instructions.md`, authoritative roadmap `game_creation_steps.md`, durable instructions `AGENTS.md` (already references full brief).
 
 ## Verified graphics implementation
@@ -43,8 +43,8 @@ Updated 2026-11-04 (Europe/Warsaw). Active task: user-requested graphics overhau
 
 ## Exact next actions
 
-1. Commit/push the completed graphics implementation/evidence checkpoint on develop, verify Windows/Ubuntu CI and both remote SHAs; update draft PR #2 with the graphics scope. This Git handoff is currently in progress.
-2. Update this state with exact final commits/CI and clean Git status after push. Keep main stable until mandatory device/multiplayer/release gates pass.
-3. Complete process-isolated named-device cold startup, sustained frame/memory and actual phone/controller checks; private published-client asset grants/moderation and full multiplayer remain open. Use the corresponding environment; do not substitute emulation for actual device evidence.
-4. Current Studio is idle Edit with zero owned fixtures and Automatic quality. Source build at build/RollboxGame.rbxlx is ready for local Play. Preserve other unsaved diagnostic Studio scenes; do not use the bad-export GraphicsFinalValidation as a release artifact.
-5. Public release and paid spending still require explicit approval. Continue the next unblocked roadmap gate when its required environment is available.
+1. Graphics implementation and local verification are complete and pushed. Continue G07/G08 with process-isolated named-device cold startup, sustained frame/memory and actual phone/controller checks. Prior low-quality emulation does not count as a phone pass.
+2. Verify generated image/mesh moderation and grants in the intended private experience, using a non-owner published client. No experience was published during this graphics task; do not infer live asset availability from creator Studio access.
+3. Complete full multiplayer independent unlock/fade/no-PvP and the earlier slice/persistence/tester/release gates listed above. Keep the draft PR and main unchanged until required gates pass; then follow the validated merge/push/remote verification workflow.
+4. Current corrected Studio GraphicsValidated.rbxlx is idle Edit with zero owned fixtures and Automatic quality. Build/RollboxGame.rbxlx is the source-built local artifact ready for Play. Preserve other unsaved diagnostic scenes and exclude the bad-export GraphicsFinalValidation file from any release.
+5. Final documentation checkpoint is being saved on top of source commit 3e24ef3. Confirm actual current local/remote heads with Git at the next startup. Public release and paid spending still require explicit approval.
