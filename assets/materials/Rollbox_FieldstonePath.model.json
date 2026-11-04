@@ -1,0 +1,23 @@
+{
+  "ClassName": "MaterialVariant",
+  "Properties": {
+    "BaseMaterial": "Cobblestone",
+    "ColorMap": "rbxassetid://122356647940259",
+    "NormalMap": "rbxassetid://85371546182487",
+    "RoughnessMap": "rbxassetid://122867767711757",
+    "MetalnessMap": "",
+    "StudsPerTile": 4,
+    "MaterialPattern": "Organic",
+    "Attributes": {
+      "RollboxVisualAsset": {
+        "Bool": true
+      },
+      "AssetOrigin": {
+        "String": "Roblox Assistant Material Generator / 2026-11-04"
+      },
+      "GeneratedCandidate": {
+        "String": "Rollbox_FieldstonePath_v11"
+      }
+    }
+  }
+}

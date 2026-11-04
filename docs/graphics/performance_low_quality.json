@@ -1,0 +1,12 @@
+{
+  "fpsFromMean": 60.05177653729581,
+  "finished": true,
+  "meanMs": 16.65229669565128,
+  "viewport": [
+    1277.142822265625,
+    674.2857055664062
+  ],
+  "p95Ms": 19.03590001165867,
+  "frames": 180,
+  "quality": "Enum.QualityLevel.Level01"
+}

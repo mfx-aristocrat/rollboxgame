@@ -9,6 +9,9 @@ local BlasterWorld = require(script.Parent.BlasterWorld)
 local BlasterConfig = require(game:GetService("ReplicatedStorage").Shared.BlasterConfig)
 local OceanWorld = require(script.Parent.OceanWorld)
 local OceanConfig = require(game:GetService("ReplicatedStorage").Shared.OceanConfig)
+local VisualConfig = require(game:GetService("ReplicatedStorage").Shared.VisualConfig)
+local LightingPresentation = require(script.Parent.LightingPresentation)
+local WorldPresentation = require(script.Parent.WorldPresentation)
 
 function World.build(config)
     local existing = workspace:FindFirstChild("SwitchbackWorld")
@@ -48,7 +51,8 @@ function World.build(config)
     local meadow = Color3.fromRGB(98, 158, 72)
     local rail = Color3.fromRGB(224, 159, 93)
     local mint = Color3.fromRGB(114, 245, 182)
-    TerrainWorld.build(model, WorldLayout.create(config))
+    local layout=WorldLayout.create(config)
+    TerrainWorld.build(model, layout)
     -- Root height is ~12; deck top is 9.5. All landings are ordinary anchored parts.
     local function deck(name, x, z, width, length)
         part(name .. "Cliff", Vector3.new(width, 6, length), Vector3.new(x, 4.5, z), Color3.fromRGB(204, 134, 76), Enum.Material.Sandstone)
@@ -106,13 +110,16 @@ function World.build(config)
     sign("DestinationSign", Vector3.new(0, 19, -148), "DELIVER HERE\nAll four gates → 25 coins", mint)
     local adventure = AdventureWorld.build(model, AdventureLayout.create(config))
     local lighting = game:GetService("Lighting")
-    lighting.ClockTime, lighting.Brightness = 11, 2.5
-    lighting.Ambient = Color3.fromRGB(170, 180, 206)
-    lighting.OutdoorAmbient = Color3.fromRGB(186, 199, 223)
+    LightingPresentation.apply(lighting,VisualConfig,workspace:FindFirstChildOfClass("Terrain"))
     local powerups = PowerupWorld.build(model, PowerupConfig)
     local blaster = BlasterWorld.build(model, BlasterConfig)
     local ocean = OceanWorld.build(model, OceanConfig)
-    return { model = model, prompt = prompt, adventure = adventure, powerups = powerups, blaster = blaster, ocean = ocean }
+    local presentation=WorldPresentation.apply(model,VisualConfig,{
+        scope=VisualConfig.scope,layout=layout,
+        templates=game:GetService("ServerStorage"):FindFirstChild("VisualAssets"),
+        materialService=game:GetService("MaterialService"),
+    })
+    return { model = model, prompt = prompt, adventure = adventure, powerups = powerups, blaster = blaster, ocean = ocean, presentation=presentation }
 end
 
 return World

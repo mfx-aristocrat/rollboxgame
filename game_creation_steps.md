@@ -84,9 +84,11 @@ Repository update 2026-11-03: user merged PR #1 into main (260d22c), bringing th
 
 ## M03-R5 — Graphics and texture realism
 - User-authorized 2026-11-04: highest achievable graphics/texture quality, with sequential iterative execution. Full plan: `graphic_improvement_plan.md` (G01–G09).
-- Status: IN_PROGRESS (baseline/tool audit). Source gameplay checkpoint e06982b is preserved.
+- Status: AWAITING_VALIDATION. G01–G06 implemented/reviewed; G07 broader hardware/device gates pending, G08 all four local native suites pass; actual device/multiplayer gates remain pending. Source gameplay checkpoint e06982b is preserved.
 - Acceptance: improved actual Studio views at identical cameras, material scale/maps/assets source-controlled, clear sunlight and readable game cues, richer scenery silhouettes, unchanged collisions/gameplay, bounded detail and measured available performance; actual device gaps remain explicit.
 - Required checks: plan's step-by-step render/source/material/build/regression gates, provenance, CI and Git/state updates. No public release or paid spend.
+- Evidence: six curated PBR variants, three normalized mesh templates, 35 trees/27 boulders/403 decorative Parts within700 budget, 155 original colliders preserved; ten before/after views inspected. 61 Luau compile/201 standalone/5 adapter tests and byte-identical builds pass. Clean native assets load17/17 images with correct mesh dimensions; real pickup14/14, adventure/floor22/22, mushroom/delivery23/23 and cannon/ocean27/27 pass with no captured errors and fixture cleanup. Local performance and limitations in docs/graphics/README.md.
+- Git/CI: current graphics checkpoint is being committed/pushed on develop; final exact SHAs and CI recorded in PROJECT_STATE.md. Main stays260d22c while mandatory gates remain pending.
 
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.

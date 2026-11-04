@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-04",
+  "generator": "Roblox Studio Assistant Mesh Generator; original RollboxGame art direction",
+  "acceptedModels": {
+    "Palm": "99418412771534",
+    "Boulder": "105256037377845",
+    "CompositeCoastalTree": "Uses trunk/branches from90422131268703 and five scaled foliage clusters from99418412771534"
+  },
+  "rejected": {
+    "OakV1Canopy": "Literal textured cube; omitted",
+    "OakV2": "98186504146203; unverified after GPU-driver hang; omitted"
+  },
+  "templates": [
+    {
+      "template": "Boulder",
+      "source": "assets/visuals/Boulder.rbxmx",
+      "parts": [
+        {
+          "name": "boulder_geom",
+          "mesh": "rbxassetid://86717400749442",
+          "color": "rbxassetid://73748699149126",
+          "roughness": "rbxassetid://95783077020096"
+        }
+      ]
+    },
+    {
+      "template": "Oak",
+      "source": "assets/visuals/Oak.rbxmx",
+      "parts": [
+        {
+          "name": "trunk_geom",
+          "mesh": "rbxassetid://124182571199999",
+          "color": "rbxassetid://107712893093075",
+          "roughness": "rbxassetid://122188970948991"
+        },
+        {
+          "name": "branches_geom",
+          "mesh": "rbxassetid://106535459735067",
+          "color": "rbxassetid://134268422168072",
+          "roughness": "rbxassetid://122188970948991"
+        },
+        {
+          "name": "FoliageCluster1",
+          "mesh": "rbxassetid://112167736252585",
+          "color": "rbxassetid://105487320966350",
+          "roughness": "rbxassetid://81995746409800"
+        },
+        {
+          "name": "FoliageCluster2",
+          "mesh": "rbxassetid://112167736252585",
+          "color": "rbxassetid://105487320966350",
+          "roughness": "rbxassetid://81995746409800"
+        },
+        {
+          "name": "FoliageCluster3",
+          "mesh": "rbxassetid://112167736252585",
+          "color": "rbxassetid://105487320966350",
+          "roughness": "rbxassetid://81995746409800"
+        },
+        {
+          "name": "FoliageCluster4",
+          "mesh": "rbxassetid://112167736252585",
+          "color": "rbxassetid://105487320966350",
+          "roughness": "rbxassetid://81995746409800"
+        },
+        {
+          "name": "FoliageCluster5",
+          "mesh": "rbxassetid://112167736252585",
+          "color": "rbxassetid://105487320966350",
+          "roughness": "rbxassetid://81995746409800"
+        }
+      ]
+    },
+    {
+      "template": "Palm",
+      "source": "assets/visuals/Palm.rbxmx",
+      "parts": [
+        {
+          "name": "trunk_geom",
+          "mesh": "rbxassetid://91138529920211",
+          "color": "rbxassetid://79063693814042",
+          "roughness": "rbxassetid://122188970948991"
+        },
+        {
+          "name": "fronds_geom",
+          "mesh": "rbxassetid://112167736252585",
+          "color": "rbxassetid://105487320966350",
+          "roughness": "rbxassetid://81995746409800"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "No imported code or PackageLinks shipped.",
+    "Mesh images use generated albedo plus already accepted material-library roughness; absent normal/metal maps are intentional.",
+    "InitialSize is recorded from actual native MeshSize, not scaled Part.Size.",
+    "Asset generation created Roblox asset IDs; no experience publishing or visibility change occurred.",
+    "Access verified in local Studio under the generating account. Private published-client asset permission/moderation checks remain pending."
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "buildSeconds": 0.7787359000067227,
+  "version": "0.7.0-natural-graphics",
+  "priority": true,
+  "meshDimensions": [
+    {
+      "meshSize": [
+        9.94984245300293,
+        7.001194953918457,
+        10
+      ],
+      "name": "boulder_geom",
+      "model": "Boulder"
+    },
+    {
+      "meshSize": [
+        15.575910568237305,
+        21.59707260131836,
+        15.315755844116211
+      ],
+      "name": "trunk_geom",
+      "model": "Oak"
+    },
+    {
+      "meshSize": [
+        15.577800750732422,
+        11.11740493774414,
+        15.294136047363281
+      ],
+      "name": "branches_geom",
+      "model": "Oak"
+    },
+    {
+      "meshSize": [
+        16.43498420715332,
+        13.015268325805664,
+        16.450794219970703
+      ],
+      "name": "FoliageCluster1",
+      "model": "Oak"
+    },
+    {
+      "meshSize": [
+        16.43498420715332,
+        13.015268325805664,
+        16.450794219970703
+      ],
+      "name": "FoliageCluster2",
+      "model": "Oak"
+    },
+    {
+      "meshSize": [
+        16.43498420715332,
+        13.015268325805664,
+        16.450794219970703
+      ],
+      "name": "FoliageCluster3",
+      "model": "Oak"
+    },
+    {
+      "meshSize": [
+        16.43498420715332,
+        13.015268325805664,
+        16.450794219970703
+      ],
+      "name": "FoliageCluster4",
+      "model": "Oak"
+    },
+    {
+      "meshSize": [
+        16.43498420715332,
+        13.015268325805664,
+        16.450794219970703
+      ],
+      "name": "FoliageCluster5",
+      "model": "Oak"
+    },
+    {
+      "meshSize": [
+        4.296807289123535,
+        11.891048431396484,
+        10.25139045715332
+      ],
+      "name": "trunk_geom",
+      "model": "Palm"
+    },
+    {
+      "meshSize": [
+        16.43498420715332,
+        13.015268325805664,
+        16.450794219970703
+      ],
+      "name": "fronds_geom",
+      "model": "Palm"
+    }
+  ],
+  "presentation": {
+    "missingVariants": [],
+    "scope": "all",
+    "rockTemplateCount": 27,
+    "fallbackCount": 0,
+    "partCount": 403,
+    "templateFailures": 0,
+    "templateCount": 35,
+    "materialParts": 290,
+    "hiddenParts": 133,
+    "rockFallbackCount": 0
+  },
+  "style": "Realistic"
+}

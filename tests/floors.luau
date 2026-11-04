@@ -14,14 +14,16 @@ local function buildWorld()
     local terrainKey, adventureKey = {}, {}
     local layoutKey, adventureLayoutKey, powerupKey, powerupConfigKey = {}, {}, {}, {}
     local blasterKey, blasterConfigKey, oceanKey, oceanConfigKey = {}, {}, {}, {}
-    local modules = { [blasterConfigKey]=BlasterConfig, [oceanConfigKey]=OceanConfig, [layoutKey] = WorldLayout, [adventureLayoutKey] = AdventureLayout, [powerupConfigKey] = PowerupConfig }
+    local visualKey,lightingKey,presentationKey={},{},{}
+    local modules = { [visualKey]=require("../src/shared/VisualConfig"), [lightingKey]={apply=function() end}, [presentationKey]={apply=function() end}, [blasterConfigKey]=BlasterConfig, [oceanConfigKey]=OceanConfig, [layoutKey] = WorldLayout, [adventureLayoutKey] = AdventureLayout, [powerupConfigKey] = PowerupConfig }
     local environment = {
         Instance = roblox.Instance, Enum = roblox.Enum, CFrame = roblox.CFrame,
         Vector3 = roblox.Vector3, Color3 = roblox.Color3, UDim2 = roblox.UDim2, UDim = roblox.UDim,
-        workspace = roblox.Instance.new("Folder"), script = { Parent = { TerrainWorld = terrainKey, AdventureWorld = adventureKey, PowerupWorld = powerupKey, BlasterWorld=blasterKey, OceanWorld=oceanKey } },
+        workspace = roblox.Instance.new("Folder"), script = { Parent = { TerrainWorld = terrainKey, AdventureWorld = adventureKey, PowerupWorld = powerupKey, BlasterWorld=blasterKey, OceanWorld=oceanKey,LightingPresentation=lightingKey, WorldPresentation=presentationKey } },
         game = { GetService = function(_, name)
-            if name == "ReplicatedStorage" then return { Shared = { WorldLayout = layoutKey, AdventureLayout = adventureLayoutKey, PowerupConfig = powerupConfigKey, BlasterConfig=blasterConfigKey, OceanConfig=oceanConfigKey } } end
-            assert(name == "Lighting", name)
+            if name == "ReplicatedStorage" then return { Shared = { WorldLayout = layoutKey, AdventureLayout = adventureLayoutKey, PowerupConfig = powerupConfigKey, BlasterConfig=blasterConfigKey, OceanConfig=oceanConfigKey,VisualConfig=visualKey } } end
+            if name=="ServerStorage" then return {FindFirstChild=function() return nil end} end
+            assert(name=="Lighting" or name=="MaterialService",name)
             return {}
         end },
         require = function(key) return assert(modules[key], "unexpected production dependency") end,

@@ -1,0 +1,13 @@
+{
+  "testResult": "{\"prompts\":1,\"finished\":true,\"snapshots\":[],\"remoteFolders\":1,\"fallenPartsDestroyHeight\":-100,\"reason\":\"pickup_succeeded\",\"before\":{\"parcel\":false,\"health\":100,\"position\":[7,12,6]},\"intents\":0,\"worldPresent\":true,\"serverErrors\":[],\"fixture\":\"pickup-engine-v1\",\"client\":{\"clientErrors\":[],\"eEvents\":1,\"snapshot\":{\"state\":\"Running\",\"mode\":\"Practice\",\"nearPickup\":true,\"message\":\"Parcel picked up! Carry it through gate 1: A / SUN.\"},\"promptEvents\":1,\"guiPresent\":true,\"promptShown\":1,\"focusedTextBox\":\"none\",\"routeText\":\"CARRYING PARCEL • 0 coins\",\"message\":\"Parcel picked up! Carry it through gate 1: A / SUN.\",\"processed\":true,\"inputOk\":true},\"delayed\":{\"parcel\":true,\"health\":100,\"position\":[7.006842613220215,12.62170124053955,6.005865097045898]},\"immediate\":{\"parcel\":true,\"health\":100,\"position\":[7.006842613220215,12.62170124053955,6.005865097045898]}}",
+  "timeoutSeconds": 45,
+  "deadlineExceeded": false,
+  "state": "COMPLETED",
+  "driver": "studio-official-check-v1",
+  "elapsedSeconds": 18,
+  "editModeActive": true,
+  "startedUnix": 1793811328,
+  "suite": "pickup",
+  "runId": "graphics-pickup-20261104",
+  "finishedUnix": 1793811346
+}

@@ -13,6 +13,8 @@ Push-Location $repoRoot
 try {
     & $python -m py_compile scripts/studio-pickup-check.py scripts/studio-powerups-multiplayer.py
     if ($LASTEXITCODE -ne 0) { throw 'Studio regression driver syntax check failed.' }
+    & $python tests/studio_official_check.py
+    if ($LASTEXITCODE -ne 0) { throw 'Official Studio fixture adapter checks failed.' }
     if (-not (Test-Path -LiteralPath 'tests/run.luau')) { throw 'Missing tests/run.luau test runner.' }
     & $lune run tests/run.luau
     if ($LASTEXITCODE -ne 0) { throw 'Luau tests failed.' }

@@ -1,0 +1,3737 @@
+{
+  "render": [],
+  "lighting": {
+    "clock": 11,
+    "ambient": [
+      0.6666666865348816,
+      0.7058823704719543,
+      0.8078431487083435
+    ],
+    "style": "Soft",
+    "quality": false
+  },
+  "parts": 1267,
+  "collisionParts": [
+    {
+      "path": "Workspace.SwitchbackWorld.DeliveryPad",
+      "group": "Default",
+      "frame": [
+        0,
+        9.699999809265137,
+        -148,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        14,
+        0.30000001192092896,
+        9
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DepotPaver2",
+      "group": "Default",
+      "frame": [
+        0,
+        9.5600004196167,
+        -4,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        5,
+        0.11999999731779099,
+        2.4000000953674316
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DepotPaver3",
+      "group": "Default",
+      "frame": [
+        0,
+        9.5600004196167,
+        -10,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        5,
+        0.11999999731779099,
+        2.4000000953674316
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DepotPaver4",
+      "group": "Default",
+      "frame": [
+        0,
+        9.5600004196167,
+        -16,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        5,
+        0.11999999731779099,
+        2.4000000953674316
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DepotPaver5",
+      "group": "Default",
+      "frame": [
+        0,
+        9.5600004196167,
+        -22,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        5,
+        0.11999999731779099,
+        2.4000000953674316
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DepotRoof",
+      "group": "Default",
+      "frame": [
+        0,
+        8.5,
+        2,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        38,
+        2,
+        26
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DepotRoofCliff",
+      "group": "Default",
+      "frame": [
+        0,
+        4.5,
+        2,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        38,
+        6,
+        26
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DepotSpawn",
+      "group": "Default",
+      "frame": [
+        0,
+        10,
+        5,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        7,
+        1,
+        7
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DetourEntry",
+      "group": "Default",
+      "frame": [
+        -7,
+        8.5,
+        -60,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        26,
+        2,
+        10
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DetourEntryCliff",
+      "group": "Default",
+      "frame": [
+        -7,
+        4.5,
+        -60,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        26,
+        6,
+        10
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DetourExit",
+      "group": "Default",
+      "frame": [
+        -7,
+        8.5,
+        -94,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        26,
+        2,
+        10
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.DetourExitCliff",
+      "group": "Default",
+      "frame": [
+        -7,
+        4.5,
+        -94,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        26,
+        6,
+        10
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.CoastBeach",
+      "group": "Default",
+      "frame": [
+        275,
+        -13,
+        135,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sand",
+      "size": [
+        340,
+        18,
+        580
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.CoastFoundation",
+      "group": "Default",
+      "frame": [
+        275,
+        -27,
+        135,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        350,
+        18,
+        590
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.DockPiling",
+      "group": "Default",
+      "frame": [
+        335,
+        -4,
+        207,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Wood",
+      "size": [
+        2,
+        8,
+        2
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.DockPiling",
+      "group": "Default",
+      "frame": [
+        345,
+        -4,
+        147,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Wood",
+      "size": [
+        2,
+        8,
+        2
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.DockPiling",
+      "group": "Default",
+      "frame": [
+        345,
+        -4,
+        207,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Wood",
+      "size": [
+        2,
+        8,
+        2
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.DockPiling",
+      "group": "Default",
+      "frame": [
+        335,
+        -4,
+        147,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Wood",
+      "size": [
+        2,
+        8,
+        2
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.EastPlaza",
+      "group": "Default",
+      "frame": [
+        53,
+        0.25,
+        8,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Cobblestone",
+      "size": [
+        70,
+        18,
+        24
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.FrostBase",
+      "group": "Default",
+      "frame": [
+        275,
+        19,
+        -310,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Slate",
+      "size": [
+        350,
+        18,
+        280
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.FrostSummit",
+      "group": "Default",
+      "frame": [
+        330,
+        55,
+        -340,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Snow",
+      "size": [
+        70,
+        18,
+        90
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.FrostTerrace",
+      "group": "Default",
+      "frame": [
+        275,
+        37,
+        -315,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Snow",
+      "size": [
+        200,
+        18,
+        180
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.GardensCreamBand",
+      "group": "Default",
+      "frame": [
+        -290,
+        -16,
+        650,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        492,
+        18,
+        444
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.GardensGrass",
+      "group": "Default",
+      "frame": [
+        -290,
+        -11,
+        650,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        484,
+        18,
+        436
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.GardensOchreCliff",
+      "group": "Default",
+      "frame": [
+        -290,
+        -27.25,
+        650,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        500,
+        18,
+        450
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.LagoonBoardwalk",
+      "group": "Default",
+      "frame": [
+        340,
+        -2,
+        180,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        12,
+        1,
+        72
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.MeadowFoundation",
+      "group": "Default",
+      "frame": [
+        -275,
+        -27,
+        135,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Rock",
+      "size": [
+        350,
+        18,
+        590
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.MeadowGrass",
+      "group": "Default",
+      "frame": [
+        -275,
+        -11,
+        135,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        340,
+        18,
+        580
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.MesaCreamBand",
+      "group": "Default",
+      "frame": [
+        290,
+        -5,
+        680,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        492,
+        18,
+        396
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.MesaCrownCliff",
+      "group": "Default",
+      "frame": [
+        390,
+        18,
+        730,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        160,
+        18,
+        180
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.MesaCrownGrass",
+      "group": "Default",
+      "frame": [
+        390,
+        23,
+        730,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        156,
+        18,
+        176
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.MesaGrass",
+      "group": "Default",
+      "frame": [
+        290,
+        3,
+        680,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        484,
+        18,
+        392
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.MesaPeachCliff",
+      "group": "Default",
+      "frame": [
+        290,
+        -17,
+        680,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        500,
+        18,
+        400
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.RedstoneBase",
+      "group": "Default",
+      "frame": [
+        -275,
+        7,
+        -310,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Rock",
+      "size": [
+        350,
+        18,
+        280
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.RedstoneSummit",
+      "group": "Default",
+      "frame": [
+        -325,
+        27,
+        -310,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Rock",
+      "size": [
+        60,
+        18,
+        100
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.RedstoneTerrace",
+      "group": "Default",
+      "frame": [
+        -275,
+        17,
+        -310,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        190,
+        18,
+        180
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath1",
+      "group": "Default",
+      "frame": [
+        -40,
+        9.125,
+        8,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "material": "Cobblestone",
+      "size": [
+        20,
+        1,
+        80
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath10",
+      "group": "Default",
+      "frame": [
+        112,
+        -2.125,
+        350,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        20,
+        1,
+        16
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath11",
+      "group": "Default",
+      "frame": [
+        197.5,
+        -2.375,
+        290,
+        0.6121731996536255,
+        0,
+        -0.7907236814498901,
+        0,
+        1,
+        0,
+        0.7907236814498901,
+        0,
+        0.6121731996536255
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        196.02296447753906
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath12",
+      "group": "Default",
+      "frame": [
+        210,
+        -2.375,
+        160,
+        0.7327935099601746,
+        0,
+        0.6804510951042175,
+        0,
+        1,
+        0,
+        -0.6804510951042175,
+        0,
+        0.7327935099601746
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        191.0497283935547
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath13",
+      "group": "Default",
+      "frame": [
+        282.646240234375,
+        -2.125,
+        227.64730834960938,
+        0.29408547282218933,
+        0,
+        -0.9557791948318481,
+        0,
+        1.0000001192092896,
+        0,
+        0.9557791948318481,
+        0,
+        0.29408547282218933
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        15.999984741210938
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath14",
+      "group": "Default",
+      "frame": [
+        307.5066223144531,
+        -1.874951720237732,
+        219.99795532226562,
+        0.29408591985702515,
+        -0.013270705938339233,
+        -0.9556868076324463,
+        0,
+        0.9999035000801086,
+        -0.013884701766073704,
+        0.955778956413269,
+        0.004083295352756977,
+        0.29405754804611206
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        36.01085662841797
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath15",
+      "group": "Default",
+      "frame": [
+        332.353759765625,
+        -1.625,
+        212.35269165039062,
+        0.2940860986709595,
+        0,
+        -0.9557790160179138,
+        0,
+        1.0000001192092896,
+        0,
+        0.9557788968086243,
+        0,
+        0.29408612847328186
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        15.999984741210938
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath16",
+      "group": "Default",
+      "frame": [
+        139.9633331298828,
+        -2.375,
+        83.78453826904297,
+        0.7769328951835632,
+        0,
+        0.6295835375785828,
+        0,
+        1.0000001192092896,
+        0,
+        -0.6295835375785828,
+        0,
+        0.7769328951835632
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        15.99999713897705
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath17",
+      "group": "Default",
+      "frame": [
+        121.41805267333984,
+        3.3922393321990967,
+        60.89887237548828,
+        0.7769327759742737,
+        0.16389591991901398,
+        0.6078762412071228,
+        0,
+        0.9655212163925171,
+        -0.2603243589401245,
+        -0.629583477973938,
+        0.2022545337677002,
+        0.7501451373100281
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        44.175655364990234
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath18",
+      "group": "Default",
+      "frame": [
+        103.03666687011719,
+        9.125,
+        38.21546173095703,
+        0.7769328951835632,
+        0,
+        0.6295835375785828,
+        0,
+        1.0000001192092896,
+        0,
+        -0.6295835375785828,
+        0,
+        0.7769328951835632
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        15.99999713897705
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath19",
+      "group": "Default",
+      "frame": [
+        89,
+        9.125,
+        20,
+        0.8000000715255737,
+        0,
+        0.6000000238418579,
+        0,
+        1.0000001192092896,
+        0,
+        -0.6000000238418579,
+        0,
+        0.8000000715255737
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        30
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath2",
+      "group": "Default",
+      "frame": [
+        -89,
+        9.125,
+        20,
+        -0.8000000715255737,
+        0,
+        0.6000000238418579,
+        0,
+        1.0000001192092896,
+        0,
+        -0.6000000238418579,
+        0,
+        -0.8000000715255737
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        30
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath20",
+      "group": "Default",
+      "frame": [
+        40,
+        9.125,
+        8,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "material": "Cobblestone",
+      "size": [
+        20,
+        1,
+        80
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath21",
+      "group": "Default",
+      "frame": [
+        -155,
+        -0.375,
+        7.5,
+        0.9927337765693665,
+        0,
+        0.12033136188983917,
+        0,
+        1,
+        0,
+        -0.12033136188983917,
+        0,
+        0.9927337765693665
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        166.20770263671875
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath22",
+      "group": "Default",
+      "frame": [
+        -164.55624389648438,
+        -0.375,
+        -82.98768615722656,
+        0.9984602928161621,
+        0,
+        -0.05547144636511803,
+        0,
+        1,
+        0,
+        0.05547144636511803,
+        0,
+        0.9984602928161621
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        15.999999046325684
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath23",
+      "group": "Default",
+      "frame": [
+        -162.4924774169922,
+        7.84377908706665,
+        -120.13553619384766,
+        0.9984604120254517,
+        -0.01505944225937128,
+        -0.053386423736810684,
+        0,
+        0.9624415040016174,
+        -0.27148908376693726,
+        0.05546978861093521,
+        0.27107110619544983,
+        0.9609596729278564
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        60.4075927734375
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath24",
+      "group": "Default",
+      "frame": [
+        -160.44375610351562,
+        16.024999618530273,
+        -157.01231384277344,
+        0.9984604120254517,
+        0,
+        -0.05546949431300163,
+        0,
+        1.0000001192092896,
+        0,
+        0.05546949431300163,
+        0,
+        0.9984604120254517
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        16.00000762939453
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath25",
+      "group": "Default",
+      "frame": [
+        -167.449951171875,
+        16.024999618530273,
+        -167.91519165039062,
+        0.3643993139266968,
+        0,
+        0.9312428832054138,
+        0,
+        1.0000001192092896,
+        0,
+        -0.9312428832054138,
+        0,
+        0.3643993139266968
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        16
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath26",
+      "group": "Default",
+      "frame": [
+        -217.55059814453125,
+        21.0279598236084,
+        -187.51979064941406,
+        0.36439937353134155,
+        0.10118266940116882,
+        0.925729513168335,
+        0,
+        0.9940796494483948,
+        -0.10865337401628494,
+        -0.9312427639961243,
+        0.03959321975708008,
+        0.3622420132160187
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        92.0357894897461
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath27",
+      "group": "Default",
+      "frame": [
+        -267.550048828125,
+        26.024999618530273,
+        -207.08480834960938,
+        0.36439865827560425,
+        0,
+        0.9312431216239929,
+        0,
+        1.0000001192092896,
+        0,
+        -0.9312431216239929,
+        0,
+        0.36439865827560425
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        15.999985694885254
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath28",
+      "group": "Default",
+      "frame": [
+        -275,
+        26.024999618530273,
+        -218,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        16
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath29",
+      "group": "Default",
+      "frame": [
+        -275,
+        31.03032112121582,
+        -260.07275390625,
+        1,
+        0,
+        0,
+        0,
+        0.9893591403961182,
+        -0.1454939842224121,
+        0,
+        0.1454939842224121,
+        0.9893591403961182
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        68.73136138916016
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath3",
+      "group": "Default",
+      "frame": [
+        -103.03666687011719,
+        9.125,
+        38.21546173095703,
+        -0.7769328951835632,
+        0,
+        0.6295835375785828,
+        0,
+        1.0000001192092896,
+        0,
+        -0.6295835375785828,
+        0,
+        -0.7769328951835632
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        15.99999713897705
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath30",
+      "group": "Default",
+      "frame": [
+        -275,
+        36.025001525878906,
+        -302,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        16
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath31",
+      "group": "Default",
+      "frame": [
+        -300,
+        36.025001525878906,
+        -310,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        50
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath32",
+      "group": "Default",
+      "frame": [
+        -205,
+        36.025001525878906,
+        -352.5,
+        0.5189781785011292,
+        0,
+        -0.8547875881195068,
+        0,
+        1.0000001192092896,
+        0,
+        0.8547875881195068,
+        0,
+        0.5189781785011292
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        163.78338623046875
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath33",
+      "group": "Default",
+      "frame": [
+        -127,
+        36.275001525878906,
+        -395,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        20,
+        1,
+        16
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath34",
+      "group": "Default",
+      "frame": [
+        0.012601037509739399,
+        39.27516174316406,
+        -395,
+        0,
+        -0.025202075019478798,
+        -0.9996823072433472,
+        0,
+        0.9996823072433472,
+        -0.025202075019478798,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        20,
+        1,
+        238.07562255859375
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath35",
+      "group": "Default",
+      "frame": [
+        127,
+        42.275001525878906,
+        -395,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        20,
+        1,
+        16
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath36",
+      "group": "Default",
+      "frame": [
+        141.94595336914062,
+        42.025001525878906,
+        -391.0308837890625,
+        -0.4961397647857666,
+        0,
+        -0.8682426810264587,
+        0,
+        1,
+        0,
+        0.8682426810264587,
+        0,
+        -0.4961397647857666
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        16.0000057220459
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath37",
+      "group": "Default",
+      "frame": [
+        205.07284545898438,
+        53.0320930480957,
+        -354.9583740234375,
+        -0.4961387515068054,
+        -0.14569593966007233,
+        -0.8559316396713257,
+        0,
+        0.9858201146125793,
+        -0.16780543327331543,
+        0.8682432770729065,
+        -0.08325477689504623,
+        -0.4891035258769989
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        131.1042022705078
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath38",
+      "group": "Default",
+      "frame": [
+        268.0540771484375,
+        64.0250015258789,
+        -318.9691162109375,
+        -0.49614059925079346,
+        0,
+        -0.8682422041893005,
+        0,
+        1,
+        0,
+        0.8682422041893005,
+        0,
+        -0.49614059925079346
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        15.999992370605469
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath39",
+      "group": "Default",
+      "frame": [
+        302.5,
+        64.0250015258789,
+        -327.5,
+        0.41380295157432556,
+        0,
+        -0.9103665351867676,
+        0,
+        1.0000001192092896,
+        0,
+        0.9103665351867676,
+        0,
+        0.41380295157432556
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        60.41522979736328
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath4",
+      "group": "Default",
+      "frame": [
+        -121.43156433105469,
+        4.386959075927734,
+        60.91554641723633,
+        -0.7769327163696289,
+        -0.13687318563461304,
+        0.6145251393318176,
+        0,
+        0.9760818481445312,
+        0.21740275621414185,
+        -0.629583477973938,
+        0.1689073145389557,
+        -0.7583500742912292
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        43.697696685791016
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath40",
+      "group": "Default",
+      "frame": [
+        275,
+        64.0250015258789,
+        -307,
+        -1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        16
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath41",
+      "group": "Default",
+      "frame": [
+        275,
+        55.03780746459961,
+        -260.1124267578125,
+        -1,
+        0,
+        0,
+        0,
+        0.9743911027908325,
+        0.22485949099063873,
+        0,
+        0.22485949099063873,
+        -0.9743911027908325
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        80.04998779296875
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath42",
+      "group": "Default",
+      "frame": [
+        275,
+        46.025001525878906,
+        -213,
+        -1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        16
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath43",
+      "group": "Default",
+      "frame": [
+        267.44403076171875,
+        46.025001525878906,
+        -202.371826171875,
+        -0.32852011919021606,
+        0,
+        0.9444970488548279,
+        0,
+        1.0000001192092896,
+        0,
+        -0.9444969296455383,
+        0,
+        -0.32852014899253845
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        15.999990463256836
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath44",
+      "group": "Default",
+      "frame": [
+        217.5928497314453,
+        37.03476333618164,
+        -185.0323028564453,
+        -0.32852059602737427,
+        -0.1857113391160965,
+        0.9260591864585876,
+        0,
+        0.9804788827896118,
+        0.19662463665008545,
+        -0.9444968104362488,
+        0.06459524482488632,
+        -0.3221075236797333
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        91.5450210571289
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath45",
+      "group": "Default",
+      "frame": [
+        167.55596923828125,
+        28.024999618530273,
+        -167.628173828125,
+        -0.32852181792259216,
+        0,
+        0.9444963932037354,
+        0,
+        1,
+        0,
+        -0.9444963932037354,
+        0,
+        -0.32852181792259216
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        16.0000057220459
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath46",
+      "group": "Default",
+      "frame": [
+        160.27569580078125,
+        28.024999618530273,
+        -157.0047607421875,
+        -0.999406099319458,
+        0,
+        -0.03446194529533386,
+        0,
+        1.0000001192092896,
+        0,
+        0.03446194902062416,
+        0,
+        -0.9994059801101685
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        15.99999713897705
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath47",
+      "group": "Default",
+      "frame": [
+        162.4955291748047,
+        12.842142105102539,
+        -92.62972259521484,
+        -0.9994059801101685,
+        0.008946600370109081,
+        -0.03328081592917442,
+        0,
+        0.9657148122787476,
+        0.25960496068000793,
+        0.03446236252784729,
+        0.259450763463974,
+        -0.965141236782074
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        117.10100555419922
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath48",
+      "group": "Default",
+      "frame": [
+        164.72430419921875,
+        -2.375,
+        -27.995248794555664,
+        -0.999406099319458,
+        0,
+        -0.03446197137236595,
+        0,
+        1.0000001192092896,
+        0,
+        0.03446197509765625,
+        0,
+        -0.9994059801101685
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        16.000001907348633
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath49",
+      "group": "Default",
+      "frame": [
+        155,
+        -2.375,
+        35,
+        -0.9838699102401733,
+        0,
+        0.17888544499874115,
+        0,
+        1,
+        0,
+        -0.17888544499874115,
+        0,
+        -0.9838699102401733
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        111.80339813232422
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath5",
+      "group": "Default",
+      "frame": [
+        -139.9633331298828,
+        -0.3750000596046448,
+        83.78453826904297,
+        -0.7769328951835632,
+        0,
+        0.6295835375785828,
+        0,
+        1.0000001192092896,
+        0,
+        -0.6295835375785828,
+        0,
+        -0.7769328951835632
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        15.99999713897705
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath50",
+      "group": "Default",
+      "frame": [
+        -150,
+        -0.2499999701976776,
+        405,
+        -0.8778955936431885,
+        0,
+        0.4788520932197571,
+        0,
+        0.9999999403953552,
+        0,
+        -0.47885215282440186,
+        0,
+        -0.8778954744338989
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        125.29964447021484
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath51",
+      "group": "Default",
+      "frame": [
+        -235,
+        -0.25,
+        530,
+        -0.7863183617591858,
+        0,
+        0.6178215742111206,
+        0,
+        1,
+        0,
+        -0.6178215742111206,
+        0,
+        -0.7863183617591858
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        178.04493713378906
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath52",
+      "group": "Default",
+      "frame": [
+        -355,
+        -0.25,
+        660,
+        -0.6782801151275635,
+        0,
+        0.7348034381866455,
+        0,
+        1,
+        0,
+        -0.7348034381866455,
+        0,
+        -0.6782801151275635
+      ],
+      "material": "Cobblestone",
+      "size": [
+        20,
+        1,
+        176.91806030273438
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath53",
+      "group": "Default",
+      "frame": [
+        -285.99169921875,
+        -0.25,
+        606.9234008789062,
+        -0.8654270768165588,
+        0,
+        -0.5010349154472351,
+        0,
+        1,
+        0,
+        0.5010349154472351,
+        0,
+        -0.8654270768165588
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        15.999979019165039
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath54",
+      "group": "Default",
+      "frame": [
+        -234.9840087890625,
+        5.751020431518555,
+        695.0276489257812,
+        -0.8654263615608215,
+        -0.03199319541454315,
+        -0.5000136494636536,
+        0,
+        0.9979592561721802,
+        -0.06385406851768494,
+        0.5010361075401306,
+        -0.05526099354028702,
+        -0.8636602759361267
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        187.92852783203125
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath55",
+      "group": "Default",
+      "frame": [
+        -184.00830078125,
+        11.75,
+        783.0765991210938,
+        -0.8654254078865051,
+        0,
+        -0.5010377764701843,
+        0,
+        1,
+        0,
+        0.5010377764701843,
+        0,
+        -0.8654254078865051
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        15.99998664855957
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath56",
+      "group": "Default",
+      "frame": [
+        0,
+        11.875,
+        790,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        22,
+        1,
+        360
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath57",
+      "group": "Default",
+      "frame": [
+        126.71656036376953,
+        -2.25,
+        354.34600830078125,
+        -0.5432511568069458,
+        0,
+        -0.8395702242851257,
+        0,
+        1,
+        0,
+        0.8395702242851257,
+        0,
+        -0.5432511568069458
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        15.999996185302734
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath58",
+      "group": "Default",
+      "frame": [
+        205.03436279296875,
+        4.751677513122559,
+        405.022216796875,
+        -0.5432513952255249,
+        -0.06871326267719269,
+        -0.8367535471916199,
+        0,
+        0.9966452121734619,
+        -0.08184339106082916,
+        0.8395700454711914,
+        -0.04446153715252876,
+        -0.5414289236068726
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        171.0584259033203
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath59",
+      "group": "Default",
+      "frame": [
+        283.283447265625,
+        11.75,
+        455.65399169921875,
+        -0.543251633644104,
+        0,
+        -0.8395699858665466,
+        0,
+        1,
+        0,
+        0.8395699858665466,
+        0,
+        -0.543251633644104
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        16.000009536743164
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath6",
+      "group": "Default",
+      "frame": [
+        -210,
+        -0.375,
+        160,
+        -0.7327935099601746,
+        0,
+        0.6804510951042175,
+        0,
+        1,
+        0,
+        -0.6804510951042175,
+        0,
+        -0.7327935099601746
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        191.0497283935547
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath60",
+      "group": "Default",
+      "frame": [
+        290,
+        11.75,
+        530,
+        -1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        140
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath61",
+      "group": "Default",
+      "frame": [
+        235,
+        11.75,
+        695,
+        -0.8654263019561768,
+        0,
+        0.5010362863540649,
+        0,
+        1,
+        0,
+        -0.5010362863540649,
+        0,
+        -0.8654263019561768
+      ],
+      "material": "Cobblestone",
+      "size": [
+        22,
+        1,
+        219.54498291015625
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath62",
+      "group": "Default",
+      "frame": [
+        297.9602966308594,
+        11.75,
+        600.7960205078125,
+        -0.09950258582830429,
+        0,
+        -0.995037317276001,
+        0,
+        1,
+        0,
+        0.995037317276001,
+        0,
+        -0.09950258582830429
+      ],
+      "material": "Cobblestone",
+      "size": [
+        20,
+        1,
+        15.999996185302734
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath63",
+      "group": "Default",
+      "frame": [
+        340.1394348144531,
+        21.77004051208496,
+        605.013916015625,
+        -0.099504254758358,
+        -0.278882771730423,
+        -0.955156147480011,
+        0,
+        0.9599201679229736,
+        -0.2802737057209015,
+        0.9950371980667114,
+        -0.027888426557183266,
+        -0.0955161303281784
+      ],
+      "material": "Cobblestone",
+      "size": [
+        20,
+        1,
+        71.35881805419922
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath64",
+      "group": "Default",
+      "frame": [
+        382.0397033691406,
+        31.75,
+        609.2039794921875,
+        -0.09950258582830429,
+        0,
+        -0.995037317276001,
+        0,
+        1,
+        0,
+        0.995037317276001,
+        0,
+        -0.09950258582830429
+      ],
+      "material": "Cobblestone",
+      "size": [
+        20,
+        1,
+        15.999996185302734
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath65",
+      "group": "Default",
+      "frame": [
+        390,
+        31.75,
+        670,
+        -1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "material": "Cobblestone",
+      "size": [
+        20,
+        1,
+        120
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath7",
+      "group": "Default",
+      "frame": [
+        -197.5,
+        -0.375,
+        290,
+        -0.6121731996536255,
+        0,
+        -0.7907236814498901,
+        0,
+        1,
+        0,
+        0.7907236814498901,
+        0,
+        -0.6121731996536255
+      ],
+      "material": "Cobblestone",
+      "size": [
+        18,
+        1,
+        196.02296447753906
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath8",
+      "group": "Default",
+      "frame": [
+        -112,
+        -0.125,
+        350,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        20,
+        1,
+        16
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WalkingPath9",
+      "group": "Default",
+      "frame": [
+        -0.00480746990069747,
+        -1.1249768733978271,
+        350,
+        0,
+        0.00961493980139494,
+        -0.9999537467956543,
+        0,
+        0.9999537467956543,
+        0.00961493980139494,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        20,
+        1,
+        208.00961303710938
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ExplorationLandscape.WestPlaza",
+      "group": "Default",
+      "frame": [
+        -53,
+        0.25,
+        8,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Cobblestone",
+      "size": [
+        70,
+        18,
+        24
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.FinalLane",
+      "group": "Default",
+      "frame": [
+        0,
+        8.5,
+        -125,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        20,
+        2,
+        66
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.FinalLaneCliff",
+      "group": "Default",
+      "frame": [
+        0,
+        4.5,
+        -125,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        20,
+        6,
+        66
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.FirstLane",
+      "group": "Default",
+      "frame": [
+        0,
+        8.5,
+        -34,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        20,
+        2,
+        58
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.FirstLaneCliff",
+      "group": "Default",
+      "frame": [
+        0,
+        4.5,
+        -34,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        20,
+        6,
+        58
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate1Left",
+      "group": "Default",
+      "frame": [
+        -7.5,
+        14,
+        -24,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        1,
+        10,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate1Right",
+      "group": "Default",
+      "frame": [
+        7.5,
+        14,
+        -24,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        1,
+        10,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate1Top",
+      "group": "Default",
+      "frame": [
+        0,
+        19,
+        -24,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        16,
+        1,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate2Left",
+      "group": "Default",
+      "frame": [
+        -7.5,
+        14,
+        -52,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        1,
+        10,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate2Right",
+      "group": "Default",
+      "frame": [
+        7.5,
+        14,
+        -52,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        1,
+        10,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate2Top",
+      "group": "Default",
+      "frame": [
+        0,
+        19,
+        -52,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        16,
+        1,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate3Left",
+      "group": "Default",
+      "frame": [
+        -7.5,
+        14,
+        -94,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        1,
+        10,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate3Right",
+      "group": "Default",
+      "frame": [
+        7.5,
+        14,
+        -94,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        1,
+        10,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate3Top",
+      "group": "Default",
+      "frame": [
+        0,
+        19,
+        -94,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        16,
+        1,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate4Left",
+      "group": "Default",
+      "frame": [
+        -7.5,
+        14,
+        -126,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        1,
+        10,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate4Right",
+      "group": "Default",
+      "frame": [
+        7.5,
+        14,
+        -126,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        1,
+        10,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Gate4Top",
+      "group": "Default",
+      "frame": [
+        0,
+        19,
+        -126,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Neon",
+      "size": [
+        16,
+        1,
+        1
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.OceanSeafloor",
+      "group": "Default",
+      "frame": [
+        0,
+        -56,
+        220,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sand",
+      "size": [
+        1280,
+        4,
+        1560
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.coastShoreApproach",
+      "group": "Default",
+      "frame": [
+        439,
+        -4.25,
+        275,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        38
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.coastSwimDock",
+      "group": "Default",
+      "frame": [
+        541,
+        -13.625,
+        275,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        24,
+        1,
+        24
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.coastSwimRamp",
+      "group": "Default",
+      "frame": [
+        493.936279296875,
+        -8.87092399597168,
+        275,
+        0,
+        0.1274249404668808,
+        0.9918482303619385,
+        0,
+        0.9918482303619385,
+        -0.1274249404668808,
+        -1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        72.59175109863281
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.gardensShoreApproach",
+      "group": "Default",
+      "frame": [
+        -529,
+        -2.25,
+        740,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        38
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.gardensSwimDock",
+      "group": "Default",
+      "frame": [
+        -623,
+        -13.625,
+        740,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        24,
+        1,
+        24
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.gardensSwimRamp",
+      "group": "Default",
+      "frame": [
+        -579.9134521484375,
+        -7.867449760437012,
+        740,
+        0,
+        -0.17312687635421753,
+        -0.9848995208740234,
+        0,
+        0.9848995208740234,
+        -0.17312687635421753,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        64.98124694824219
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.meadowShoreApproach",
+      "group": "Default",
+      "frame": [
+        -439,
+        -2.25,
+        200,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        38
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.meadowSwimDock",
+      "group": "Default",
+      "frame": [
+        -541,
+        -13.625,
+        200,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        24,
+        1,
+        24
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.meadowSwimRamp",
+      "group": "Default",
+      "frame": [
+        -493.9228210449219,
+        -7.869006156921387,
+        200,
+        0,
+        -0.15437689423561096,
+        -0.9880120754241943,
+        0,
+        0.9880120754241943,
+        -0.15437689423561096,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        72.87360382080078
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.mesaShoreApproach",
+      "group": "Default",
+      "frame": [
+        529,
+        11.75,
+        600,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        38
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.mesaSwimDock",
+      "group": "Default",
+      "frame": [
+        615.7963256835938,
+        -13.625,
+        709.3489379882812,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        24,
+        1,
+        24
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.OceanEnvironment.mesaSwimRamp",
+      "group": "Default",
+      "frame": [
+        578.9447021484375,
+        -0.8638696670532227,
+        649.9108276367188,
+        0.8499027490615845,
+        0.1105642169713974,
+        0.5152096152305603,
+        0,
+        0.9777393341064453,
+        -0.20982328057289124,
+        -0.5269396901130676,
+        0.17832937836647034,
+        0.8309832811355591
+      ],
+      "material": "WoodPlanks",
+      "size": [
+        16,
+        1,
+        120.33936309814453
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ParcelDepot",
+      "group": "Default",
+      "frame": [
+        7,
+        11,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Wood",
+      "size": [
+        5,
+        3,
+        3
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ParcelLabel",
+      "group": "Default",
+      "frame": [
+        8.25,
+        11.300000190734863,
+        1.5399999618530273,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        1.399999976158142,
+        0.8999999761581421,
+        0.07999999821186066
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ParcelTapeFront",
+      "group": "Default",
+      "frame": [
+        7,
+        11,
+        1.5399999618530273,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        0.699999988079071,
+        3,
+        0.07999999821186066
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ParcelTapeTop",
+      "group": "Default",
+      "frame": [
+        7,
+        12.539999961853027,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        0.699999988079071,
+        0.07999999821186066,
+        3.0799999237060547
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.PlatformerAdventure.spring-01.SpringPad",
+      "group": "Default",
+      "frame": [
+        -180,
+        0.6000000238418579,
+        470,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        6,
+        1.2000000476837158,
+        6
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.PlatformerAdventure.spring-02.SpringPad",
+      "group": "Default",
+      "frame": [
+        -290,
+        0.6000000238418579,
+        590,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        6,
+        1.2000000476837158,
+        6
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.PlatformerAdventure.spring-03.SpringPad",
+      "group": "Default",
+      "frame": [
+        290,
+        12.600000381469727,
+        520,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        6,
+        1.2000000476837158,
+        6
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.PlatformerAdventure.spring-04.SpringPad",
+      "group": "Default",
+      "frame": [
+        390,
+        32.599998474121094,
+        710,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        6,
+        1.2000000476837158,
+        6
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.SafeDetour",
+      "group": "Default",
+      "frame": [
+        -14,
+        8.5,
+        -76,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        12,
+        2,
+        36
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.SafeDetourCliff",
+      "group": "Default",
+      "frame": [
+        -14,
+        4.5,
+        -76,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        12,
+        6,
+        36
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ShortcutExit",
+      "group": "Default",
+      "frame": [
+        0,
+        8.5,
+        -92,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        10,
+        2,
+        8
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ShortcutExitCliff",
+      "group": "Default",
+      "frame": [
+        0,
+        4.5,
+        -92,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        10,
+        6,
+        8
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ShortcutLanding",
+      "group": "Default",
+      "frame": [
+        0,
+        8.5,
+        -81,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        10,
+        2,
+        10
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ShortcutLandingCliff",
+      "group": "Default",
+      "frame": [
+        0,
+        4.5,
+        -81,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        10,
+        6,
+        10
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ShortcutTakeoff",
+      "group": "Default",
+      "frame": [
+        0,
+        8.5,
+        -65,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Grass",
+      "size": [
+        10,
+        2,
+        6
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.ShortcutTakeoffCliff",
+      "group": "Default",
+      "frame": [
+        0,
+        4.5,
+        -65,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "Sandstone",
+      "size": [
+        10,
+        6,
+        6
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Skyline1",
+      "group": "Default",
+      "frame": [
+        -38,
+        -9.5,
+        -20,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        15,
+        17,
+        20
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Skyline2",
+      "group": "Default",
+      "frame": [
+        38,
+        -7,
+        -50,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        15,
+        22,
+        20
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Skyline3",
+      "group": "Default",
+      "frame": [
+        -38,
+        -12,
+        -50,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        15,
+        12,
+        20
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Skyline4",
+      "group": "Default",
+      "frame": [
+        38,
+        -9.5,
+        -80,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        15,
+        17,
+        20
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Skyline5",
+      "group": "Default",
+      "frame": [
+        -38,
+        -7,
+        -80,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        15,
+        22,
+        20
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Skyline6",
+      "group": "Default",
+      "frame": [
+        38,
+        -12,
+        -110,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        15,
+        12,
+        20
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Skyline7",
+      "group": "Default",
+      "frame": [
+        -38,
+        -9.5,
+        -110,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        15,
+        17,
+        20
+      ]
+    },
+    {
+      "path": "Workspace.SwitchbackWorld.Skyline8",
+      "group": "Default",
+      "frame": [
+        38,
+        -7,
+        -140,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "material": "SmoothPlastic",
+      "size": [
+        15,
+        22,
+        20
+      ]
+    }
+  ],
+  "sourceVersion": "0.6.0-cannon-ocean"
+}

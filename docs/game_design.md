@@ -47,7 +47,7 @@ Desktop: default movement/jump/camera, E or normal prompt activation for depots,
 
 Amber is always accompanied by sun/“A”; Cyan by moon/“C”. Use shape/text markers even if lighting or color perception changes. Preserve normal camera freedom; avoid strobe effects, forced camera shake or tiny timing-only instructions. Feedback: parcel glow, short gate pulse, completion banner, unobtrusive cooldown fill. Provide reduced-effects and sound toggles if effects/audio are added. No audio asset is required for understanding or completion. Initial sound may remain off until original/licensed clips exist; no unverified asset IDs.
 
-Visual direction: clean toy-scale rooftops, bold courier signage, pale sky, charcoal walkways and clear safety rails. Author parts, materials, lighting and vector/text UI in code. No Toolbox imports, third-party characters, branded imagery or dependency on uploaded art. Later asset additions require origin and license records.
+Visual direction: readable platformer geography and courier signage within a natural coastal presentation. The2026-11-04 user-authorized revision adds original generated PBR grass/stone/timber/paving, botanical meshes, matte boulders, regional tints, directional lighting and restrained atmosphere. Gameplay cues and source collider geography stay intact. Author layout/UI/configuration in code; track accepted model/material exports through Rojo and record provenance. No copied third-party characters or branded imagery. Details and matched renders: docs/graphics/README.md; execution: graphic_improvement_plan.md.
 
 ## Economy and persistence contract
 
