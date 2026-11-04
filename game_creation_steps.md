@@ -82,6 +82,12 @@ Repository update 2026-11-03: user merged PR #1 into main (260d22c), bringing th
 - Acceptance/checks: contract's bounded server-authoritative firing, no PvP/economy effects; native Swimming and climbable shores; falling cancels delivery; dry/dead/flood rescue rejection; preserve existing Terrain/user work, course rewards, double jump and floor separation. Reproducible build/CI and real runtime evidence required. Device/multiplayer gaps must remain explicit.
 - Evidence: 54 Luau compile; 186 standalone cases, all source/build checks and matching builds pass. Real single-client cannon/ocean suite **27/27 PASS**, including native E/F, target hit, cooldown/focus/malformed protection, native Swimming/motion, fall cancellation, all four shore exits, return, respawn and native mixed-voxel preservation. No captured errors; fixtures cleaned. Device/multiplayer and broader release gates remain pending; keep on develop. Git/CI checkpoint in PROJECT_STATE.md.
 
+## M03-R5 — Graphics and texture realism
+- User-authorized 2026-11-04: highest achievable graphics/texture quality, with sequential iterative execution. Full plan: `graphic_improvement_plan.md` (G01–G09).
+- Status: IN_PROGRESS (baseline/tool audit). Source gameplay checkpoint e06982b is preserved.
+- Acceptance: improved actual Studio views at identical cameras, material scale/maps/assets source-controlled, clear sunlight and readable game cues, richer scenery silhouettes, unchanged collisions/gameplay, bounded detail and measured available performance; actual device gaps remain explicit.
+- Required checks: plan's step-by-step render/source/material/build/regression gates, provenance, CI and Git/state updates. No public release or paid spend.
+
 ## M05 — Initial release content, optional purchases and polish
 - Objective/scope: finish bounded release content only after slice feedback; optional cosmetics; performance/security/accessibility review.
 - Dependencies: validated M03; M04 for persistent unlocks.

@@ -1,12 +1,12 @@
 # Project state
 
-Updated 2026-11-04 (Europe/Warsaw). Cannon/ocean implementation and single-client runtime checks are verified. The user has now authorized a graphics overhaul and requested `graphic_improvement_plan.md`; that is the next active task after this checkpoint.
+Updated 2026-11-04 (Europe/Warsaw). Cannon/ocean implementation and single-client runtime checks are verified. The user has now authorized a graphics overhaul and requested `graphic_improvement_plan.md`; that is now the active task, tracked in `graphic_improvement_plan.md` (G01 IN_PROGRESS).
 
 ## Repository and delivery
 
 - Repository `mfx-aristocrat/rollboxgame`, PUBLIC visibility reverified and preserved. Active branch develop. Main/origin/main remain `260d22c90e57a43bf318b24a4b3353397823238a` (user-merged PR #1).
 - Previous develop checkpoint `8feabd4cfd85947abae24d697181ecc6aaa6d29b`; mushroom code `b82ab2114a07a7494e1a7a30c2e87f3fd6ffd1a2`, Windows/Ubuntu CI41726985838 passed. Earlier floor/expansion/persistence evidence remains in feature docs and Git history.
-- Current cannon/ocean changes are validated locally and ready for the develop code checkpoint. Exact new commit/remote/CI evidence will follow after push. [Draft PR #2](https://github.com/mfx-aristocrat/rollboxgame/pull/2) remains OPEN/DRAFT develop→main. No merge while required device/multiplayer/broader release gates remain pending.
+- Cannon/ocean code **e06982b478b425c1db33266291398ae9d1c5e87c** committed/pushed to develop; both remote heads verified. Windows/Ubuntu CI **41817684416** (push) and41817678860 (PR) both SUCCESS for that exact head. [Draft PR #2](https://github.com/mfx-aristocrat/rollboxgame/pull/2) remains OPEN/DRAFT develop→main. No merge while required device/multiplayer/broader release gates remain pending.
 - Roadmap M03-R4 **AWAITING_VALIDATION**, as are earlier M03/M03-R1/R2/R3 and M04 gates. M05/M06 release work remains gated. A passing build is not a runtime/device/release pass.
 - Full project brief: `Roblox_Game_Creation_Instructions.md`; roadmap: `game_creation_steps.md`; current feature contract: `docs/cannon_ocean_expansion.md`. AGENTS already references the full brief and requires no correction.
 
@@ -38,7 +38,7 @@ Updated 2026-11-04 (Europe/Warsaw). Cannon/ocean implementation and single-clien
 
 ## Exact next actions
 
-1. Commit/push this verified cannon/ocean checkpoint on develop; inspect exact CI for both Windows/Ubuntu, verify both remote SHAs; update draft PR #2 and state. Keep stable main unchanged while gates are pending.
+1. Verified cannon/ocean code e06982b is pushed and CI green; update draft PR #2/state with the graphics scope as it progresses. Keep stable main unchanged while mandatory gates remain pending.
 2. Execute new user graphics task: create `graphic_improvement_plan.md` with observable sequential milestones and iteration criteria, inspect actual tools/materials/current renders, preserve gameplay, then implement and compare real Studio views. Record provenance and source export for generated materials; no invented asset IDs or unsupported quality claims.
 3. Complete O05/O06/O07: actual controller/touch shooting/aim/swim/return, multiplayer independent unlock/fade/no-PvP, named-device rendering/startup/frame/memory. Earlier jump/device/six-region traversal, full multiplayer, five unfamiliar testers (two touch), private persistence P01–P05, eight-player/performance/release gates remain pending.
 4. Final handoff must record running/idle Studio state and zero owned test fixtures, current source/build/commits and exact next actions. At this checkpoint regression tests finished and cleaned; inspect current Studio before further mutations.
